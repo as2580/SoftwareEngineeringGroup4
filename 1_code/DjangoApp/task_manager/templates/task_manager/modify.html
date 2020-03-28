@@ -2,10 +2,11 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'task_manager/style.css' %}">
 
-{% if tasks %}
+{% if old and new %}
 	<table>
 	<table border="1" width="800">
     <tr>
+		<th></th>
         <th>Task Name</th>
 		<th>Description</th>
 		<th>Task ID</th>
@@ -13,20 +14,22 @@
 		<th>Employee ID</th>
 		<th>Time of Task Creation</th>
 		<th>Time of Task Completion</th>
-		<th>Edit</th>
     </tr>
-    {% for line in tasks %}
+    {% for line in old %}
     <tr> 
+		<th>Old</th>
 		{% for item in line %}
-        <td>{{ item|default_if_none:"<b>None</b>" }}</td>
+        <td>{{ item|default_if_none:"<b>None</b>"  }}</td>
 		{% endfor %}
-		<td>
-			<form action="edit" method="get">
-			<input type="hidden" name="id" value={{ line.2 }} />
-			<input type="submit" value="Edit"/>
-			</form>
-		</td>
-    </tr>
+	</tr>
+    {% endfor %}
+	{% for line in new %}
+    <tr> 
+		<th>New</th>
+		{% for item in line %}
+        <td>{{ item|default_if_none:"<b>None</b>"  }}</td>
+		{% endfor %}
+	</tr>
     {% endfor %}
 	</table>
 {% else %}

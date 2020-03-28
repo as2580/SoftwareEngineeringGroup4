@@ -16,6 +16,18 @@ def get_all_tasks():
     return tasks
 
 
+# input parameter(s): taskID
+# return value:
+#   task
+#       -a tuple containing all information for a given tasks
+def get_task(taskID):
+    q = "SELECT * FROM SE_DB.tasks WHERE taskID = " + taskID + ";"
+    c = db_util.db_open()
+    task = db_util.db_query(c, q)
+    db_util.db_close(c)
+    return task
+	
+
 # input parameter(s):
 #   employee_id
 #       -an int
@@ -132,6 +144,18 @@ def update_task_state(title, creation_time, new_state, employee):
     db_util.db_execute(c, q)
     db_util.db_close(c)
 
+
+def modify_task(taskID, taskName=None, description=None, state=None, employeeID=None, timeCreated=None, timeCompleted=None):
+	q = "UPDATE SE_DB.employees SET taskName = \"" + taskName + "\""
+	q = q + ", description = \"" + description + "\""
+	q = q + ", state = \"" + state + "\""
+	q = q + ", employeeID = \"" + employeeID + "\""
+	q = q + ", timeCreated = \"" + timeCreated + "\""
+	q = q + ", timeCompleted = \"" + timeCompleted + "\""
+	q = q + " WHERE taskID = " + taskID + ";"
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)
 
 # db_util.print_output(get_employee(1))
 
