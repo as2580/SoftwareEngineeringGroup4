@@ -1,0 +1,27 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'task_manager/style.css' %}">
+
+{% if latest_question_list %}
+	<table>
+	<table border="1" width="600">
+    <tr>
+        <th>Task Name</th>
+		<th>Description</th>
+		<th>Task ID</th>
+		<th>State</th>
+		<th>Employee ID</th>
+		<th>Time of Task Creation</th>
+		<th>Time of Task Completion</th>
+    </tr>
+    {% for question in latest_question_list %}
+    <tr> 
+		{% for item in question %}
+        <td>{{ item }}</td>
+		{% endfor %}
+    </tr>
+    {% endfor %}
+	</table>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
