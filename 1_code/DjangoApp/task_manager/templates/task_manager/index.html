@@ -14,14 +14,14 @@
 		<th>Time of Task Creation</th>
 		<th>Time of Task Completion</th>
     </tr>
-    {% for question in latest_question_list %}
+    {% for line in tasks %}
     <tr> 
-		{% for item in question %}
+		{% for item in line %}
         <td>{{ item }}</td>
 		{% endfor %}
     </tr>
     {% endfor %}
 	</table>
 {% else %}
-    <p>No polls are available.</p>
+    <p>No tasks are available.</p>
 {% endif %}
