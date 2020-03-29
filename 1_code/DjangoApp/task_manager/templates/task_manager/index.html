@@ -1,12 +1,13 @@
 {% load static %}
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'task_manager/style.css' %}">
 
 {% if alert%}
-<span style="font-size:30px; background-color: #FFFF00; font-weight:bold">
+<div class="alert alert-info" style="font-size:30px; color:#8a6d3b;background-color:#fcf8e3;border-color:#faebcc; font-weight:900">
 {{ alert }}
-</span>
-<br>
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+</div>
 <br>
 {% endif %}
 
