@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
+    path('task_board/', include('task_board.urls')),
     path('task_manager/', include('task_manager.urls')),
     path('admin/', admin.site.urls),
 ]
