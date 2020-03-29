@@ -64,6 +64,19 @@ class LinkedList(object):
         else:
             previous.set_next(current.get_next())
 
+    def print(self):
+        curr = self.head
+        while curr:
+            print(str(curr.name) + ": " + str(curr.price) + "\n")
+            curr = curr.get_next()
 
-# test code
+    def total(self):
+        curr = self.head
+        total_value = 0
+        while curr:
+            total_value = total_value + curr.price
+            curr = curr.get_next()
+        print("total: " + str(total_value))
+        taxed_total = total_value * 1.06625
+        print("with tax: " + str(round(taxed_total, 2)))
 
