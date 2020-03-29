@@ -106,6 +106,14 @@ def get_employee_tasks(employeeID):
     tasks = db_util.db_query(c, q)
     db_util.db_close(c)
     return tasks
+	
+
+def get_task(taskID):
+	q = "SELECT * FROM SE_DB.tasks WHERE taskID = " + taskID + ";"
+    c = db_util.db_open()
+    tasks = db_util.db_query(c, q)
+    db_util.db_close(c)
+    return tasks
 
 
 # input parameter(s):

@@ -36,7 +36,8 @@ def claim(request):
 	if request.method == 'POST':
 		ID = request.POST["employeeID"]
 		taskID = request.POST["id"]
-		tasks = tm_db.update_task_state(taskID, "In Progress", ID)
+		tm_db.update_task_state(taskID, "In Progress", ID)
+		tasks = get_task(taskID)
 		context = {'tasks': tasks}
 		return render(request, 'task_board/view_tasks.html', context)
 	else:
