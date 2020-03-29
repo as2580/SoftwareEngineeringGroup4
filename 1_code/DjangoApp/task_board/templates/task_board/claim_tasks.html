@@ -17,9 +17,11 @@
         <td>{{ item|default_if_none:"<b>None</b>" }}</td>
 		{% endfor %}
 		<td>
-			<form action="claim" method="get">
+			<form action="claim" method="post">
+			<label for="employeeID">Employee ID: </label>
+			<input id="employeeID" type="text" name="employeeID">
 			<input type="hidden" name="id" value={{ line.2 }} />
-			<input type="submit" value="Claim"/>
+			<input type="submit" value="Claim">
 			</form>
 		</td>
     </tr>

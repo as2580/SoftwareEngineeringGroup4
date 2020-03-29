@@ -1,0 +1,30 @@
+{% if task %}
+	<p>Claimed Task: </p>
+	<br>
+	<table>
+	<table border="1" width="800">
+    <tr>
+        <th>Task Name</th>
+		<th>Description</th>
+		<th>Task ID</th>
+		<th>State</th>
+		<th>Employee ID</th>
+		<th>Time of Task Creation</th>
+		<th>Time of Task Completion</th>
+    </tr>
+    <tr> 
+		{% for item in task %}
+        <td>{{ item|default_if_none:"<b>None</b>" }}</td>
+		{% endfor %}
+    </tr>
+	</table>
+{% else %}
+    <p>Error</p>
+{% endif %}
+
+<br>
+
+<form action="claim_tasks" method="get">
+<input type="hidden" name="id" value={{ line.2 }} />
+<input type="submit" value="Back"/>
+</form>

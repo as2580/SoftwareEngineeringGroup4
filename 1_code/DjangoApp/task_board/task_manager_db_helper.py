@@ -126,12 +126,9 @@ def add_task(title, description):
 
 
 # input parameter(s):
-#   title
-#       -a string
-#       -represents the title/name of the task
-#   creation_time
-#       -a datetime
-#       -represents the time that the task was created
+#   tid
+#       -an int
+#       -represents the task ID
 #   new_state
 #       -a string
 #       -contains the state to which the task's state should be changed
@@ -140,14 +137,14 @@ def add_task(title, description):
 #       -contains the employee's ID if the state is being changed to "In Progress"
 #       -otherwise, should be None
 # return value: None
-def update_task_state(title, creation_time, new_state, employee):
+def update_task_state(tid, new_state, employee):
     q = "UPDATE SE_DB.employees SET state = \"" + new_state + "\""
     if new_state == "Complete":
         current_time = str(datetime.datetime.now())
         q = q + ", timeCompleted = " + current_time
     elif new_state == "In Progress":
         q = q + ", employeeID = " + employee
-    q = q + " WHERE taskName = " + title + " AND timeCreated = " + creation_time + ";"
+    q = q + " WHERE taskID = " + tid + ";"
     c = db_util.db_open()
     db_util.db_execute(c, q)
     db_util.db_close(c)

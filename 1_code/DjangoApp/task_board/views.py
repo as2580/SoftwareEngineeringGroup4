@@ -17,6 +17,7 @@ def claim_tasks(request):
     context = {'tasks': tasks}
     return render(request, 'task_board/claim_tasks.html', context)
 
+
 @csrf_exempt
 def view_tasks(request):
 	if request.method == 'POST':
@@ -25,5 +26,24 @@ def view_tasks(request):
 		context = {'tasks': tasks}
 		return render(request, 'task_board/view_tasks.html', context)
 	else:
-		form = EmployeeIDForm()
-	return render(request, 'index.html', {'form': form})
+		tasks = tm_db.get_all_tasks()
+		context = {'tasks': tasks}
+		return render(request, 'task_board/index.html', context)
+
+
+@csrf_exempt
+def claim(request):
+	if request.method == 'POST':
+		ID = request.POST["employeeID"]
+		taskID = request.POST["id"]
+		tasks = tm_db.update_task_state(taskID, "In Progress", ID)
+		context = {'tasks': tasks}
+		return render(request, 'task_board/view_tasks.html', context)
+	else:
+		tasks = tm_db.get_all_tasks()
+		context = {'tasks': tasks}
+		return render(request, 'task_board/index.html', context)
+
+
+def complete(request):
+	pass
