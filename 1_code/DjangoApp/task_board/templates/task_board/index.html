@@ -1,6 +1,6 @@
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'task_manager/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'task_board/style.css' %}">
 
 {% if tasks %}
 	<table>
@@ -13,7 +13,7 @@
 		<th>Employee ID</th>
 		<th>Time of Task Creation</th>
 		<th>Time of Task Completion</th>
-		<th>Edit</th>
+		<th>Updates</th>
     </tr>
     {% for line in tasks %}
     <tr> 
