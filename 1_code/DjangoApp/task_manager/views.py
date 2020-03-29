@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.views import generic
 from django.views.decorators.csrf import csrf_exempt
 
-import task_manager.task_manager_db_helper as tm_db
+import util.db_helper as tm_db
 
 
 def index(request):
