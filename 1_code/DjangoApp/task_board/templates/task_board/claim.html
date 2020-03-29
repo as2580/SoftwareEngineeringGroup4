@@ -1,4 +1,4 @@
-{% if task %}
+{% if tasks %}
 	<p>Claimed Task: </p>
 	<br>
 	<table>
@@ -13,7 +13,7 @@
 		<th>Time of Task Completion</th>
     </tr>
     <tr> 
-		{% for item in task %}
+		{% for item in tasks %}
         <td>{{ item|default_if_none:"<b>None</b>" }}</td>
 		{% endfor %}
     </tr>

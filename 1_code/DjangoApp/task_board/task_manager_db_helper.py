@@ -146,7 +146,7 @@ def add_task(title, description):
 #       -otherwise, should be None
 # return value: None
 def update_task_state(tid, new_state, employee):
-    q = "UPDATE SE_DB.employees SET state = \"" + new_state + "\""
+    q = "UPDATE SE_DB.tasks SET state = \"" + new_state + "\""
     if new_state == "Complete":
         current_time = str(datetime.datetime.now())
         q = q + ", timeCompleted = " + current_time
