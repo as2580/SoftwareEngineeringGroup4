@@ -2,33 +2,12 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'task_board/style.css' %}">
 
-{% if tasks %}
-	<table>
-	<table border="1" width="800">
-    <tr>
-        <th>Task Name</th>
-		<th>Description</th>
-		<th>Task ID</th>
-		<th>State</th>
-		<th>Employee ID</th>
-		<th>Time of Task Creation</th>
-		<th>Time of Task Completion</th>
-		<th>Updates</th>
-    </tr>
-    {% for line in tasks %}
-    <tr> 
-		{% for item in line %}
-        <td>{{ item|default_if_none:"<b>None</b>" }}</td>
-		{% endfor %}
-		<td>
-			<form action="claim" method="get">
-			<input type="hidden" name="id" value={{ line.2 }} />
-			<input type="submit" value="Claim"/>
-			</form>
-		</td>
-    </tr>
-    {% endfor %}
-	</table>
-{% else %}
-    <p>No tasks are available.</p>
-{% endif %}
+<form action="claim_tasks" method="get">
+<input type="hidden" name="id" value={{ line.2 }} />
+<input type="submit" value="Claim Task"/>
+
+<br>
+
+<form action="view_tasks" method="get">
+<input type="hidden" name="id" value={{ line.2 }} />
+<input type="submit" value="View Your Tasks"/>

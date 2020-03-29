@@ -98,6 +98,14 @@ def get_incomplete_tasks():
     tasks = db_util.db_query(c, q)
     db_util.db_close(c)
     return tasks
+    
+    
+def get_employee_tasks(employeeID):
+    q = "SELECT * FROM SE_DB.tasks WHERE state = \"In Progress\" AND  employeeID = " + employeeID + ";"
+    c = db_util.db_open()
+    tasks = db_util.db_query(c, q)
+    db_util.db_close(c)
+    return tasks
 
 
 # input parameter(s):

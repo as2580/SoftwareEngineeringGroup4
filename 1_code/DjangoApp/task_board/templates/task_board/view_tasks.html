@@ -1,0 +1,30 @@
+{% if tasks %}
+	<table>
+	<table border="1" width="800">
+    <tr>
+        <th>Task Name</th>
+		<th>Description</th>
+		<th>Task ID</th>
+		<th>State</th>
+		<th>Employee ID</th>
+		<th>Time of Task Creation</th>
+		<th>Time of Task Completion</th>
+		<th>Updates</th>
+    </tr>
+    {% for line in tasks %}
+    <tr> 
+		{% for item in line %}
+        <td>{{ item|default_if_none:"<b>None</b>" }}</td>
+		{% endfor %}
+		<td>
+			<form action="complete" method="get">
+			<input type="hidden" name="id" value={{ line.2 }} />
+			<input type="submit" value="Complete"/>
+			</form>
+		</td>
+    </tr>
+    {% endfor %}
+	</table>
+{% else %}
+    <p>No tasks are available.</p>
+{% endif %}
