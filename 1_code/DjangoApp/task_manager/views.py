@@ -20,4 +20,4 @@ def modify(request):
 	tm_db.modify_task(request.POST['taskID'], request.POST['taskName'], request.POST['description'], request.POST['state'], request.POST['employeeID'], request.POST['timeCreated'], request.POST['timeCompleted'])
 	new = tm_db.get_task(request.POST['taskID'])
 	context = {'old': old,'new': new}
-	return render(request, 'task_manager/edit.html', context)
+	return render(request, 'task_manager/modify.html', context)
