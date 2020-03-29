@@ -12,11 +12,13 @@
 		<th>Time of Task Creation</th>
 		<th>Time of Task Completion</th>
     </tr>
+	{% for line in tasks %}
     <tr> 
-		{% for item in tasks %}
+		{% for item in line %}
         <td>{{ item|default_if_none:"<b>None</b>" }}</td>
 		{% endfor %}
     </tr>
+	{% endfor %}
 	</table>
 {% else %}
     <p>Error</p>
@@ -25,6 +27,5 @@
 <br>
 
 <form action="claim_tasks" method="get">
-<input type="hidden" name="id" value={{ line.2 }} />
 <input type="submit" value="Back"/>
 </form>

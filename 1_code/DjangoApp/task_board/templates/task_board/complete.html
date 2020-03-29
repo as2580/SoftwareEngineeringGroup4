@@ -1,4 +1,6 @@
 {% if tasks %}
+	<p>Completed Task: </p>
+	<br>
 	<table>
 	<table border="1" width="800">
     <tr>
@@ -9,29 +11,21 @@
 		<th>Employee ID</th>
 		<th>Time of Task Creation</th>
 		<th>Time of Task Completion</th>
-		<th>Updates</th>
     </tr>
-    {% for line in tasks %}
+	{% for line in tasks %}
     <tr> 
 		{% for item in line %}
         <td>{{ item|default_if_none:"<b>None</b>" }}</td>
 		{% endfor %}
-		<td>
-			<form action="complete" method="get">
-			<input type="hidden" name="id" value={{ line.2 }} />
-			<input type="hidden" name="employeeID" value={{ line.4 }} />
-			<input type="submit" value="Complete"/>
-			</form>
-		</td>
     </tr>
-    {% endfor %}
+	{% endfor %}
 	</table>
 {% else %}
-    <p>No tasks are available.</p>
+    <p>Error</p>
 {% endif %}
 
 <br>
 
-<form action="/task_board" method="get">
+<form action="view_tasks" method="get">
 <input type="submit" value="Back"/>
 </form>

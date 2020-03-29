@@ -7,8 +7,7 @@ from .forms import EmployeeIDForm
 import task_board.task_manager_db_helper as tm_db
 
 def index(request):
-    tasks = tm_db.get_all_tasks()
-    context = {'tasks': tasks}
+    context = {}
     return render(request, 'task_board/index.html', context)
 
 
@@ -41,10 +40,18 @@ def claim(request):
 		context = {'tasks': tasks}
 		return render(request, 'task_board/claim.html', context)
 	else:
-		tasks = tm_db.get_all_tasks()
-		context = {'tasks': tasks}
+		context = {}
 		return render(request, 'task_board/index.html', context)
 
 
 def complete(request):
-	pass
+	if request.method == 'GET':
+		ID = request.GET["employeeID"]
+		taskID = request.GET["id"]
+		tm_db.update_task_state(taskID, "Complete", ID)
+		tasks = tm_db.get_task(taskID)
+		context = {'tasks': tasks}
+		return render(request, 'task_board/complete.html', context)
+	else:
+		context = {}
+		return render(request, 'task_board/index.html', context)
