@@ -1,4 +1,4 @@
-import task_manager.db_util as db_util
+import check_out.db_util as db_util
 import datetime
 
 
@@ -98,6 +98,21 @@ def get_incomplete_tasks():
     tasks = db_util.db_query(c, q)
     db_util.db_close(c)
     return tasks
+	
+def get_employee_tasks(employeeID):
+	q = "SELECT * FROM SE_DB.tasks WHERE state = \"In Progress\" AND  employeeID = " + employeeID + ";"
+	c = db_util.db_open()
+	tasks = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return tasks
+	
+
+def get_task(taskID):
+	q = "SELECT * FROM SE_DB.tasks WHERE taskID = " + taskID + ";"
+	c = db_util.db_open()
+	tasks = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return tasks
 
 
 # input parameter(s):

@@ -146,16 +146,16 @@ def add_task(title, description):
 #       -otherwise, should be None
 # return value: None
 def update_task_state(taskID, new_state, employee):
-    q = "UPDATE SE_DB.tasks SET state = \"" + new_state + "\""
-    if new_state == "Complete":
-        current_time = str(datetime.datetime.now())
-        q = q + ", timeCompleted = \'" + current_time + "\'"
-    elif new_state == "In Progress":
-        q = q + ", employeeID = " + employee
-    q = q + " WHERE taskID = " + taskID + ";"
-    c = db_util.db_open()
-    db_util.db_execute(c, q)
-    db_util.db_close(c)
+	q = "UPDATE SE_DB.tasks SET state = \"" + new_state + "\""
+	if new_state == "Complete":
+		current_time = str(datetime.datetime.now())
+		q = q + ", timeCompleted = \'" + current_time + "\'"
+	elif new_state == "In Progress":
+		q = q + ", employeeID = " + employee
+	q = q + " WHERE taskID = " + taskID + ";"
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)
 
 
 def modify_task(taskID, taskName=None, description=None, state=None, employeeID=None, timeCreated=None, timeCompleted=None):

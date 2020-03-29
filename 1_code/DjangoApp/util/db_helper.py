@@ -98,6 +98,22 @@ def get_incomplete_tasks():
     tasks = db_util.db_query(c, q)
     db_util.db_close(c)
     return tasks
+	
+	
+def get_employee_tasks(employeeID):
+	q = "SELECT * FROM SE_DB.tasks WHERE state = \"In Progress\" AND  employeeID = " + employeeID + ";"
+	c = db_util.db_open()
+	tasks = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return tasks
+	
+
+def get_task(taskID):
+	q = "SELECT * FROM SE_DB.tasks WHERE taskID = " + taskID + ";"
+	c = db_util.db_open()
+	tasks = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return tasks
 
 
 # input parameter(s):
@@ -125,12 +141,9 @@ def remove_task(taskID):
 
 
 # input parameter(s):
-#   title
-#       -a string
-#       -represents the title/name of the task
-#   creation_time
-#       -a datetime
-#       -represents the time that the task was created
+#   tid
+#       -an int
+#       -represents the task ID
 #   new_state
 #       -a string
 #       -contains the state to which the task's state should be changed
@@ -139,14 +152,14 @@ def remove_task(taskID):
 #       -contains the employee's ID if the state is being changed to "In Progress"
 #       -otherwise, should be None
 # return value: None
-def update_task_state(title, creation_time, new_state, employee):
-    q = "UPDATE SE_DB.employees SET state = \"" + new_state + "\""
+def update_task_state(taskID, new_state, employee):
+    q = "UPDATE SE_DB.tasks SET state = \"" + new_state + "\""
     if new_state == "Complete":
         current_time = str(datetime.datetime.now())
-        q = q + ", timeCompleted = " + current_time
+        q = q + ", timeCompleted = \'" + current_time + "\'"
     elif new_state == "In Progress":
         q = q + ", employeeID = " + employee
-    q = q + " WHERE taskName = " + title + " AND timeCreated = " + creation_time + ";"
+    q = q + " WHERE taskID = " + taskID + ";"
     c = db_util.db_open()
     db_util.db_execute(c, q)
     db_util.db_close(c)

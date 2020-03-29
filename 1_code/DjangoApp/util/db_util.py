@@ -1,4 +1,4 @@
-import task_manager.lib.mysql.connector
+import util.lib.mysql.connector
 
 
 h = "anna-336.cqxst1sb3a0a.us-east-2.rds.amazonaws.com"
@@ -8,7 +8,7 @@ pw = "SoftwareEngineeringProject"
 
 
 def db_open():
-	connection = task_manager.lib.mysql.connector.connect(
+	connection = util.lib.mysql.connector.connect(
 		host=h,
 		port=p,
 		user=un,
