@@ -5,9 +5,12 @@
 <form action="claim_tasks" method="get">
 <input type="hidden" name="id" value={{ line.2 }} />
 <input type="submit" value="Claim Task"/>
+</form>
 
 <br>
 
-<form action="view_tasks" method="get">
-<input type="hidden" name="id" value={{ line.2 }} />
-<input type="submit" value="View Your Tasks"/>
+<form action="view_tasks" method="post">
+<label for="employeeID">Employee ID: </label>
+<input id="employeeID" type="text" name="employeeID">
+<input type="submit" value="View Your Tasks">
+</form>
