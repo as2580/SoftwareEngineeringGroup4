@@ -2,6 +2,18 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'task_manager/style.css' %}">
 
+{% if alert%}
+<span style="font-size:30px; background-color: #FFFF00; font-weight:bold">
+{{ alert }}
+</span>
+<br>
+<br>
+{% endif %}
+
+<form action="create">
+<input style="width: 20em;  height: 4em;" type="submit" value="Create Task">
+</form>
+
 {% if tasks %}
 	<table>
 	<table border="1" width="800">

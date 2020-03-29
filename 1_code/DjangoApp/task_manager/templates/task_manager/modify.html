@@ -3,6 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'task_manager/style.css' %}">
 
 {% if old and new %}
+Modified Task:
 	<table>
 	<table border="1" width="800">
     <tr>
@@ -33,5 +34,9 @@
     {% endfor %}
 	</table>
 {% else %}
-    <p>No tasks are available.</p>
+    <p>Error in Modifying Task</p>
 {% endif %}
+<br>
+<form action="/task_manager">
+<input style="width: 20em;  height: 4em;" type="submit" value="Back to Task List">
+</form>

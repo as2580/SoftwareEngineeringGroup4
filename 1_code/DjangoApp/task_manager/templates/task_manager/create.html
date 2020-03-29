@@ -1,0 +1,22 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'task_manager/style.css' %}">
+
+<br>
+
+<form action="created" method="post">
+<label for="taskName">Task Name:</label>
+<br>
+<td><textarea rows = "4" cols = "40" id="taskName" name="taskName" placeholder="Task Name"></textarea></td>
+<br>
+<label for="description">Description:</label>
+<br>
+<td><textarea rows = "4" cols = "40" id="description" name="description" placeholder="Description"></textarea></td>
+<br>
+<br>
+<input style="width: 20em;  height: 4em;" type="submit" value="Create Task">
+</form>
+
+<form action="/task_manager">
+<input style="width: 20em;  height: 4em;" type="submit" value="Back to Task List">
+</form>

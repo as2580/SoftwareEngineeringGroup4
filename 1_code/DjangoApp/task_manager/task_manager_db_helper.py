@@ -9,7 +9,7 @@ import datetime
 #       -contains all tasks
 #       -nested list is a tuple containing all information for a given tasks
 def get_all_tasks():
-    q = "SELECT * FROM SE_DB.tasks;"
+    q = "SELECT * FROM SE_DB.tasks ORDER BY taskID desc;"
     c = db_util.db_open()
     tasks = db_util.db_query(c, q)
     db_util.db_close(c)
@@ -110,11 +110,18 @@ def get_incomplete_tasks():
 # return value: None
 def add_task(title, description):
     current_time = str(datetime.datetime.now())
-    q = "INSERT INTO SE_DB.tasks(taskName, description, state, timeCreated) VALUES(\'" + title
-    q = q + "/', /'" + description + "/'," + "/'Incomplete/'," + current_time + ");"
+    q = "INSERT INTO SE_DB.tasks(taskName, description, state, timeCreated) VALUES('" + title
+    q = q + "', '" + description + "'," + "'Incomplete','" + current_time + "');"
     c = db_util.db_open()
     db_util.db_execute(c, q)
     db_util.db_close(c)
+	
+
+def remove_task(taskID):
+	q = "delete from SE_DB.tasks where taskID = " + taskID + ";"
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)
 
 
 # input parameter(s):
@@ -146,7 +153,7 @@ def update_task_state(title, creation_time, new_state, employee):
 
 
 def modify_task(taskID, taskName=None, description=None, state=None, employeeID=None, timeCreated=None, timeCompleted=None):
-	q = "UPDATE SE_DB.employees SET taskName = \"" + taskName + "\""
+	q = "UPDATE SE_DB.tasks SET taskName = \"" + taskName + "\""
 	q = q + ", description = \"" + description + "\""
 	q = q + ", state = \"" + state + "\""
 	q = q + ", employeeID = \"" + employeeID + "\""

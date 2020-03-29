@@ -2,6 +2,7 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'task_manager/style.css' %}">
 
+<br>
 {% if task %}
 	<table>
 	<table border="1" width="800">
@@ -23,26 +24,38 @@
 		{% endfor %}
 	</tr>
 	<tr>
-		<form action="/modify.html" method="post">
+		<form action="modify" method="post">
 		<th>Edit</th>
 		<td><input type="text" id="taskName" name="taskName" placeholder="Task Name"></td>
 		<td><input type="text" id="description" name="description" placeholder="description"></td>
 		<td>{{ line.2 }}</td>
 		<td>
 			<select id="state" name="state">
-			<option value="" selected disabled hidden>State</option>
-			<option value="Complete">Complete</option>
 			<option value="Incomplete">Incomplete</option>
+			<option value="In Progress">In Progress</option>
+			<option value="Complete">Complete</option>
 			</select>
 		</td>
-		<td><input type="text" id="employeeID" name="employeeID" value={{ line.4 }} size="6"></td>
+		<td><input type="text" id="employeeID" name="employeeID" value={{ line.4 }} size="7"></td>
 		<td><input type="text" id="timeCreated" name="timeCreated" placeholder="YYYY-MM-DD hh:mm:ss" size="21"></td>
 		<td><input type="text" id="timeCompleted" name="timeCompleted" placeholder="YYYY-MM-DD hh:mm:ss" size="21"></td>
+		<input hidden id="taskID" name="taskID" value={{ line.2 }}>
     </tr>
     {% endfor %}
+	
+	</table>
+	<br>
 	<input style="width: 20em;  height: 4em;" type="submit" value="Update Task">
 	</form>
-	</table>
+	<br>
+	<br>
+	<form action="delete" method="POST">
+	<input hidden id="taskID" name="taskID" value={{ task.0.2 }}>
+	<input style="width: 20em;  height: 4em;" type="submit" value="Delete Task" onclick="return confirm('Are you sure you want to delete this task?')">
+	</form>
 {% else %}
-    <p>No tasks are available.</p>
+    <p>Error Loading Task to Edit</p>
 {% endif %}
+<form action="/task_manager">
+<input style="width: 20em;  height: 4em;" type="submit" value="Back to Task List">
+</form>
