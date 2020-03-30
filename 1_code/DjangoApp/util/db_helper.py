@@ -182,7 +182,8 @@ def modify_task(taskID, taskName=None, description=None, state=None, employeeID=
 def get_item_info(RFID):
 	q = "select name, price from SE_DB.items where RFID = "+RFID+";"
 	c = db_util.db_open()
-	info = db_util.db_execute(c, q)
+	print(q)
+	info = db_util.db_query(c, q)
 	db_util.db_close(c)
 	return info
 
