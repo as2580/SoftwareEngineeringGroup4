@@ -21,7 +21,7 @@ def db_close(connection):
 
 
 def db_query(connection, query):
-	cursor = connection.cursor()
+	cursor = connection.cursor(buffered=True,dictionary=True)
 	cursor.execute(query)
 	output = cursor.fetchall()
 	cursor.close()
@@ -29,7 +29,7 @@ def db_query(connection, query):
 
 
 def db_execute(connection, query):
-	cursor = connection.cursor()
+	cursor = connection.cursor(buffered=True,dictionary=True)
 	cursor.execute(query)
 	connection.commit()
 	cursor.close()
