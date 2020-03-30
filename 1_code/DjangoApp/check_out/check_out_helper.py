@@ -1,3 +1,7 @@
+import util.db_helper
+
+
+
 class Node(object):
 
     def __init__(self, name=None, price=None, next_node=None):
@@ -70,13 +74,19 @@ class LinkedList(object):
             print(str(curr.name) + ": " + str(curr.price) + "\n")
             curr = curr.get_next()
 
+    def to_lists(self):
+        curr = self.head
+        info_list = [self.name, self.price]
+        while curr:
+            info_list.append([self.name, self.price])
+            curr = curr.get_next()
+        return info_list
+
     def total(self):
         curr = self.head
         total_value = 0
         while curr:
             total_value = total_value + curr.price
             curr = curr.get_next()
-        print("total: " + str(total_value))
         taxed_total = total_value * 1.06625
-        print("with tax: " + str(round(taxed_total, 2)))
-
+        return total_value, round(taxed_total, 2)

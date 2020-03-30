@@ -1,0 +1,35 @@
+{% load static %}
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="{% static 'check_out/style.css' %}">
+<head>
+<title>{% block title %}Check Out{% endblock %}</title>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+</style>
+</head>
+
+<p>
+<table style = width:50%>
+  <tr>
+    <th>Item</th>
+    <th>Price</th>
+  </tr>
+  {% for info in info_list %}
+  <tr>
+    <td>{{info.0}}</td>
+    <td>{{info.1}}</td>
+  </tr>
+    {% endfor %}
+</table>
+<b>Total: </b>{{totals.0}}
+<p></p><b>With Tax: </b>{{totals.1}}</p>
+
+</body>
+
+</html>

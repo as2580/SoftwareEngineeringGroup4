@@ -21,4 +21,5 @@ urlpatterns = [
     path('task_board/', include('task_board.urls')),
     path('task_manager/', include('task_manager.urls')),
     path('admin/', admin.site.urls),
+    path('check_out/', include('check_out.urls')),
 ]
