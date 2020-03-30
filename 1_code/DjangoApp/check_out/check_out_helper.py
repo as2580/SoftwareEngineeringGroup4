@@ -87,4 +87,4 @@ class LinkedList(object):
             total_value = total_value + float(curr.price)
             curr = curr.get_next()
         taxed_total = total_value * 1.06625
-        return total_value, round(taxed_total, 2)
+        return round(total_value, 2), round(taxed_total, 2)

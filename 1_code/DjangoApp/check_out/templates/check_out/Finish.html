@@ -1,0 +1,19 @@
+{% load static %}
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="{% static 'check_out/style.css' %}">
+<head>
+<title>{% block title %}Check Out{% endblock %}</title>
+</head>
+
+<body>
+<p>
+    Your total is: ${{totals.1}}</p>
+<p>Please Select a Payment method
+<form action='Cash' method='GET'>
+<button type='submit'> Cash</button>
+</form>
+<form action='Card' method='GET'>
+<button type='submit'> Card</button>
+</form>
+</p>
+</body>
