@@ -1,9 +1,7 @@
 import util.db_helper
 
 
-
 class Node(object):
-
     def __init__(self, name=None, price=None, next_node=None):
         self.name = name
         self.price = price
@@ -76,9 +74,9 @@ class LinkedList(object):
 
     def to_lists(self):
         curr = self.head
-        info_list = [self.name, self.price]
+        info_list = []
         while curr:
-            info_list.append([self.name, self.price])
+            info_list.append([curr.name, curr.price])
             curr = curr.get_next()
         return info_list
 
@@ -86,7 +84,7 @@ class LinkedList(object):
         curr = self.head
         total_value = 0
         while curr:
-            total_value = total_value + curr.price
+            total_value = total_value + float(curr.price)
             curr = curr.get_next()
         taxed_total = total_value * 1.06625
         return total_value, round(taxed_total, 2)

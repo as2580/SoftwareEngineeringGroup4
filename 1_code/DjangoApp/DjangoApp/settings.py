@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['192.168.1.187','127.0.0.1','localhost']
 INSTALLED_APPS = [
     'task_board.apps.TaskBoardConfig',
     'task_manager.apps.TaskManagerConfig',
+    'check_out.apps.CheckOutConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
