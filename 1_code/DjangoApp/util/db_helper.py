@@ -1,21 +1,9 @@
 import util.db_util as db_util
 import datetime
 
-
-# input parameter(s): None
-# return value:
-#	tasks
-#		-a list of lists
-#		-contains all tasks
-#		-nested list is a tuple containing all information for a given tasks
-def get_all_tasks():
-    q = "SELECT * FROM SE_DB.tasks ORDER BY taskID desc;"
-    c = db_util.db_open()
-    tasks = db_util.db_query(c, q)
-    db_util.db_close(c)
-    return tasks
-
-
+###########################
+# TASKS RELATED FUNCTIONS #
+###########################
 # input parameter(s): 
 #	taskID
 #		-an int
@@ -31,22 +19,100 @@ def get_task(taskID):
     task = db_util.db_query(c, q)
     db_util.db_close(c)
     return task
+
+# input parameter(s):
+#	taskName
+#		-a string
+#		-represents the title/name of the task
+#	description
+#		-a string
+#		-represents the description of the tasks
+# return value: None
+def add_task(taskName, description):
+	if not isinstance(taskName, str):
+		taskName = str(taskName)
+	if not isinstance(description, str):
+		description = str(description)
+    current_time = str(datetime.datetime.now())
+    q = "INSERT INTO SE_DB.tasks(taskName, description, state, timeCreated) VALUES('" + taskName
+    q = q + "', '" + description + "'," + "'Incomplete','" + current_time + "');"
+    c = db_util.db_open()
+    db_util.db_execute(c, q)
+    db_util.db_close(c)
 	
 
 # input parameter(s):
-#	employee_id
+#   taskID
 #		-an int
-#		-represents the employee's ID
+#		-represents the task ID
+#   taskName
+#		-a string
+#		-contains the task name to which the task's task name should be changed
+#   description
+#		-a string
+#		-contains the description to which the task's description should be changed
+#   state
+#		-a string
+#		-contains the state to which the task's state should be changed
+#	employeeID
+#		-an int
+#		-contains the employee's ID to which the task's employeeID should be changed
+#	timeCreated
+#		-a datetime
+#		-contains the time to which the task's creation time should be changed
+#	timeCompleted
+#		-a datetime
+#		-contains the time to which the task's completion time should be changed
+# return value: None
+def modify_task(taskID, taskName=None, description=None, state=None, employeeID=None, timeCreated=None, timeCompleted=None):
+	if not isinstance(taskID, str):
+		taskID = str(taskID)
+	if not isinstance(taskName, str):
+		taskName = str(taskName)
+	if not isinstance(description, str):
+		description = str(description)
+	if not isinstance(state, str):
+		state = str(state)
+	if not isinstance(employeeID, str):
+		employeeID = str(employeeID)
+	q = "UPDATE SE_DB.tasks SET taskName = \"" + taskName + "\""
+	q = q + ", description = \"" + description + "\""
+	q = q + ", state = \"" + state + "\""
+	q = q + ", employeeID = \"" + employeeID + "\""
+	q = q + ", timeCreated = \"" + timeCreated + "\""
+	q = q + ", timeCompleted = \"" + timeCompleted + "\""
+	q = q + " WHERE taskID = " + taskID + ";"
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)	
+
+
+# input parameter(s): 
+#	taskID
+#		-an int
+#		-represents the task's ID
+# return value: None
+def remove_task(taskID):
+	if not isinstance(taskID, str):
+		taskID = str(taskID)
+	q = "DELETE FROM SE_DB.tasks WHERE taskID = " + taskID + ";"
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)
+
+
+# input parameter(s): None
 # return value:
-#	employee
-#		-a list
-#		-contains the employee's last name at employee[0] and the employee's first name at employee[1]
-def get_employee(employee_id):
-    q = "SELECT lastName, firstName FROM SE_DB.employees WHERE ID = " + str(employee_id) + ";"
+#	tasks
+#		-a list of lists
+#		-contains all tasks
+#		-nested list is a tuple containing all information for a given tasks
+def get_all_tasks():
+    q = "SELECT * FROM SE_DB.tasks ORDER BY taskID desc;"
     c = db_util.db_open()
-    employee = db_util.db_query(c, q)
+    tasks = db_util.db_query(c, q)
     db_util.db_close(c)
-    return employee
+    return tasks
 
 
 # input parameter(s): None
@@ -115,31 +181,49 @@ def get_incomplete_tasks():
 #		-contains only tasks that are In Progress that have been claimed by the employee with employeeID
 #		-nested list is a tuple containing all information for a given tasks
 def get_employee_tasks(employeeID):
-	q = "SELECT * FROM SE_DB.tasks WHERE state = \"In Progress\" AND  employeeID = " + str(employeeID) + ";"
+	if not isinstance(employeeID, str):
+		employeeID = str(employeeID)
+	q = "SELECT * FROM SE_DB.tasks WHERE state = \"In Progress\" AND  employeeID = " + employeeID + ";"
 	c = db_util.db_open()
 	tasks = db_util.db_query(c, q)
 	db_util.db_close(c)
 	return tasks
 	
-
-# input parameter(s): 
+	
+# input parameter(s):
 #	taskID
 #		-an int
-#		-represents the task's ID
-# return value:
-#	tasks
-#		-a list of lists
-#		-contains the task with matching taskID
-#		-nested list is a tuple containing all information for the task
-def get_task(taskID):
+#		-represents the task ID
+#	new_state
+#		-a string
+#		-contains the state to which the task's state should be changed
+#	employeeID
+#		-an int
+#		-contains the employee's ID if the state is being changed to "In Progress"
+#		-otherwise, should be None
+# return value: None
+def update_task_state(taskID, new_state, employeeID):
 	if not isinstance(taskID, str):
 		taskID = str(taskID)
-	q = "SELECT * FROM SE_DB.tasks WHERE taskID = " + taskID + ";"
+	if not isinstance(new_state, str):
+		new_state = str(new_state)
+	if not isinstance(employeeID, str):
+		employeeID = str(employeeID)
+	q = "UPDATE SE_DB.tasks SET state = \"" + new_state + "\""
+	if new_state == "Complete":
+		current_time = str(datetime.datetime.now())
+		q = q + ", timeCompleted = \'" + current_time + "\'"
+	elif new_state == "In Progress":
+	q = q + ", employeeID = " + employeeID
+	q = q + " WHERE taskID = " + taskID + ";"
 	c = db_util.db_open()
-	tasks = db_util.db_query(c, q)
+	db_util.db_execute(c, q)
 	db_util.db_close(c)
-	return tasks
 
+
+###########################
+# ITEMS RELATED FUNCTIONS #
+########################### 
 # input parameter(s): 
 #	RFID
 #		-an int
@@ -151,7 +235,7 @@ def get_task(taskID):
 #		-nested list is a tuple containing the name and price for the item
 def get_item_info(RFID):
 	if not isinstance(RFID, str):
-		taskID = str(RFID)
+		RFID = str(RFID)
 	q = "SELECT name, price FROM SE_DB.items WHERE RFID = " + RFID + ";"
 	c = db_util.db_open()
 	info = db_util.db_query(c, q)
@@ -159,87 +243,22 @@ def get_item_info(RFID):
 	return info
 
 
+###############################
+# EMPLOYEES RELATED FUNCTIONS #
+############################### 
 # input parameter(s):
-#	taskName
-#		-a string
-#		-represents the title/name of the task
-#	description
-#		-a string
-#		-represents the description of the tasks
-# return value: None
-def add_task(taskName, description):
-    current_time = str(datetime.datetime.now())
-    q = "INSERT INTO SE_DB.tasks(taskName, description, state, timeCreated) VALUES('" + taskName
-    q = q + "', '" + description + "'," + "'Incomplete','" + current_time + "');"
-    c = db_util.db_open()
-    db_util.db_execute(c, q)
-    db_util.db_close(c)
-	
-
-def remove_task(taskID):
-	q = "DELETE FROM SE_DB.tasks WHERE taskID = " + taskID + ";"
-	c = db_util.db_open()
-	db_util.db_execute(c, q)
-	db_util.db_close(c)
-
-
-# input parameter(s):
-#	taskID
-#		-an int
-#		-represents the task ID
-#	new_state
-#		-a string
-#		-contains the state to which the task's state should be changed
-#	employee
-#		-an int
-#		-contains the employee's ID if the state is being changed to "In Progress"
-#		-otherwise, should be None
-# return value: None
-def update_task_state(taskID, new_state, employee):
-    q = "UPDATE SE_DB.tasks SET state = \"" + new_state + "\""
-    if new_state == "Complete":
-        current_time = str(datetime.datetime.now())
-        q = q + ", timeCompleted = \'" + current_time + "\'"
-    elif new_state == "In Progress":
-        q = q + ", employeeID = " + employee
-    q = q + " WHERE taskID = " + taskID + ";"
-    c = db_util.db_open()
-    db_util.db_execute(c, q)
-    db_util.db_close(c)
-
-
-# input parameter(s):
-#   taskID
-#		-an int
-#		-represents the task ID
-#   taskName
-#		-a string
-#		-contains the task name to which the task's task name should be changed
-#   description
-#		-a string
-#		-contains the description to which the task's description should be changed
-#   state
-#		-a string
-#		-contains the state to which the task's state should be changed
 #	employeeID
 #		-an int
-#		-contains the employee's ID to which the task's employeeID should be changed
-#	timeCreated
-#		-a datetime
-#		-contains the time to which the task's creation time should be changed
-#	timeCompleted
-#		-a datetime
-#		-contains the time to which the task's completion time should be changed
-# return value: None
-def modify_task(taskID, taskName=None, description=None, state=None, employeeID=None, timeCreated=None, timeCompleted=None):
-	q = "UPDATE SE_DB.tasks SET taskName = \"" + taskName + "\""
-	q = q + ", description = \"" + description + "\""
-	q = q + ", state = \"" + state + "\""
-	q = q + ", employeeID = \"" + employeeID + "\""
-	q = q + ", timeCreated = \"" + timeCreated + "\""
-	q = q + ", timeCompleted = \"" + timeCompleted + "\""
-	q = q + " WHERE taskID = " + taskID + ";"
-	c = db_util.db_open()
-	db_util.db_execute(c, q)
-	db_util.db_close(c)
-
+#		-represents the employee's ID
+# return value:
+#	employee
+#		-a list
+#		-contains the employee's last name at employee[0] and the employee's first name at employee[1]
+def get_employee(employeeID):
+	if not isinstance(employeeID, str):
+		employeeID = str(employeeID)
+    q = "SELECT lastName, firstName FROM SE_DB.employees WHERE ID = " + employeeID + ";"
+    c = db_util.db_open()
+    employee = db_util.db_query(c, q)
+    db_util.db_close(c)
+    return employee
