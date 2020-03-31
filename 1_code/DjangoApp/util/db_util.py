@@ -25,7 +25,7 @@ def db_close(connection):
 # queries the database for an SQL query that returns results
 # returns such results as a list of lists where each nested lsit represents a tuple
 def db_query(connection, query):
-	cursor = connection.cursor(buffered=True,dictionary=True)
+	cursor = connection.cursor(buffered=True)
 	cursor.execute(query)
 	output = cursor.fetchall()
 	cursor.close()
@@ -34,7 +34,7 @@ def db_query(connection, query):
 
 # queries the database for an SQL query that does not return results
 def db_execute(connection, query):
-	cursor = connection.cursor(buffered=True,dictionary=True)
+	cursor = connection.cursor(buffered=True)
 	cursor.execute(query)
 	connection.commit()
 	cursor.close()

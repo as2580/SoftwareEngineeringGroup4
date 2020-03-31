@@ -14,11 +14,11 @@ import datetime
 def get_task(taskID):
 	if not isinstance(taskID, str):
 		taskID = str(taskID)
-    q = "SELECT * FROM SE_DB.tasks WHERE taskID = " + taskID + ";"
-    c = db_util.db_open()
-    task = db_util.db_query(c, q)
-    db_util.db_close(c)
-    return task
+	q = "SELECT * FROM SE_DB.tasks WHERE taskID = " + taskID + ";"
+	c = db_util.db_open()
+	task = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return task
 
 # input parameter(s):
 #	taskName
@@ -33,12 +33,12 @@ def add_task(taskName, description):
 		taskName = str(taskName)
 	if not isinstance(description, str):
 		description = str(description)
-    current_time = str(datetime.datetime.now())
-    q = "INSERT INTO SE_DB.tasks(taskName, description, state, timeCreated) VALUES('" + taskName
-    q = q + "', '" + description + "'," + "'Incomplete','" + current_time + "');"
-    c = db_util.db_open()
-    db_util.db_execute(c, q)
-    db_util.db_close(c)
+	current_time = str(datetime.datetime.now())
+	q = "INSERT INTO SE_DB.tasks(taskName, description, state, timeCreated) VALUES('" + taskName
+	q = q + "', '" + description + "'," + "'Incomplete','" + current_time + "');"
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)
 	
 
 # input parameter(s):
@@ -214,7 +214,7 @@ def update_task_state(taskID, new_state, employeeID):
 		current_time = str(datetime.datetime.now())
 		q = q + ", timeCompleted = \'" + current_time + "\'"
 	elif new_state == "In Progress":
-	q = q + ", employeeID = " + employeeID
+		q = q + ", employeeID = " + employeeID
 	q = q + " WHERE taskID = " + taskID + ";"
 	c = db_util.db_open()
 	db_util.db_execute(c, q)
@@ -257,8 +257,8 @@ def get_item_info(RFID):
 def get_employee(employeeID):
 	if not isinstance(employeeID, str):
 		employeeID = str(employeeID)
-    q = "SELECT lastName, firstName FROM SE_DB.employees WHERE ID = " + employeeID + ";"
-    c = db_util.db_open()
-    employee = db_util.db_query(c, q)
-    db_util.db_close(c)
-    return employee
+	q = "SELECT lastName, firstName FROM SE_DB.employees WHERE ID = " + employeeID + ";"
+	c = db_util.db_open()
+	employee = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return employee
