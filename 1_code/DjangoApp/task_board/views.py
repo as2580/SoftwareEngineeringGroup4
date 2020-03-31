@@ -21,7 +21,9 @@ def claim_tasks(request):
 def view_tasks(request):
 	if request.method == 'POST':
 		ID = request.POST["employeeID"]
-		tasks = tm_db.get_employee_tasks(ID)
+		tasks = []
+		if ID.isnumeric and ID:
+			tasks = tm_db.get_employee_tasks(ID)
 		context = {'tasks': tasks}
 		return render(request, 'task_board/view_tasks.html', context)
 	else:

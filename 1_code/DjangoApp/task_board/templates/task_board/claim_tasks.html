@@ -1,3 +1,20 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'task_board/style.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
+
+<title>Task Board: Claim Tasks</title>
+
+<body>
+<div class="logo">
+<a href="/task_board/">
+<img src="{% static "task_board/shopping-cart-red_bg.png" %}" width="100" height="100" alt="logo">
+</a>
+</div>
+
+<div><h1>
+Automated Supermarket
+</h1></div>
 {% if tasks %}
 	<table>
 	<table border="1" width="800">
@@ -19,9 +36,9 @@
 		<td>
 			<form action="claim" method="post">
 			<label for="employeeID">Employee ID: </label>
-			<input id="employeeID" type="text" name="employeeID">
+			<input id="employeeID" type="text" class="form" name="employeeID">
 			<input type="hidden" name="id" value={{ line.2 }} />
-			<input type="submit" value="Claim">
+			<input type="submit" class="button" value="Claim">
 			</form>
 		</td>
     </tr>
@@ -34,5 +51,6 @@
 <br>
 
 <form action="/task_board" method="get">
-<input type="submit" value="Back"/>
+<input type="submit" class="button big" value="Back"/>
 </form>
+</body>
