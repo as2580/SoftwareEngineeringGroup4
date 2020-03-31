@@ -7,6 +7,7 @@ un = "admin"
 pw = "SoftwareEngineeringProject"
 
 
+# creates a connection to the database that MUST BE CLOSED with db_close()
 def db_open():
 	connection = util.lib.mysql.connector.connect(
 		host=h,
@@ -16,10 +17,13 @@ def db_open():
 	return connection
 
 
+# closes the connection to the database
 def db_close(connection):
 	connection.close()
 
 
+# queries the database for an SQL query that returns results
+# returns such results as a list of lists where each nested lsit represents a tuple
 def db_query(connection, query):
 	cursor = connection.cursor(buffered=True,dictionary=True)
 	cursor.execute(query)
@@ -28,6 +32,7 @@ def db_query(connection, query):
 	return output
 
 
+# queries the database for an SQL query that does not return results
 def db_execute(connection, query):
 	cursor = connection.cursor(buffered=True,dictionary=True)
 	cursor.execute(query)
@@ -35,6 +40,7 @@ def db_execute(connection, query):
 	cursor.close()
 
 
+# prints the output of a list
 def print_output(output):
 	for line in output:
 		print(line)
