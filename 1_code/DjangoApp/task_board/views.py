@@ -2,8 +2,6 @@ from django.shortcuts import render
 from django.http import *
 from django.views.decorators.csrf import csrf_exempt
 
-from .forms import EmployeeIDForm
-
 import util.db_helper as tm_db
 
 def index(request):
