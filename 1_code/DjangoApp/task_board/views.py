@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from .forms import EmployeeIDForm
 
-import task_board.task_manager_db_helper as tm_db
+import util.db_helper as tm_db
 
 def index(request):
     context = {}
