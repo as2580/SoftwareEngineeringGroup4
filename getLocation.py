@@ -20,7 +20,7 @@ def itemLocator(itemName):
     for i in range(0,len(items)):     # the for loop goes through the all the items
         for j in range(0,len(asile)):            # this for loop goes through the all the asiles
             for y in range(0,len(section)):      # this for loop goes through the all the sections
-                if items[i]==itemName && inStock(itemName)==0:       # the if statement checks if the an item searched by custmors 
+                if items[i]==itemName & inStock(itemName)==0:       # the if statement checks if the an item searched by custmors 
                                                                      # is in the list
                                                                      # ALso, if that item is in stock than it will proceed
                     result=asile[j]+[i]      # the asile and section number
