@@ -55,3 +55,4 @@ __pycache__/
 1_code/DjangoApp/DjangoApp/__pycache__/settings.cpython-37.pyc
 *.pyc
 *.pyc
+*.pyc
