@@ -1,0 +1,47 @@
+*{margin: 0;padding: 0}
+body{
+	background-color: grey;
+	padding-top: 15vh;
+}
+
+.form-container{ /*This is the class for the white box containing everything*/
+	width:250px;
+	height:auto;
+	padding: 10px 20px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 0 20px 0 #000; 
+	margin: auto;
+}
+
+ul.list{ /* All the lists in the box*/
+list-style-type: none;
+text-align:center;
+}
+
+ul.list li{/* All the elements in the box*/
+width:250px;
+margin-bottom: 20px
+}
+
+ul.list li input{/* All the input fields in the box*/
+	width: 250px;
+	text-align: center;
+	padding:8px 0px;
+	border:none;
+	background-color: #d3d3d3; /*translucent*/
+	border-radius: 5px;
+}
+
+ul.list li input[type="button"]{/* only the button*/
+	background-color: #4690fb
+
+}
+
+ul.list li:nth-child(5){/*the 5th list item*/
+	color: red;
+} 
+
+ul.list li:nth-child(6){/*the 6th list item*/
+	color: red;
+} 
