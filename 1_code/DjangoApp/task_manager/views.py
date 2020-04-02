@@ -1,3 +1,7 @@
+## Written by: Andrew Saengtawesin and Kimberly Chang
+## Tested by: Andrew Saengtawesin and Kimberly Chang
+## Debugged by: Andrew Saengtawesin and Kimberly Chang
+
 from django.shortcuts import get_object_or_404, render
 from django.http import *
 from django.urls import reverse
