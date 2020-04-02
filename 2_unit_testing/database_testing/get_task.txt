@@ -1,0 +1,5 @@
+22:[('Return Items to Shelves (Aisle 2 Bin)', 'Return item(s) from bin at end of Aisle 2', 22, 'Complete', 41, datetime.datetime(2013, 1, 9, 8, 15), datetime.datetime(2013, 1, 9, 8, 30))]
+31:[('Return Items to Shelves (Aisle 4 Bin)', 'Return item(s) from bin at end of Aisle 4', 31, 'In Progress', 30, datetime.datetime(2013, 1, 9, 8, 54), None)]
+-1:[]
+null:[]
+:[]

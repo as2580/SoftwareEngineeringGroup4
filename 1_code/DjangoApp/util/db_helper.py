@@ -14,6 +14,8 @@ import datetime
 def get_task(taskID):
 	if not isinstance(taskID, str):
 		taskID = str(taskID)
+	if len(taskID) < 1:
+		return []
 	q = "SELECT * FROM SE_DB.tasks WHERE taskID = " + taskID + ";"
 	c = db_util.db_open()
 	task = db_util.db_query(c, q)
@@ -181,8 +183,12 @@ def get_incomplete_tasks():
 #		-contains only tasks that are In Progress that have been claimed by the employee with employeeID
 #		-nested list is a tuple containing all information for a given tasks
 def get_employee_tasks(employeeID):
+	if(not employeeID.isdecimal()):
+		return []
 	if not isinstance(employeeID, str):
 		employeeID = str(employeeID)
+	if len(employeeID) < 1:
+		return []
 	q = "SELECT * FROM SE_DB.tasks WHERE state = \"In Progress\" AND  employeeID = " + employeeID + ";"
 	c = db_util.db_open()
 	tasks = db_util.db_query(c, q)
@@ -234,6 +240,8 @@ def update_task_state(taskID, new_state, employeeID):
 #		-contains the item with matching RFID
 #		-nested list is a tuple containing the name and price for the item
 def get_item_info(RFID):
+	if(not RFID.isdecimal()):
+		return []
 	if not isinstance(RFID, str):
 		RFID = str(RFID)
 	q = "SELECT name, price FROM SE_DB.items WHERE RFID = " + RFID + ";"
@@ -255,6 +263,8 @@ def get_item_info(RFID):
 #		-a list
 #		-contains the employee's last name at employee[0] and the employee's first name at employee[1]
 def get_employee(employeeID):
+	if(not employeeID.isdecimal()):
+		return []
 	if not isinstance(employeeID, str):
 		employeeID = str(employeeID)
 	q = "SELECT lastName, firstName FROM SE_DB.employees WHERE ID = " + employeeID + ";"
