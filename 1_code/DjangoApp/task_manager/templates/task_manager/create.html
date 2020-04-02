@@ -5,22 +5,40 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'task_manager/style.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
+
+<title>Task Manager: Create Task</title>
+
+<body>
+
+<div class="logo">
+<a href="/task_manager/">
+<img src="{% static "task_board/shopping-cart-red_bg.png" %}" width="100" height="100" alt="logo">
+</a>
+</div>
+
+<div><h1>
+Automated Supermarket
+</h1></div>
+
 
 <br>
 
 <form action="created" method="post">
 <label for="taskName">Task Name:</label>
 <br>
-<td><textarea rows = "4" cols = "40" id="taskName" name="taskName" placeholder="Task Name"></textarea></td>
+<td><textarea class="form" rows = "4" cols = "40" id="taskName" name="taskName" placeholder="Task Name"></textarea></td>
 <br>
 <label for="description">Description:</label>
 <br>
-<td><textarea rows = "4" cols = "40" id="description" name="description" placeholder="Description"></textarea></td>
+<td><textarea class="form" rows = "4" cols = "40" id="description" name="description" placeholder="Description"></textarea></td>
 <br>
 <br>
-<input style="width: 20em;  height: 4em;" type="submit" value="Create Task">
+<input class="button" style="width: 20em;  height: 4em;" type="submit" value="Create Task">
 </form>
 
 <form action="/task_manager">
-<input style="width: 20em;  height: 4em;" type="submit" value="Back to Task List">
+<input class="button" style="width: 20em;  height: 4em;" type="submit" value="Back to Task List">
 </form>
+
+</body>

@@ -5,6 +5,21 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'task_manager/style.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
+
+<title>Task Manager: Edit Task</title>
+
+<body>
+
+<div class="logo">
+<a href="/task_manager/">
+<img src="{% static "task_board/shopping-cart-red_bg.png" %}" width="100" height="100" alt="logo">
+</a>
+</div>
+
+<div><h1>
+Automated Supermarket
+</h1></div>
 
 <br>
 {% if task %}
@@ -30,36 +45,38 @@
 	<tr>
 		<form action="modify" method="post">
 		<th>Edit</th>
-		<td><input type="text" id="taskName" name="taskName" placeholder="Task Name"></td>
-		<td><input type="text" id="description" name="description" placeholder="description"></td>
+		<td><input class="form" type="text" id="taskName" name="taskName" placeholder="Task Name"></td>
+		<td><input class="form" type="text" id="description" name="description" placeholder="description"></td>
 		<td>{{ line.2 }}</td>
 		<td>
-			<select id="state" name="state">
+			<select class="form" id="state" name="state">
 			<option value="Incomplete">Incomplete</option>
 			<option value="In Progress">In Progress</option>
 			<option value="Complete">Complete</option>
 			</select>
 		</td>
-		<td><input type="text" id="employeeID" name="employeeID" value={{ line.4 }} size="7"></td>
-		<td><input type="text" id="timeCreated" name="timeCreated" placeholder="YYYY-MM-DD hh:mm:ss" size="21"></td>
-		<td><input type="text" id="timeCompleted" name="timeCompleted" placeholder="YYYY-MM-DD hh:mm:ss" size="21"></td>
+		<td><input class="form" type="text" id="employeeID" name="employeeID" value={{ line.4 }} size="7"></td>
+		<td><input class="form" type="text" id="timeCreated" name="timeCreated" placeholder="YYYY-MM-DD hh:mm:ss" size="21"></td>
+		<td><input class="form" type="text" id="timeCompleted" name="timeCompleted" placeholder="YYYY-MM-DD hh:mm:ss" size="21"></td>
 		<input hidden id="taskID" name="taskID" value={{ line.2 }}>
     </tr>
     {% endfor %}
 	
 	</table>
 	<br>
-	<input style="width: 20em;  height: 4em;" type="submit" value="Update Task">
+	<input class="button" style="width: 20em;  height: 4em;" type="submit" value="Update Task">
 	</form>
 	<br>
 	<br>
 	<form action="delete" method="POST">
 	<input hidden id="taskID" name="taskID" value={{ task.0.2 }}>
-	<input style="width: 20em;  height: 4em;" type="submit" value="Delete Task" onclick="return confirm('Are you sure you want to delete this task?')">
+	<input class="button" style="width: 20em;  height: 4em;" type="submit" value="Delete Task" onclick="return confirm('Are you sure you want to delete this task?')">
 	</form>
 {% else %}
     <p>Error Loading Task to Edit</p>
 {% endif %}
 <form action="/task_manager">
-<input style="width: 20em;  height: 4em;" type="submit" value="Back to Task List">
+<input class="button" style="width: 20em;  height: 4em;" type="submit" value="Back to Task List">
 </form>
+
+</body>
