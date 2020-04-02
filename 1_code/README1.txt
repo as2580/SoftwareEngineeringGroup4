@@ -10,3 +10,12 @@ Running Price Checker
 
 run "pricecheckertest.py"
 input RFIDs found in user documentation
+
+
+Running Item Locator
+
+Ensure Python3 and HTML
+run "getLocation.py"
+input an item 
+Than,
+run "itemFinder.html"
