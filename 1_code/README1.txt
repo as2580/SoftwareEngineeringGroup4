@@ -23,3 +23,8 @@ run "getLocation.py"
 input an item 
 Than,
 run "itemFinder.html"
+
+
+Database
+
+A dump of the structure and data in the database can be found in DatabaseDump.sql
