@@ -34,6 +34,11 @@ INSTALLED_APPS = [
     'task_board.apps.TaskBoardConfig',
     'task_manager.apps.TaskManagerConfig',
     'check_out.apps.CheckOutConfig',
+	'item_locator.apps.ItemLocatorConfig',
+	'login.apps.LoginConfig',
+	'price_checker.apps.PriceCheckerConfig',
+	'returns.apps.ReturnsConfig',
+	
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -22,4 +22,8 @@ urlpatterns = [
     path('task_manager/', include('task_manager.urls')),
     path('admin/', admin.site.urls),
     path('check_out/', include('check_out.urls')),
+	path('item_locator/', include('item_locator.urls')),
+	path('', include('login.urls')),
+	path('price_checker/', include('price_checker.urls')),
+	path('returns/', include('returns.urls')),
 ]
