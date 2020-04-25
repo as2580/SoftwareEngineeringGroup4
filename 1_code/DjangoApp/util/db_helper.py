@@ -255,7 +255,7 @@ def get_item_info(RFID):
 # return value:
 #	
 def get_items():
-	q = "SELECT * FROM SE_DB.items"
+	q = "SELECT name, brand, price FROM SE_DB.items"
 	c = db_util.db_open()
 	info = db_util.db_query(c, q)
 	db_util.db_close(c)
