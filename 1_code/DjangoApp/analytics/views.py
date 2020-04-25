@@ -15,14 +15,7 @@ def index(request):
 def view_hours(request):
 	return render(request, 'analytics/view_hours.html')
 
-	
-def view_hours(request):
-	return render(request, 'analytics/view_latest_hours.html')
 
-
-def view_month_sales(request):
-	return render(request, 'analytics/view_month_sales.html')
-	
-	
-def view_cat_sales(request):
-	return render(request, 'analytics/view_cat_sales.html')
+@csrf_exempt
+def view_sales(request):
+	return render(request, 'analytics/view_sales.html')
