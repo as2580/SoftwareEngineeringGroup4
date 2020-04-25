@@ -44,7 +44,7 @@ def emp_login_view(request):
 			username=request.POST['username']
 			password=request.POST['password']
 			if(get_password(username)==password):#authentication against database
-			request.session['type']='employee'
+				request.session['type']='employee'
 				form.save()
 				return redirect('dashboard')#redirect to login page when account creation is successful
 			else:
