@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AUTOMATED SUPERMARKET</title>
+</head>
+<body>
+	{% block content %}
+		<h1 align="center">AUTOMATED SUPERMARKET</h1>
+		<h2 align="center">Welcome to Homepage</h2>
+		{%if user.is_authenticated %})
+			<a href="{% url 'logout'%}">Logout</a>
+			{% else %}
+			<ul class="list">
+				<li><a href="{% url 'login_url'%}">Customer Login</a></li>
+				<li><a href="{% url 'register_url'%}">Customer Registration</a></li>
+				<li><a href="{% url 'login_url'%}">Manager Login</a></li>
+				<li><a href="{% url 'login_url'%}">Employee Login</a></li>
+		    </ul>
+		{% endif %}
+
+	{% endblock %}
+</body>
+</html>

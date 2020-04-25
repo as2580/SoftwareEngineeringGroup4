@@ -1,35 +1,27 @@
-from django.shortcuts import render, HttpResponse, redirect
-from django.contrib import messages
-import bcrypt
-#from models import User
+from django.shortcuts import render,redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
-def index(request):
-    return render(request, 'register/index.html')
 
-def register(request):
-    errors = User.objects.validator(request.POST)
-    if len(errors):
-        for tag, error in errors.iteritems():
-            messages.error(request, error, extra_tags=tag)
-        return redirect('/')
 
-    hashed_password = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt())
-    user = User.objects.create(first_name=request.POST['first_name'], last_name=request.POST['last_name'], password=hashed_password, email=request.POST['email'])
-    user.save()
-    request.session['id'] = user.id
-    return redirect('/success')
+# Create your views here.
+def indexView(request):
+	return render(request, 'index.html')
 
-def login(request):
-    if (User.objects.filter(email=request.POST['login_email']).exists()):
-        user = User.objects.filter(email=request.POST['login_email'])[0]
-        if (bcrypt.checkpw(request.POST['login_password'].encode(), user.password.encode())):
-            request.session['id'] = user.id
-            return redirect('/success')
-    return redirect('/')
+@login_required
+def dashboardView(request):
+	return render(request, 'dashboard.html')
 
-def success(request):
-    user = User.objects.get(id=request.session['id'])
-    context = {
-        "user": user
-    }
-    return render(request, 'register/success.html', context)
+def registerView(request):
+	if request.method=="POST":
+		form=UserCreationForm(request.POST)
+		if form.is_valid():
+			form.save()
+
+			return redirect('login_url')#redirect to login page when account creation is successful
+	else:
+		form=UserCreationForm()	
+	return render(request, 'registration/register.html', {'form':form})
+
+
