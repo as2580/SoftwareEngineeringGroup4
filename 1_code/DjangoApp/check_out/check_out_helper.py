@@ -1,5 +1,7 @@
-class Node(object):
+import util.db_helper
 
+
+class Node(object):  # node for each item in linked list
     def __init__(self, name=None, price=None, next_node=None):
         self.name = name
         self.price = price
@@ -35,7 +37,7 @@ class LinkedList(object):
             current = current.get_next()
         return count
 
-    def search(self, name):
+    def search(self, name):  # search through linked list based on name
         current = self.head
         found = False
         while current and found is False:
@@ -47,7 +49,7 @@ class LinkedList(object):
             raise ValueError("name not in list")
         return current
 
-    def delete(self, name):
+    def delete(self, name):  # deletes node and restructures list to remove node
         current = self.head
         previous = None
         found = False
@@ -64,19 +66,27 @@ class LinkedList(object):
         else:
             previous.set_next(current.get_next())
 
-    def print(self):
+    def print(self):  # print function for testing
         curr = self.head
         while curr:
             print(str(curr.name) + ": " + str(curr.price) + "\n")
             curr = curr.get_next()
 
+    def to_lists(self):  # provides a list of the names and the prices of the items in the linked list
+        curr = self.head
+        info_list = []
+        while curr:
+            info_list.append([curr.name, curr.price])
+            curr = curr.get_next()
+        return info_list
+
     def total(self):
+        # creates totals of the items in the list
+        # with non taxed and taxed based on NJ sales tax(configurability coming later)
         curr = self.head
         total_value = 0
         while curr:
-            total_value = total_value + curr.price
+            total_value = total_value + float(curr.price)
             curr = curr.get_next()
-        print("total: " + str(total_value))
         taxed_total = total_value * 1.06625
-        print("with tax: " + str(round(taxed_total, 2)))
-
+        return round(total_value, 2), round(taxed_total, 2)

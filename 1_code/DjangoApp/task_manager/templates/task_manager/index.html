@@ -1,7 +1,14 @@
+<!-- Written by: Andrew Saengtawesin and Kimberly Chang
+    Tested by: Andrew Saengtawesin and Kimberly Chang
+    Debugged by: Andrew Saengtawesin and Kimberly Chang -->
+
 {% load static %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'task_manager/style.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
+
+<title>Task Manager</title>
 
 {% if alert%}
 <div class="alert alert-info" style="font-size:30px; color:#8a6d3b;background-color:#fcf8e3;border-color:#faebcc; font-weight:900">
@@ -11,8 +18,20 @@
 <br>
 {% endif %}
 
+<body>
+
+<div class="logo">
+<a href="/task_manager/">
+<img src="{% static "task_board/shopping-cart-red_bg.png" %}" width="100" height="100" alt="logo">
+</a>
+</div>
+
+<div><h1>
+Automated Supermarket
+</h1></div>
+
 <form action="create">
-<input style="width: 20em;  height: 4em;" type="submit" value="Create Task">
+<input class="button" style="width: 20em;  height: 4em;" type="submit" value="Create Task">
 </form>
 
 {% if tasks %}
@@ -24,6 +43,7 @@
 		<th>Task ID</th>
 		<th>State</th>
 		<th>Employee ID</th>
+		<th>Employee Name</th>
 		<th>Time of Task Creation</th>
 		<th>Time of Task Completion</th>
 		<th>Edit</th>
@@ -36,7 +56,7 @@
 		<td>
 			<form action="edit" method="get">
 			<input type="hidden" name="id" value={{ line.2 }} />
-			<input type="submit" value="Edit"/>
+			<input type="submit" class="button" value="Edit"/>
 			</form>
 		</td>
     </tr>
@@ -45,3 +65,5 @@
 {% else %}
     <p>No tasks are available.</p>
 {% endif %}
+
+</body>

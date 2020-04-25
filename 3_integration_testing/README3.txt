@@ -1,1 +1,1 @@
-how to run the integration tests
+Integration testing for Task Manager and Task Board can be found in the respective pdfs

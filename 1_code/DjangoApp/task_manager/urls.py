@@ -1,3 +1,7 @@
+## Written by: Andrew Saengtawesin and Kimberly Chang
+## Tested by: Andrew Saengtawesin and Kimberly Chang
+## Debugged by: Andrew Saengtawesin and Kimberly Chang
+
 from django.urls import path
 
 from . import views

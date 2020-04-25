@@ -1,6 +1,30 @@
-Running Task Manager
+Running Task Manager/Task Board/Check Out App
  
 Ensure Python3 and Django are installed
-navigate to DjangoApp folder
-run "python3 manage.py runserver"
-on a web browser navigate to "http://127.0.0.1:8000/task_manager/"
+Navigate to DjangoApp folder
+In DjangoApp folder modify ALLOWED_HOSTS in settings.py to include {serverIP}
+If you want to be able to access the App from other computers on the same network, ensure {port} is allowed through firewall
+If you want to be able to access the App from over the internet, ensure {serverIP}:{port} allows port forwarding
+run "python3 manage.py runserver 0.0.0.0:{port}"
+
+To access desired app (task_manager, task_board, check_out) on a browser navigate to "http://{serverIP}:{port}/{app}/"
+
+
+Running Price Checker
+
+run "pricecheckertest.py"
+input RFIDs found in user documentation
+
+
+Running Item Locator
+
+Ensure Python3 and HTML
+run "getLocation.py"
+input an item 
+Than,
+run "itemFinder.html"
+
+
+Database
+
+A dump of the structure and data in the database can be found in DatabaseDump.sql

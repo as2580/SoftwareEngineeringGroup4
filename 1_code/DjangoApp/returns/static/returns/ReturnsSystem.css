@@ -1,0 +1,371 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	color: #555;
+	font-family: Open Sans;
+	font-size: 16px;
+	position: relative;
+	font-weight: 400;
+
+}
+
+.top{
+	background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(back.jpg);
+	position:absolute;
+	top:0%;
+	width:100%;
+	height: 200px;
+	font-size: 45px;
+	color: white;
+	text-align: center;
+}
+
+.login{
+	border-radius: 10px;
+	border: 2px solid green;
+	position: absolute;
+	top: 225px;
+	left: 35%;
+	width: 400px;
+	height: 400px;
+	font-size: 32px;
+	background-color: white;
+	color: black;
+	text-align: center;
+}
+
+.payments{
+	border-radius: 10px;
+	border: 2px solid darkblue;
+	position: absolute;
+	top: 225px;
+	left: 20%;
+	width: 60%;
+	height: 500px;
+	font-size: 32px;
+	background-color: white;
+	color: black;
+	text-align: center;
+}
+
+
+.verify{
+	border-radius: 10px;
+	border: 2px solid green;
+	position: absolute;
+	top: 225px;
+	left: 60%;
+	width: 400px;
+	height: 400px;
+	font-size: 20px;
+	background-color: white;
+	color: black;
+	text-align: center;
+}
+
+.finalGreet{
+	border-radius: 10px;
+	border: 2px solid green;
+	position: absolute;
+	top: 225px;
+	left: 25%;
+	width: 800px;
+	height: 400px;
+	font-size: 20px;
+	background-color: white;
+	color: black;
+	text-align: center;	
+}
+
+.message-1{
+	position: absolute;
+	width: 200px;
+	top:5%;
+	left:35%;
+	text-align: center;	
+}
+
+.message-2{
+	position: absolute;
+	width: 400px;
+	top:35%;
+	left:25%;
+	text-align: center;		
+
+}
+
+
+.Instruction2{
+	position: absolute;
+	top:25%;
+}
+
+.Instruction3{
+	position: absolute;
+	top: 50%;
+}
+
+.verify_btn{
+	position: absolute;
+	width: 100px;
+	height: 50px;
+	top: 80%;
+	left: 20%;	
+	background-color: lightgreen;
+}
+
+.dnverify_btn{
+	position: absolute;
+	width: 100px;
+	height: 50px;
+	top: 80%;
+	left: 50%;	
+	background-color: red;	
+}
+
+.card1_btn{
+	position: absolute;
+	width: 200px;
+	height: 50px;
+	top: 50%;
+	left: 20%;	
+	background-color: lightblue;
+}
+
+.card2_btn{
+	position: absolute;
+	width: 200px;
+	height: 50px;
+	top: 50%;
+	left: 50%;	
+	background-color: #66ff99;	
+}
+
+.readcard_btn{
+	position: absolute;
+	width: 200px;
+	height: 50px;
+	top: 80%;
+	left:35%;	
+	background-color: #ff99e6;		
+}
+
+.reset{
+	position: absolute;
+	top: 90%;
+	left: 90%;
+}
+
+.done_btn{
+	position: absolute;
+	width: 200px;
+	height: 50px;
+	top: 80%;
+	left:35%;	
+	background-color: lightgreen;		
+}
+
+
+.employee__id{
+	width: 300px;
+	height: 25px;
+	font-size: 15px;
+}
+
+.employee__pass{
+	width: 300px;
+	height: 25px;
+	font-size: 15px;	
+}
+
+.login_btn{
+	position: absolute;
+	width: 100px;
+	height: 50px;
+	top: 60%;
+	left: 40%;
+}
+
+.loginstatus{
+	position: absolute;
+	top: 80%;
+	left: 40%;
+	font-size: 15px;
+	color: red;
+}
+
+.refund__title{
+	position: absolute;
+	top: 40%;
+	width: 100%;
+	height: 100px;
+	font-size: 25px;
+	color: white;
+	text-align: center;
+}
+
+.refund__value{
+	position: absolute;
+	top: 60%;
+	width: 50%;
+	height: 100px;
+	left: 25%;
+	text-align: center;
+
+}
+
+.add{
+	position: absolute;
+	top: 200px;
+	width: 100%;
+	height: 150px;
+	text-align: center;
+	background-color: white;
+}
+
+.add__id{
+	position: absolute;
+	top: 50%;
+	left: 25%;
+	height: 30px;
+	width: 150px;
+	font-size: 15px;
+}
+
+.add__price{
+	position: absolute;
+	top: 50%;
+	left: 43%;
+	height: 30px;
+	width: 150px;
+	font-size: 15px;	
+}
+
+.add__description{
+	position: absolute;
+	top: 50%;
+	left: 60%;
+	height: 30px;
+	width: 200px;
+	font-size: 15px	
+}
+
+.scan_btn{
+	height: 30px;
+	width: 100px;
+	position: absolute;
+	top: 10px;
+	left: 25%;
+}
+
+.call_btn{
+	height: 30px;
+	width: 100px;
+	position: absolute;
+	top: 10px;
+	left: 45%;
+
+}
+
+.employee_log_btn{
+	height: 30px;
+	width: 100px;
+	position: absolute;
+	top: 10px;
+	left: 65%;
+}
+.add__btn{
+    font-size: 35px;
+    background: none;
+    border: none;
+    color: #28B9B5;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.1;
+    margin-left: 10px;
+    position:absolute;
+    left: 80%;
+    top: 50%;
+
+}
+
+.clearfix::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+
+.product__id{
+	float: left;
+}
+
+.middle{
+	padding-left:25%;
+	float:middle;
+	color: red;
+}
+
+
+.right { 
+    float: right; 
+}
+
+.red { color: #FF5049 !important; }
+.red-focus:focus { border: 1px solid #FF5049 !important; }
+
+
+.container {
+    width: 1000px;
+    margin: 60px auto;
+    position: absolute;
+    top: 300px;
+    left: 1%;
+}
+
+.products {
+    float: left;
+    width: 475px;
+    margin-right: 50px;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.products__title { color: #28B9B5; }
+
+.products {
+    padding: 13px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.product:first-child { border-top: 1px solid #e7e7e7; }
+.product:nth-child(even) { background-color: #f7f7f7; }
+
+.product__description {
+    float: left;
+}
+
+.product__value {
+    float: left;
+    transition: transform 0.3s;
+}
+
+.products .product__value {
+    color: #28B9B5;
+}
+
+
+
+
+
+

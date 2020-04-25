@@ -1,10 +1,12 @@
+## Written by: Andrew Saengtawesin and Kimberly Chang
+## Tested by: Andrew Saengtawesin and Kimberly Chang
+## Debugged by: Andrew Saengtawesin and Kimberly Chang
+
 from django.shortcuts import render
 from django.http import *
 from django.views.decorators.csrf import csrf_exempt
 
-from .forms import EmployeeIDForm
-
-import task_board.task_manager_db_helper as tm_db
+import util.db_helper as tm_db
 
 def index(request):
     context = {}
@@ -21,7 +23,9 @@ def claim_tasks(request):
 def view_tasks(request):
 	if request.method == 'POST':
 		ID = request.POST["employeeID"]
-		tasks = tm_db.get_employee_tasks(ID)
+		tasks = []
+		if ID.isnumeric and ID:
+			tasks = tm_db.get_employee_tasks(ID)
 		context = {'tasks': tasks}
 		return render(request, 'task_board/view_tasks.html', context)
 	else:

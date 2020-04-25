@@ -1,10 +1,14 @@
+## Written by: Andrew Saengtawesin and Kimberly Chang
+## Tested by: Andrew Saengtawesin and Kimberly Chang
+## Debugged by: Andrew Saengtawesin and Kimberly Chang
+
 from django.shortcuts import get_object_or_404, render
 from django.http import *
 from django.urls import reverse
 from django.views import generic
 from django.views.decorators.csrf import csrf_exempt
 
-import task_manager.task_manager_db_helper as tm_db
+import util.db_helper as tm_db
 
 
 def index(request):

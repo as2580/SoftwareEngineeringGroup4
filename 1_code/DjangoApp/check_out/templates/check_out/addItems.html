@@ -1,0 +1,54 @@
+{% load static %}
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="{% static 'check_out/style.css' %}">
+<head>
+<title>{% block title %}Check Out{% endblock %}</title>
+<div class="logo">
+  <a href="/task_manager/">
+  <img src="{% static "check_out/shopping-cart-red_bg.png" %}" width="100" height="100" alt="logo">
+  </a>
+  </div>
+  
+  <div><h1>
+  Automated Supermarket
+  </h1></div>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+}
+</style>
+</head>
+<body>
+<p>
+<table style = width:50%>
+  <tr>
+    <th>Item</th>
+    <th>Price</th>
+    <th>Remove Item</th>
+  </tr>
+  {% for info in info_list %}
+  <tr>
+    <td>{{info.0}}</td>
+    <td>{{info.1}}</td>
+    <td><form action="remove_item" method="POST">
+			<input type="hidden" name="id" value={{ forloop.revcounter0 }} />
+			<input type="submit" value="X"/>
+			</form></td>
+  </tr>
+    {% endfor %}
+</table>
+<b>Total: </b>{{totals.0}}</p>
+<p><b>With Tax: </b>{{totals.1}}</p>
+
+<div><form action='add_items'>
+  <input class="button" style="width: 20em;  height: 4em;" method='GET' type='submit' value='Add New Items'>
+</form></div><div><form action='Finish'> 
+<input class="button" style="width: 20em;  height: 4em;" method='GET' type='submit' value='Finish and Pay'>
+</form></div>
+</body>
+
+</html>

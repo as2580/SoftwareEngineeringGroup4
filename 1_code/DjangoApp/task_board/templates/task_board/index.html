@@ -1,16 +1,42 @@
+<!-- Written by: Andrew Saengtawesin and Kimberly Chang
+    Tested by: Andrew Saengtawesin and Kimberly Chang
+    Debugged by: Andrew Saengtawesin and Kimberly Chang -->
+
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'task_board/style.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
 
+<title>Task Board</title>
+
+<body>
+
+<div class="logo">
+<a href="/task_board/">
+<img src="{% static "task_board/shopping-cart-red_bg.png" %}" width="100" height="100" alt="logo">
+</a>
+</div>
+
+<div><h1>
+Automated Supermarket
+</h1></div>
+
+<div class="item">
+<center>
 <form action="claim_tasks" method="get">
-<input type="hidden" name="id" value={{ line.2 }} />
-<input type="submit" value="Claim Task"/>
+<input type="submit" class="button big" value="Claim Task"/>
 </form>
+</center>
+</div>
 
-<br>
-
+<div class="item">
+<center>
 <form action="view_tasks" method="post">
 <label for="employeeID">Employee ID: </label>
-<input id="employeeID" type="text" name="employeeID">
-<input type="submit" value="View Your Tasks">
+<input id="employeeID" type="text" class="form" name="employeeID">
+<input type="submit" class="button big" value="View Your Tasks">
 </form>
+</center>
+</div>
+
+</body>

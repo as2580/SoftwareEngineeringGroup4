@@ -1,0 +1,14 @@
+{% load static %}
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="{% static 'check_out/style.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
+<head>
+<title>{% block title %}Check Out{% endblock %}</title>
+</head>
+
+<body>
+    <p>
+        Your change is: ${{change}}</p>
+    <form action='index' method='GET'>
+        <button type='submit'> Done</button>
+    </form>
