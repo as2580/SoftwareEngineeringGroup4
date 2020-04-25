@@ -40,7 +40,6 @@ INSTALLED_APPS = [
 	'price_checker.apps.PriceCheckerConfig',
 	'returns.apps.ReturnsConfig',
 	'shopping_list.apps.ShoppingListConfig',
-	'home'
 	'analytics.apps.AnalyticsConfig',
 	
     'django.contrib.admin',
