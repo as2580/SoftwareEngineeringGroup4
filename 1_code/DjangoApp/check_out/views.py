@@ -33,8 +33,20 @@ def finish(request):
 
 def remove_item(request):
     items = request.session['items']  # not functioning currently
-    context = {'items': items}
-    return render(request, 'check_out/removeItem.html', context)
+    delitem = request.POST['id']
+    shopping_cart = check_out_helper.LinkedList()  # initializing linked list for storage
+    items.pop(delitem)
+    for i in items:
+        info = db_helper.get_item_info(i)
+        new_info = [[d['name'] for d in info], [d['price'] for d in info]]
+        # Removing excess delimiters in list and inserting into shopping_cart linked list
+        flat_info = [val for sublist in new_info for val in sublist]
+        shopping_cart.insert(flat_info[0], flat_info[1])
+    info_list = shopping_cart.to_lists()
+    totals = shopping_cart.total()
+    context = {'info_list': info_list, 'totals': totals, }
+    request.session['totals'] = totals
+    return render(request, 'check_out/index.html', context)
 
 
 def add_items(request):  # same idea as index
