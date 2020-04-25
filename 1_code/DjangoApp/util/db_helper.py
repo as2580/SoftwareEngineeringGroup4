@@ -249,6 +249,17 @@ def get_item_info(RFID):
 	info = db_util.db_query(c, q)
 	db_util.db_close(c)
 	return info
+	
+	
+# input parameter(s): None
+# return value:
+#	
+def get_items():
+	q = "SELECT * FROM SE_DB.items"
+	c = db_util.db_open()
+	info = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return info
 
 
 ###############################
@@ -272,3 +283,31 @@ def get_employee(employeeID):
 	employee = db_util.db_query(c, q)
 	db_util.db_close(c)
 	return employee
+	
+
+# input parameter(s):
+#
+# return value:
+#	
+def get_password(username):
+	q = "SELECT password FROM SE_DB.logins WHERE username = '" + username + "';"
+	c = db_util.db_open()
+	password = db_util.db_query(c, q)
+	db_util.db_close(c)
+	if(len(password) == 1):
+		return password[0][0]
+	else:
+		return ""
+
+# input parameter(s):
+#
+# return value:
+#	
+def create_user(username, password, accountType, ID="NULL", first=None, last=None):
+	q = "INSERT INTO SE_DB.logins (username, password, accountType, ID) VALUES ('" +username+ "','"+password+"','"+accountType+"',"+str(ID)+");"
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	if(first is not None and last is not None and ID != "NULL"):
+		q = "INSERT INTO SE_DB.employees (lastName, firstName, ID, role) VALUES ('"+first+"','"+last+"',"+str(ID)+",'"+accountType+"');"
+		db_util.db_execute(c, q)
+	db_util.db_close(c)
