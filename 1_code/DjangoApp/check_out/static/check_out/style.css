@@ -1,3 +1,51 @@
-li a {
+/* updated style to match with rest of app */
+
+   li a {
     color: green;
 }
+
+.button {
+	background-color: #d4af37;
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.big {
+	padding: 15px 32px;
+	font-size: 16px;
+	margin: 4px 2px;
+}
+
+.form {
+	background-color: #d4af37;
+}
+
+.logo {
+	float: left;
+}
+
+.item {
+	height:50px; 
+	width:500px; 
+}
+
+div {
+	padding : 1%;
+}
+
+h1 {
+	font-family: 'Cookie';
+	font-size: 50px;
+	color: #d4af37;
+}
+
+body {
+	background-color: #660000;
+	color: white;
+}
+
+
