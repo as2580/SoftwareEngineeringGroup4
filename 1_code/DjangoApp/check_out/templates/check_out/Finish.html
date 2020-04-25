@@ -4,17 +4,26 @@
 <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
 <head>
 <title>{% block title %}Check Out{% endblock %}</title>
+<div class="logo">
+    <a href="/task_manager/">
+    <img src="{% static "check_out/shopping-cart-red_bg.png" %}" width="100" height="100" alt="logo">
+    </a>
+    </div>
+    
+    <div><h1>
+    Automated Supermarket
+    </h1></div>
 </head>
 
 <body>
 <p>
     Your total is: ${{totals.1}}</p>
 <p>Please Select a Payment method
-<form action='cash' method='GET'>
-<button type='submit'> Cash</button>
+<form action='cash'> 
+<input type='submit' class="Button" style="width: 20em;  height: 4em;" method='GET' value="Cash">
 </form>
-<form action='credit' method='GET'>
-<button type='submit'> Credit</button>
+<form action='credit'> 
+<input type='submit' class="button" style="width: 20em;  height: 4em;" method='GET' value="Credit">
 </form>
 </p>
 </body>
