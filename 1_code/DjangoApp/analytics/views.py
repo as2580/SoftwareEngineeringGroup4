@@ -1,6 +1,21 @@
+## Written by: Andrew Saengtawesin and Kimberly Chang
+## Tested by: Andrew Saengtawesin and Kimberly Chang
+## Debugged by: Andrew Saengtawesin and Kimberly Chang
+
 from django.shortcuts import render
 from django.http import *
+from django.views.decorators.csrf import csrf_exempt
 
-# Create your views here.
+import util.db_helper as tm_db
+
 def index(request):
-    return render(request, 'analytics/index.html')
+	return render(request, 'analytics/index.html')
+	
+
+def view_hours(request):
+	return render(request, 'analytics/view_hours.html')
+
+
+@csrf_exempt
+def view_sales(request):
+	return render(request, 'analytics/view_sales.html')

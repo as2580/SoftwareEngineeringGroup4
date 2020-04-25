@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'analytics/style.css' %}">
 <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
 
-<title>Analytics</title>
+<title>Analytics - Sales</title>
 
 <body>
 
@@ -21,20 +21,8 @@
 Automated Supermarket
 </h1></div>
 
-<div class="item">
-<center>
-<form action="view_hours" method="get">
-<input type="submit" class="button big" value="View Hours"/>
+<form action="/analytics" method="get">
+<input type="submit" class="button big" value="Back"/>
 </form>
-</center>
-</div>
-
-<div class="item">
-<center>
-<form action="view_sales" method="post">
-<input type="submit" class="button big" value="View Sales">
-</form>
-</center>
-</div>
 
 </body>
