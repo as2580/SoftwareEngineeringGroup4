@@ -4,6 +4,15 @@
 <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
 <head>
 <title>{% block title %}Check Out{% endblock %}</title>
+<div class="logo">
+  <a href="/task_manager/">
+  <img src="{% static "check_out/shopping-cart-red_bg.png" %}" width="100" height="100" alt="logo">
+  </a>
+  </div>
+  
+  <div><h1>
+  Automated Supermarket
+  </h1></div>
 <style>
 table, th, td {
   border: 1px solid black;
@@ -31,15 +40,16 @@ th, td {
 			<input type="submit" value="X"/>
 			</form></td>
   </tr>
-    {% endfor %}
+  {% endfor %}
 </table>
+<div></div>
 <b>Total: </b>{{totals.0}}</p>
 <p><b>With Tax: </b>{{totals.1}}</p>
-<form action='add_items' method='GET'>
-<button type='submit'> Add New Items</button>
-</form>
-<form action='Finish' method='GET'>
-<button type='submit'> Finish and Pay</button>
+<div><form action='add_items'>
+  <input class="button" style="width: 20em;  height: 4em;" method='GET' type='submit' value='Add New Items'>
+</form></div><div><form action='Finish'> 
+<input class="button" style="width: 20em;  height: 4em;" method='GET' type='submit' value='Finish and Pay'>
+</form></div>
 </form>
 </body>
 

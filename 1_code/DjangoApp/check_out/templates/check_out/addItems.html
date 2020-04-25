@@ -3,6 +3,15 @@
 <link rel="stylesheet" type="text/css" href="{% static 'check_out/style.css' %}">
 <head>
 <title>{% block title %}Check Out{% endblock %}</title>
+<div class="logo">
+  <a href="/task_manager/">
+  <img src="{% static "check_out/shopping-cart-red_bg.png" %}" width="100" height="100" alt="logo">
+  </a>
+  </div>
+  
+  <div><h1>
+  Automated Supermarket
+  </h1></div>
 <style>
 table, th, td {
   border: 1px solid black;
@@ -34,12 +43,12 @@ th, td {
 </table>
 <b>Total: </b>{{totals.0}}</p>
 <p><b>With Tax: </b>{{totals.1}}</p>
-<form action='add_items' method='GET'>
-<button type='submit'> Add New Items</button>
-</form>
-<form action='Finish' method='GET'>
-<button type='submit'> Finish and Pay</button>
-</form>
+
+<div><form action='add_items'>
+  <input class="button" style="width: 20em;  height: 4em;" method='GET' type='submit' value='Add New Items'>
+</form></div><div><form action='Finish'> 
+<input class="button" style="width: 20em;  height: 4em;" method='GET' type='submit' value='Finish and Pay'>
+</form></div>
 </body>
 
 </html>
