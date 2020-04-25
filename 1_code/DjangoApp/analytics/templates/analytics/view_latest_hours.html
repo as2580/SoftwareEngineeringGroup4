@@ -1,0 +1,28 @@
+<!-- Written by: Andrew Saengtawesin and Kimberly Chang
+    Tested by: Andrew Saengtawesin and Kimberly Chang
+    Debugged by: Andrew Saengtawesin and Kimberly Chang -->
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'analytics/style.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
+
+<title>Analytics - Latest Employee Hours</title>
+
+<body>
+
+<div class="logo">
+<a href="/analytics/">
+<img src="{% static "task_board/shopping-cart-red_bg.png" %}" width="100" height="100" alt="logo">
+</a>
+</div>
+
+<div><h1>
+Automated Supermarket
+</h1></div>
+
+<form action="/analytics" method="get">
+<input type="submit" class="button big" value="Back"/>
+</form>
+
+</body>

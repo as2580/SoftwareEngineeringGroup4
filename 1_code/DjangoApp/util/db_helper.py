@@ -272,3 +272,12 @@ def get_employee(employeeID):
 	employee = db_util.db_query(c, q)
 	db_util.db_close(c)
 	return employee
+
+
+###############################
+#   LOGIN RELATED FUNCTIONS   #
+############################### 
+
+
+
+
