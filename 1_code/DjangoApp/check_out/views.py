@@ -35,7 +35,10 @@ def remove_item(request):
     items = request.session['items']  # not functioning currently
     delitem = int(request.POST['id'])
     shopping_cart = check_out_helper.LinkedList()  # initializing linked list for storage
-    items.pop(delitem)
+    deleted = items.pop(delitem)
+    taskName = 'Return Items to Shelves(Checkout Terminal 1)'
+    taskDescription = 'Return item(s) from bin at Checkout Terminal 1'
+    db_helper.add_task(taskName, taskDescription)
     for i in items:
         info = db_helper.get_item_info(i)
         shopping_cart.insert(info[0][0], info[0][1])
@@ -54,6 +57,7 @@ def add_items(request):  # same idea as index
         items.append(i)
     for i in items:
         info = db_helper.get_item_info(i)
+        #no longer needed for some reason, no clue why
         #new_info = [[d['name'] for d in info], [d['price'] for d in info]]
         # Removing excess delimiters in list and inserting into shopping_cart linked list
         #flat_info = [val for sublist in new_info for val in sublist]
@@ -64,4 +68,15 @@ def add_items(request):  # same idea as index
     context = {'info_list': info_list, 'totals': totals, }
     request.session['totals'] = totals
     return render(request, 'check_out/addItems.html', context)
+
+def cash(request):
+    totals = request.session['totals']
+    change = round(round(totals[1], 0) + 10 - totals[1], 2)
+    context = {'totals': totals, 'change': change, }
+    return render(request, 'check_out/cash.html', context)
+
+def credit(request):
+    totals = request.session['totals']
+    context = {'totals': totals, }
+    return render(request, 'check_out/credit.html', context)
 
