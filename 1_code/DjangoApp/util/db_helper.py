@@ -110,7 +110,7 @@ def remove_task(taskID):
 #		-contains all tasks
 #		-nested list is a tuple containing all information for a given tasks
 def get_all_tasks():
-    q = "SELECT * FROM SE_DB.tasks ORDER BY taskID desc;"
+    q = "SELECT * FROM SE_DB.taskList;"
     c = db_util.db_open()
     tasks = db_util.db_query(c, q)
     db_util.db_close(c)
