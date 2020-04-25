@@ -1,7 +1,141 @@
+<!DOCTYPE html>
 {% load static %}
+<html lang = "en">
+	<head>
+		<meta charset="UTF-8">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
+        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <link type="text/css" rel="stylesheet" href="{% static 'returns/ReturnsSystem.css' %}">
+        <title>Returns System</title>
+    </head>
 
-<link rel="stylesheet" type="text/css" href="{% static 'returns/style.css' %}">
+  <body>
 
-<title>Returns</title>
 
-<p>test</p>
+    	<div class = "top" id="top">
+    		Welcome to the Returns System
+    		<div class="refund__title">Total To Be Refunded:</div>
+    		<div class="refund__value">$0.00</div>
+    		</div>
+    	</div>
+
+
+    	<div class= "bottom">
+    		<div class = "add" id="add">
+    			<div class = "add__container">
+    				<input type = "text" class = "add__id" placeholder = "Product ID">
+    				<input type = "number" class= "add__price" placeholder="Product Price">
+    				<input type = "text" class = "add__description" placeholder="Reason for Return">
+    				<button class="add__btn"><i class = "ion-ios-checkmark-outline"></i></button>
+    				<button class="scan_btn" onclick="scanFunction()">Scan Items</button>
+    				<button class="call_btn" onclick="callEmployee()">Call an Employee</button>
+    				<button class="employee_log_btn" id="employee_log_btn" onclick="employeeLogin()">Proceed to Employee Login</button>       
+
+
+    			</div>
+    		</div>
+
+
+    	<div id = "container" id="container">
+            <div class="container" id="container">
+                <div class="products">
+                    <h2 class="products__title">Returns List</h2>
+                    
+                    <div class="products__list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+
+	<div id= "login">
+		<div class="login">
+			<div class="employeeID">Employee Id:</div>
+			<input type="text" class="employee__id" placeholder="Enter your Employee ID">
+			<div class="employeePass">Password:</div>
+			<input type="password" class="employee__pass" placeholder="Password">
+			<button class="login_btn" id="login_btn">Log In</button>
+			<p class="loginstatus" id="loginstatus"></p>
+		</div>
+	</div>
+
+</body>
+
+	<div id= "verify">
+		<div class="verify">
+			<button class="verify_btn" id="verify_btn">Verify</button>
+			<button class="dnverify_btn" id="dnverify_btn">Do Not Verify</button>
+			<div class="Instruction1">
+				1. Please check the customer's items and verify that all items are proper for return
+			</div>
+
+			<div class="Instruction2">
+				2. If there are any problems, explain it to the customer, press 'Do Not Verify' and restart the system. 
+			</div>
+
+			<div class="Instruction3">
+				3. If all items are good to be returned select 'Verify', and hand the system back to customer.
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<div id="payments">
+		<div class="payments">
+			<button class="card1_btn" id="card1_btn">Card on Receipt</button>
+			<button class="readcard_btn" id="readcard_btn">Read Card</button>
+			<button class="card2_btn" id="card2_btn">Insert a Card</button>
+            <button class="reset" id="reset">Restart</button>
+			<div class="select">Please Select How You Would Like to Receive Your Refund</div>
+		</div>
+	</div>
+
+
+
+
+    <div id="finalGreet">
+        <div class="finalGreet">
+            <button class="done_btn" id="done_btn">Done</button>
+            <div class = "message-1">Your account has been re-credited the amount listed above.</div>
+            <div class= "message-2">Thank You For Using the Returns System!</div>
+        </div>
+    </div>
+
+
+
+
+
+        <!------------------------- PRODUCT ADDING TEMPLATE ----------------------------->
+
+
+  <!--                     
+                        <div class="product clearfix" id="product-0">
+                            <div class="product__id">01478</div>
+                            <div class="middle clearfix">
+                                <div class="product__price">4,500</div>
+                                </div>
+                            <div class ="right clearfix">
+                            	<div class="product__description">My Name Jeff</div>
+                            </div>
+                        </div>
+                        
+                        <div class="product clearfix" id="product-1">
+                            <div class="product__id">01478</div>
+                            <div class="middle clearfix">
+                                <div class="product__price">4,500</div>
+                                </div>
+                            <div class ="right clearfix">
+                            	<div class="product__description">My Name Jeff</div>
+                            </div>
+                        </div>
+
+-->
+    
+        
+
+        <script src="{% static 'returns/returns.js' %}"></script>
+        </html>
+
+                   	
