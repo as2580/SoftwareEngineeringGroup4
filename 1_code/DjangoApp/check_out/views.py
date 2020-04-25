@@ -46,7 +46,7 @@ def remove_item(request):
     totals = shopping_cart.total()
     context = {'info_list': info_list, 'totals': totals, }
     request.session['totals'] = totals
-    return render(request, 'check_out/index.html', context)
+    return render(request, 'check_out/removeitem.html', context)
 
 
 def add_items(request):  # same idea as index
