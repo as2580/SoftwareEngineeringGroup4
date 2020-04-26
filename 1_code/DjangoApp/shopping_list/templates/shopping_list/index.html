@@ -50,10 +50,19 @@ Automated Supermarket: Shopping List
     {% endfor %}
 	</table>
 {% else %}
-    <p>No information on shopping list is available.</p>
+    <p>There's nothing in your shopping list.</p>
 {% endif %}
+
+<form action="/cust_home" method="get">
+<input type="submit" class="button big" value="Back to Dashboard"/>
+</form>
+
 {% else %}
 <p>You are not logged into a Customer account.</p>
+
+<form action="/" method="get">
+<input type="submit" class="button big" value="Back to Homepage"/>
+</form>
 {% endif %}
 
 </body>

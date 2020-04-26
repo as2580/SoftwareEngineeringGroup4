@@ -33,6 +33,16 @@ Welcome, {{ user }}!
 
 <div class="item">
 <center>
+<form action="shopping_list/search" method="post">
+<label for="search">Search: </label>
+<input id="search" type="text" class="form" name="search">
+<input type="submit" class="button" value="Search for Item">
+</form>
+</center>
+</div>
+
+<div class="item">
+<center>
 <form action="shopping_list" method="get">
 <input type="submit" class="button big" value="View Shopping List"/>
 </form>
@@ -49,6 +59,10 @@ Welcome, {{ user }}!
 
 {% else %}
 <p>You are not logged into a Customer account.</p>
+
+<form action="/" method="get">
+<input type="submit" class="button big" value="Back to Homepage"/>
+</form>
 {% endif %}
 
 </body>
