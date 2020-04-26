@@ -333,6 +333,37 @@ def get_password(username):
 	else:
 		return ""
 
+
+# input parameter(s):
+#
+# return value:
+#	
+def get_account_type(username):
+	q = "SELECT accountType FROM SE_DB.logins WHERE username = '" + username + "';"
+	c = db_util.db_open()
+	type = db_util.db_query(c, q)
+	db_util.db_close(c)
+	if(len(type) == 1):
+		return type[0][0]
+	else:
+		return ""
+
+
+# input parameter(s):
+#
+# return value:
+#	
+def get_id(username):
+	q = "SELECT ID FROM SE_DB.logins WHERE username = '" + username + "';"
+	c = db_util.db_open()
+	id = db_util.db_query(c, q)
+	db_util.db_close(c)
+	if(len(id) == 1):
+		return id[0][0]
+	else:
+		return ""
+
+
 # input parameter(s):
 #
 # return value:
