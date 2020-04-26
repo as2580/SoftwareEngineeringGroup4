@@ -240,10 +240,10 @@ def update_task_state(taskID, new_state, employeeID):
 #		-contains the item with matching RFID
 #		-nested list is a tuple containing the name and price for the item
 def get_item_info(RFID):
-	if(not RFID.isdecimal()):
-		return []
 	if not isinstance(RFID, str):
 		RFID = str(RFID)
+	if(not RFID.isdecimal()):
+		return []
 	q = "SELECT name, price FROM SE_DB.items WHERE RFID = " + RFID + ";"
 	c = db_util.db_open()
 	info = db_util.db_query(c, q)
@@ -384,3 +384,17 @@ def create_user(username, password, accountType, ID="NULL", first=None, last=Non
 		q = "INSERT INTO SE_DB.employees (lastName, firstName, ID, role) VALUES ('"+first+"','"+last+"',"+str(ID)+",'"+accountType+"');"
 		db_util.db_execute(c, q)
 	db_util.db_close(c)
+
+
+##################################
+# SHOPPINGLIST RELATED FUNCTIONS #
+##################################
+
+def get_user_shopping_list(user):
+	q = "SELECT item FROM SE_DB.shoppingList WHERE username = \"" + user + "\""
+	c = db_util.db_open()
+	list = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return list
+
+

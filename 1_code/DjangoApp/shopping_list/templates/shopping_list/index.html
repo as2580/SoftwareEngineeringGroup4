@@ -1,7 +1,43 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'shopping_list/style.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
 
 <title>Shopping List</title>
 
-<p>test</p>
+<body>
+
+<div class="logo">
+<a href="/shopping_list/">
+<img src="{% static "task_board/shopping-cart-red_bg.png" %}" width="100" height="100" alt="logo">
+</a>
+</div>
+
+<div><h1>
+Automated Supermarket: Shopping List
+</h1></div>
+
+{% if loggedIn %}
+{% if list %}
+	<table>
+	<table border="1" width="800">
+    <tr>
+        <th>Item Name</th>
+		<th>Price ($)</th>
+    </tr>
+    {% for line in list %}
+    <tr> 
+		{% for item in line %}
+        <td>{{ item|default_if_none:"<b>N/A</b>" }}</td>
+		{% endfor %}
+    </tr>
+    {% endfor %}
+	</table>
+{% else %}
+    <p>No information on shopping list is available.</p>
+{% endif %}
+{% else %}
+<p>You are not logged into a Customer account.</p>
+{% endif %}
+
+</body>
