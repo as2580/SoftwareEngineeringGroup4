@@ -95,8 +95,45 @@ def hours(request):
 	hours = db_h.get_id_employee_hours(ID)
 	checkOutDay = db_h.get_id_null_hours(ID)
 	checkedIn = False
-	if not any(checkOutDay):
+	if any(checkOutDay):
 		checkedIn = True
 	context = {'hours': hours, 'loggedIn': loggedIn, 'checkedIn': checkedIn}
 	return render(request, 'login/hours.html', context)
+	
+	
+def checkedIn(request):
+	user = ""
+	if 'user' in request.session:
+		user = request.session['user']
+	type = db_h.get_account_type(user)
+	loggedIn = False
+	if type == "Employee" or type == "Manager":
+		loggedIn = True
+	ID = db_h.get_id(user)
+	hours = db_h.get_id_employee_hours(ID)
+	checkOutDay = db_h.get_id_null_hours(ID)
+	checkedIn = False
+	if any(checkOutDay):
+		checkedIn = True
+	context = {'hours': hours, 'loggedIn': loggedIn, 'checkedIn': checkedIn}
+	return render(request, 'login/hours.html', context)
+	
+
+def checkedOut(request):
+	user = ""
+	if 'user' in request.session:
+		user = request.session['user']
+	type = db_h.get_account_type(user)
+	loggedIn = False
+	if type == "Employee" or type == "Manager":
+		loggedIn = True
+	ID = db_h.get_id(user)
+	hours = db_h.get_id_employee_hours(ID)
+	checkOutDay = db_h.get_id_null_hours(ID)
+	checkedIn = False
+	if any(checkOutDay):
+		checkedIn = True
+	context = {'hours': hours, 'loggedIn': loggedIn, 'checkedIn': checkedIn}
+	return render(request, 'login/hours.html', context)
+
 

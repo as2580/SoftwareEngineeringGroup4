@@ -24,11 +24,11 @@ Automated Supermarket: Your Employee Hours
 {% if loggedIn %}
 
 {% if checkedIn %}
-<form action="/" method="get">
+<form action="/checkedOut" method="get">
 <input type="submit" class="button big" value="Check Out"/>
 </form>
 {% else %}
-<form action="/" method="get">
+<form action="/checkedIn" method="get">
 <input type="submit" class="button big" value="Check In"/>
 </form>
 {% endif %}
@@ -52,9 +52,10 @@ Automated Supermarket: Your Employee Hours
     <p>No information on your hours is available.</p>
 {% endif %}
 
+<br>
 
 <form action="/emp_home" method="get">
-<input type="submit" class="button big" value="Back"/>
+<input type="submit" class="button big" value="Back to Dashboard"/>
 </form>
 
 {% else %}

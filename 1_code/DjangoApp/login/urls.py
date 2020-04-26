@@ -12,4 +12,6 @@ urlpatterns=[
 	path('emp_home', views.empHome, name="emp_home"),
 	path('loggedout', views.logout, name="loggedout"),
 	path('hours', views.hours, name="hours"),
+	path('checkedIn', views.checkedIn, name="checkedIn"),
+	path('checkedOut', views.checkedOut, name="checkedOut"),
 ]
