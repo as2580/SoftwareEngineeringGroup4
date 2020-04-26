@@ -359,6 +359,30 @@ def get_latest_employee_hours():
 	return hours
 
 
+def add_checkout(employeeID):
+	if not isinstance(employeeID, str):
+		employeeID = str(employeeID)
+	if(not employeeID.isdecimal()):
+		return
+	current_time = str(datetime.datetime.now())
+	q = "UPDATE SE_DB.hours SET checkOut = '" + current_time + "' WHERE hours.checkOut is NULL and employeeID = " + employeeID + " LIMIT 1;" 
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)
+
+
+def add_hours(employeeID):
+	if not isinstance(employeeID, str):
+		employeeID = str(employeeID)
+	if(not employeeID.isdecimal()):
+		return
+	current_time = str(datetime.datetime.now())
+	q = "INSERT INTO SE_DB.hours (employeeID, checkIn) VALUES (" + employeeID + ", '" + current_time + "');"
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)
+
+
 ##################################
 # TRANSACTIONS RELATED FUNCTIONS #
 ##################################

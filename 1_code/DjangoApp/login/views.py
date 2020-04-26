@@ -110,6 +110,7 @@ def checkedIn(request):
 	if type == "Employee" or type == "Manager":
 		loggedIn = True
 	ID = db_h.get_id(user)
+	db_h.add_hours(ID)
 	hours = db_h.get_id_employee_hours(ID)
 	checkOutDay = db_h.get_id_null_hours(ID)
 	checkedIn = False
@@ -128,6 +129,7 @@ def checkedOut(request):
 	if type == "Employee" or type == "Manager":
 		loggedIn = True
 	ID = db_h.get_id(user)
+	db_h.add_checkout(ID)
 	hours = db_h.get_id_employee_hours(ID)
 	checkOutDay = db_h.get_id_null_hours(ID)
 	checkedIn = False
