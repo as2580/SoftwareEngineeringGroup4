@@ -93,6 +93,10 @@ def hours(request):
 		loggedIn = True
 	ID = db_h.get_id(user)
 	hours = db_h.get_id_employee_hours(ID)
-	context = {'hours': hours, 'loggedIn': loggedIn}
+	checkOutDay = db_h.get_id_null_hours(ID)
+	checkedIn = False
+	if not any(checkOutDay):
+		checkedIn = True
+	context = {'hours': hours, 'loggedIn': loggedIn, 'checkedIn': checkedIn}
 	return render(request, 'login/hours.html', context)
 

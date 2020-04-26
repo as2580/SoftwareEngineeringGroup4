@@ -23,6 +23,16 @@ Automated Supermarket: Your Employee Hours
 
 {% if loggedIn %}
 
+{% if checkedIn %}
+<form action="/" method="get">
+<input type="submit" class="button big" value="Check Out"/>
+</form>
+{% else %}
+<form action="/" method="get">
+<input type="submit" class="button big" value="Check In"/>
+</form>
+{% endif %}
+
 {% if hours %}
 	<table>
 	<table border="1" width="800">
