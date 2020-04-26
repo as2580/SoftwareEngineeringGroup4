@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'shopping_list/style.css' %}">
 <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
 
-<title>Shopping List</title>
+<title>Item Search</title>
 
 <body>
 
@@ -14,11 +14,8 @@
 </div>
 
 <div><h1>
-Automated Supermarket: Shopping List
+Automated Supermarket: Item Search
 </h1></div>
-
-{% if loggedIn %}
-
 
 <form action="search" method="post">
 <label for="search">Search: </label>
@@ -26,11 +23,16 @@ Automated Supermarket: Shopping List
 <input type="submit" class="button" value="Search for Item">
 </form>
 
+<h2>Searched for: {{ query|default_if_none:"<b></b>" }}</h2>
+
+<h2>Search Results</h2>
+
 {% if list %}
 	<table>
 	<table border="1" width="800">
     <tr>
         <th>Item Name</th>
+		<th>Brand</th>
 		<th>Price ($)</th>
     </tr>
     {% for line in list %}
@@ -42,10 +44,13 @@ Automated Supermarket: Shopping List
     {% endfor %}
 	</table>
 {% else %}
-    <p>No information on shopping list is available.</p>
+    <p>No items found.</p>
 {% endif %}
-{% else %}
-<p>You are not logged into a Customer account.</p>
-{% endif %}
+
+<br>
+
+<form action="/shopping_list" method="get">
+<input type="submit" class="button big" value="Back"/>
+</form>
 
 </body>

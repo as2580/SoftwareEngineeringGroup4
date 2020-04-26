@@ -260,6 +260,13 @@ def get_items():
 	info = db_util.db_query(c, q)
 	db_util.db_close(c)
 	return info
+	
+def get_search_result(query):
+	q = "SELECT name, brand, price FROM SE_DB.items WHERE name like \"%" + query +"%\""
+	c = db_util.db_open()
+	info = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return info
 
 
 ###############################
@@ -396,5 +403,26 @@ def get_user_shopping_list(user):
 	list = db_util.db_query(c, q)
 	db_util.db_close(c)
 	return list
+
+def add_slist_item(user, RFID):
+	if not isinstance(user, str):
+		user = str(user)
+	if not isinstance(RFID, str):
+		RFID = str(RFID)
+	q = "INSERT INTO SE_DB.shoppingList(username, item) VALUES('" + user + "', '" + RFID + "');"
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)
+
+	
+def remove_slist_item(user, RFID):
+	if not isinstance(user, str):
+		user = str(user)
+	if not isinstance(RFID, str):
+		RFID = str(RFID)
+	q = "DELETE FROM SE_DB.tasks WHERE username = \"" + user + "\" and item = " + RFID
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)
 
 
