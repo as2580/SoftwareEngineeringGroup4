@@ -18,19 +18,36 @@
 </div>
 
 <div><h1>
-Automated Supermarket Customer Registration
+Automated Supermarket Employee Registration
 </h1></div>
 	{{ alert|default_if_none:"" }}
 	<br>
 	<br>
-	<form action="register" method="post">
+	<form action="registerE" method="post">
+	<label for="first"><b>First Name</b></label>
+	<input type="text" placeholder="First Name" name="first" required>
+	<br>
+	<label for="last"><b>Last Name</b></label>
+	<input type="text" placeholder="Last Name" name="last" required>
+	<br>
+	<label for="type">Type:</label>
+
+	<select name="type">
+		<option value="Employee">Employee</option>
+		<option value="Manager">Manager</option>
+	</select>
+	<br>
 	<label for="username"><b>Username</b></label>
 	<input type="text" placeholder="Username" name="username" required>
 	<br>
 	<label for="password"><b>Password</b></label>
 	<input type="password" placeholder="Password" name="password" required>
 	<br><br>
-	<input class="button" style="width: 20em;  height: 4em;" type="submit" value="Register">
+	<input class="button big" style="width: 20em;  height: 4em;" type="submit" value="Register Employee">
 	</form>
 
+<form action="/emp_home" method="get">
+<input type="submit" class="button big" value="Back to Homepage"/>
+</form>
 </body>
+

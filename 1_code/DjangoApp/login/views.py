@@ -32,10 +32,11 @@ def register(request):
 	
 def empReg(request):
 	return render(request, 'login/empReg.html')
-	
+
+@csrf_exempt	
 def registerE(request):
-	db_h.create_user(request.POST['username'], request.POST['password'], "Customer")
-	context = {'alert': "Account Created. Please Log In."}
+	db_h.create_user(request.POST['username'], request.POST['password'], request.POST['type'], 100, request.POST['first'],request.POST['last'])
+	context = {'alert': "Account Created."}
 	return render(request, 'login/empReg.html', context)
 	
 @csrf_exempt	
