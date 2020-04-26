@@ -270,14 +270,21 @@ def get_search_result(query):
 	
 def get_location(id):
 	id = str(id)
-	q = "SELECT location FROM SE_DB.locations WHERE RFID = " + id +";"
+	q = "SELECT location FROM SE_DB.stock WHERE itemRFID = " + id +" AND location != 'Back Room';"
 	c = db_util.db_open()
 	info = db_util.db_query(c, q)
 	db_util.db_close(c)
 	if(len(info) == 1):
 		return info[0][0]
 	else:
-		return ""
+		q = "SELECT location FROM SE_DB.stock WHERE itemRFID = " + id +" AND location = 'Back Room';"
+		c = db_util.db_open()
+		info = db_util.db_query(c, q)
+		db_util.db_close(c)
+		if(len(info) == 1):
+			return info[0][0]
+		else:
+			return ""
 
 
 ###############################
