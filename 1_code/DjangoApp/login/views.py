@@ -1,3 +1,7 @@
+## Written by: Abhinandan Vellanki, Andrew Saengtawesin, and Kimberly Chang
+## Tested by: Andrew Saengtawesin and Kimberly Chang
+## Debugged by: Andrew Saengtawesin and Kimberly Chang
+
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -67,5 +71,10 @@ def empHome(request):
 	else:
 		context = {'alert': "Incorrect Username or Password."}
 		return render(request, 'login/emp.html', context)
+
+
+def logout(request):
+	request.session['user'] = ""
+	return render(request, 'homepage.html')
 
 
