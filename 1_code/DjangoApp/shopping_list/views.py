@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 import util.db_helper as tm_db
 
 def index(request):
-	user = "lakes"
+	user = ""
 	if 'user' in request.session:
 		user = request.session['user']
 	type = tm_db.get_account_type(user)
