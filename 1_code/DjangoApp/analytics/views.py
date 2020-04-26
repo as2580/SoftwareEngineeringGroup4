@@ -13,7 +13,7 @@ def index(request):
 
 
 def view_latest_hours(request):
-	hours = get_latest_employee_hours()
+	hours = tm_db.get_latest_employee_hours()
 	context = {'hours': hours}
 	return render(request, 'analytics/view_latest_hours.html', context)
 	
