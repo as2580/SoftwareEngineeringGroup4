@@ -21,6 +21,26 @@
 Automated Supermarket
 </h1></div>
 
+{% if sales %}
+	<table>
+	<table border="1" width="800">
+    <tr>
+		<th>Day</th>
+		<th>Total Earnings ($)</th>
+    </tr>
+    {% for line in sales %}
+    <tr> 
+		{% for item in line %}
+        <td>{{ item|default_if_none:"<b>N/A</b>" }}</td>
+		{% endfor %}
+    </tr>
+    {% endfor %}
+	</table>
+{% else %}
+    <p>No information on sales figures is available.</p>
+{% endif %}
+
+
 <form action="/analytics" method="get">
 <input type="submit" class="button big" value="Back"/>
 </form>

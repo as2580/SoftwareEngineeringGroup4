@@ -18,8 +18,30 @@
 </div>
 
 <div><h1>
-Automated Supermarket
+Automated Supermarket: Employee Hours
 </h1></div>
+
+{% if hours %}
+	<table>
+	<table border="1" width="800">
+    <tr>
+        <th>Employee ID</th>
+		<th>Employee Name</th>
+		<th>Day</th>
+		<th>Hours Worked</th>
+    </tr>
+    {% for line in hours %}
+    <tr> 
+		{% for item in line %}
+        <td>{{ item|default_if_none:"<b>N/A</b>" }}</td>
+		{% endfor %}
+    </tr>
+    {% endfor %}
+	</table>
+{% else %}
+    <p>No information on employee hours is available.</p>
+{% endif %}
+
 
 <form action="/analytics" method="get">
 <input type="submit" class="button big" value="Back"/>

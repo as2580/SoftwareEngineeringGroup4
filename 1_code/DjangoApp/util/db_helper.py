@@ -283,7 +283,41 @@ def get_employee(employeeID):
 	employee = db_util.db_query(c, q)
 	db_util.db_close(c)
 	return employee
+
+
+###############################
+#   HOURS RELATED FUNCTIONS   #
+############################### 
+def get_all_employee_hours():
+	q = "SELECT employeeID, employeeName, day, hours FROM SE_DB.hoursList ORDER BY day DESC"
+	c = db_util.db_open()
+	hours = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return hours
+
+
+##################################
+# TRANSACTIONS RELATED FUNCTIONS #
+##################################
+def get_all_item_sales():
+	q = "SELECT date, itemType, amountSold FROM SE_DB.salesCategories"
+	c = db_util.db_open()
+	item_sales = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return item_sales
+
 	
+def get_all_money_sales():
+	q = "SELECT day, totalSales FROM SE_DB.salesDaily"
+	c = db_util.db_open()
+	money_sales = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return money_sales
+
+
+###############################
+#   LOGIN RELATED FUNCTIONS   #
+############################### 
 
 # input parameter(s):
 #
