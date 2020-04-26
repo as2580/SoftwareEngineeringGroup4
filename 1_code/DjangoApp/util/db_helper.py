@@ -227,6 +227,13 @@ def update_task_state(taskID, new_state, employeeID):
 	db_util.db_close(c)
 
 
+def randomly_assign_tasks():
+	q = "UPDATE SE_DB.tasks SET employeeID = (select SE_DB.hours.employeeID FROM SE_DB.hours where SE_DB.hours.checkOut is Null order by RAND() limit 1), state ='In Progress'  WHERE state = 'Incomplete';"
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)
+
+
 ###########################
 # ITEMS RELATED FUNCTIONS #
 ########################### 

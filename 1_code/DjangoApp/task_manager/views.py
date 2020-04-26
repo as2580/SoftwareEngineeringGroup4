@@ -36,7 +36,7 @@ def create(request):
 
 	
 def assign(request):
-	
+	tm_db.randomly_assign_tasks()
     tasks = tm_db.get_completed_tasks()
     incom = tm_db.get_noncompleted_tasks()
     context = {'tasks': tasks,'incom': incom}
