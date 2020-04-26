@@ -2,26 +2,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="{% static 'Login/style.css' %}">
-	<title>AUTOMATED SUPERMARKET</title>
+<link rel="stylesheet" type="text/css" href="{% static 'login/style.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
+
+<title>Automated Supermarket Home</title>
 </head>
+
 <body>
 	{% block content %}
-		<h1 align="center">AUTOMATED SUPERMARKET</h1>
-		<h2 align="center">Welcome to Homepage</h2>
+		<div class="logo">
+		<a href="/">
+		<img src="{% static "task_board/shopping-cart-red_bg.png" %}" width="100" height="100" alt="logo">
+		</a>
+		</div>
+
+		<div><h1>
+		Automated Supermarket
+		</h1></div>
 		{%if user.is_authenticated %})
 			<a href="{% url 'logout'%}">Logout</a>
-			{% else %}
-			<ul class="list" align="center">
-				<li><a href="{% url 'task_board'%}">Test</a></li>
-		    </ul>
+		{% else %}
+			<div class="item">
+			<center>
 			<form action="cust_login">
 			<input class="button" style="width: 20em;  height: 4em;" type="submit" value="Customer Login">
 			</form>
+			</center>
+			</div>
+
 			<br>
+			
+			<div class="item">
+			<center>
 			<form action="emp_login">
 			<input class="button" style="width: 20em;  height: 4em;" type="submit" value="Employee Login">
 			</form>
+			</center>
+			</div>
 		{% endif %}
 
 	{% endblock %}
