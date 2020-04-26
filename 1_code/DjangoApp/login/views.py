@@ -23,6 +23,20 @@ def custLogin(request):
 	
 def custReg(request):
 	return render(request, 'login/custReg.html')
+
+@csrf_exempt	
+def register(request):
+	db_h.create_user(request.POST['username'], request.POST['password'], "Customer")
+	context = {'alert': "Account Created. Please Log In."}
+	return render(request, 'login/cust.html', context)
+	
+def empReg(request):
+	return render(request, 'login/empReg.html')
+	
+def registerE(request):
+	db_h.create_user(request.POST['username'], request.POST['password'], "Customer")
+	context = {'alert': "Account Created. Please Log In."}
+	return render(request, 'login/empReg.html', context)
 	
 @csrf_exempt	
 def custHome(request):
