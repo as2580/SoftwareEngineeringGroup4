@@ -26,6 +26,11 @@ def custReg(request):
 	
 @csrf_exempt	
 def custHome(request):
+	if(len(request.session['user'])>0):
+		username = request.session['user']
+		loggedIn = True
+		context = {'user': username, 'loggedIn': loggedIn}
+		return render(request, 'home/cust.html', context)
 	username = request.POST['username']
 	password = request.POST['password']
 	

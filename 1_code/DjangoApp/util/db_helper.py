@@ -124,7 +124,7 @@ def get_all_tasks():
 #		-contains only tasks that are Complete
 #		-nested list is a tuple containing all information for a given tasks
 def get_completed_tasks():
-    q = "SELECT * FROM SE_DB.tasks WHERE state = \"Complete\";"
+    q = "SELECT * FROM SE_DB.taskList WHERE state = \"Complete\";"
     c = db_util.db_open()
     tasks = db_util.db_query(c, q)
     db_util.db_close(c)
@@ -138,7 +138,7 @@ def get_completed_tasks():
 #		-contains only tasks that are not Complete
 #		-nested list is a tuple containing all information for a given tasks
 def get_noncompleted_tasks():
-    q = "SELECT * FROM SE_DB.tasks WHERE state != \"Complete\";"
+    q = "SELECT * FROM SE_DB.taskList WHERE state != \"Complete\";"
     c = db_util.db_open()
     tasks = db_util.db_query(c, q)
     db_util.db_close(c)
@@ -322,7 +322,7 @@ def get_all_employee_hours():
 
 
 def get_latest_employee_hours():
-	q = "SELECT  h.employeeID, h.employeeName, h.hours, h.day FROM SE_DB.hoursList h INNER JOIN (SELECT MAX(day) as maxDay FROM SE_DB.hoursList) m WHERE h.day = m.maxDay ORDER BY day DESC"
+	q = "SELECT  h.employeeID, h.employeeName, h.day, h.hours FROM SE_DB.hoursList h INNER JOIN (SELECT MAX(day) as maxDay FROM SE_DB.hoursList) m WHERE h.day = m.maxDay ORDER BY day DESC"
 	c = db_util.db_open()
 	hours = db_util.db_query(c, q)
 	db_util.db_close(c)
