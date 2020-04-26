@@ -29,9 +29,18 @@ def modify(request):
 	new = tm_db.get_task(request.POST['taskID'])
 	context = {'old': old,'new': new}
 	return render(request, 'task_manager/modify.html', context)
+
 	
 def create(request):
 	return render(request, 'task_manager/create.html')
+
+	
+def assign(request):
+	
+    tasks = tm_db.get_completed_tasks()
+    incom = tm_db.get_noncompleted_tasks()
+    context = {'tasks': tasks,'incom': incom}
+    return render(request, 'task_manager/index.html', context)
 	
 @csrf_exempt	
 def created(request):

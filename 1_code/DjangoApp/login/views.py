@@ -94,5 +94,5 @@ def hours(request):
 	ID = db_h.get_id(user)
 	hours = db_h.get_id_employee_hours(ID)
 	context = {'hours': hours, 'loggedIn': loggedIn}
-	return render(request, 'login/hours.html')
+	return render(request, 'login/hours.html', context)
 
