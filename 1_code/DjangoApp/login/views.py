@@ -83,3 +83,16 @@ def logout(request):
 	return render(request, 'homepage.html')
 
 
+def hours(request):
+	user = ""
+	if 'user' in request.session:
+		user = request.session['user']
+	type = db_h.get_account_type(user)
+	loggedIn = False
+	if type == "Employee" or type == "Manager":
+		loggedIn = True
+	ID = db_h.get_id(user)
+	hours = db_h.get_id_employee_hours(ID)
+	context = {'hours': hours, 'loggedIn': loggedIn}
+	return render(request, 'login/hours.html')
+

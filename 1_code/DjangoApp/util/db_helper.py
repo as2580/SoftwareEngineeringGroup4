@@ -320,6 +320,17 @@ def get_all_employee_hours():
 	db_util.db_close(c)
 	return hours
 
+def get_id_employee_hours(employeeID):
+	if not isinstance(employeeID, str):
+		employeeID = str(employeeID)
+	if(not employeeID.isdecimal()):
+		return []
+	q = "SELECT day, hours FROM SE_DB.hoursList WHERE employeeID = " + employeeID + " ORDER BY day DESC"
+	c = db_util.db_open()
+	hours = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return hours
+
 
 def get_latest_employee_hours():
 	q = "SELECT  h.employeeID, h.employeeName, h.day, h.hours FROM SE_DB.hoursList h INNER JOIN (SELECT MAX(day) as maxDay FROM SE_DB.hoursList) m WHERE h.day = m.maxDay ORDER BY day DESC"

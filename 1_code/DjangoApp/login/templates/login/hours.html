@@ -1,0 +1,52 @@
+<!-- Written by: Andrew Saengtawesin and Kimberly Chang
+    Tested by: Andrew Saengtawesin and Kimberly Chang
+    Debugged by: Andrew Saengtawesin and Kimberly Chang -->
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'analytics/style.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
+
+<title>Employee Hours</title>
+
+<body>
+
+<div class="logo">
+<a href="/analytics/">
+<img src="{% static "task_board/shopping-cart-red_bg.png" %}" width="100" height="100" alt="logo">
+</a>
+</div>
+
+<div><h1>
+Automated Supermarket: Your Employee Hours
+</h1></div>
+
+
+
+{% if hours %}
+	<table>
+	<table border="1" width="800">
+    <tr>
+		<th>Day</th>
+		<th>Hours Worked</th>
+    </tr>
+    {% for line in hours %}
+    <tr> 
+		{% for item in line %}
+        <td>{{ item|default_if_none:"<b>N/A</b>" }}</td>
+		{% endfor %}
+    </tr>
+    {% endfor %}
+	</table>
+{% else %}
+    <p>No information on your hours is available.</p>
+{% endif %}
+
+
+<form action="/emp_home" method="get">
+<input type="submit" class="button big" value="Back"/>
+</form>
+
+
+
+</body>
