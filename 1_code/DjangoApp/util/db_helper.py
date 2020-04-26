@@ -267,6 +267,17 @@ def get_search_result(query):
 	info = db_util.db_query(c, q)
 	db_util.db_close(c)
 	return info
+	
+def get_location(id):
+	id = str(id)
+	q = "SELECT location FROM SE_DB.locations WHERE RFID = " + id +";"
+	c = db_util.db_open()
+	info = db_util.db_query(c, q)
+	db_util.db_close(c)
+	if(len(info) == 1):
+		return info[0][0]
+	else:
+		return ""
 
 
 ###############################
