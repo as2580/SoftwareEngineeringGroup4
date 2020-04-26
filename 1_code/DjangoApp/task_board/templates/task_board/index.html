@@ -18,8 +18,10 @@
 </div>
 
 <div><h1>
-Automated Supermarket
+Automated Supermarket: Task Board
 </h1></div>
+
+{% if loggedIn %}
 
 <div class="item">
 <center>
@@ -31,12 +33,14 @@ Automated Supermarket
 
 <div class="item">
 <center>
-<form action="view_tasks" method="post">
-<label for="employeeID">Employee ID: </label>
-<input id="employeeID" type="text" class="form" name="employeeID">
+<form action="view_tasks" method="get">
 <input type="submit" class="button big" value="View Your Tasks">
 </form>
 </center>
 </div>
+
+{% else %}
+<p>You are not logged into an Employee account.</p>
+{% endif %}
 
 </body>
