@@ -20,9 +20,9 @@ def view_hours(request):
 	return render(request, 'analytics/view_latest_hours.html')
 
 
-def view_month_sales(request):
+def view_money_sales(request):
 	return render(request, 'analytics/view_month_sales.html')
 	
 	
-def view_cat_sales(request):
+def view_item_sales(request):
 	return render(request, 'analytics/view_cat_sales.html')
