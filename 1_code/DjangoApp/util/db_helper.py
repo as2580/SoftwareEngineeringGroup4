@@ -296,6 +296,14 @@ def get_all_employee_hours():
 	return hours
 
 
+def get_latest_employee_hours():
+	q = "SELECT  h.employeeID, h.employeeName, h.hours, h.day FROM SE_DB.hoursList h INNER JOIN (SELECT MAX(day) as maxDay FROM SE_DB.hoursList) m WHERE h.day = m.maxDay ORDER BY day DESC"
+	c = db_util.db_open()
+	hours = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return hours
+
+
 ##################################
 # TRANSACTIONS RELATED FUNCTIONS #
 ##################################

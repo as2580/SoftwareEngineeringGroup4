@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'analytics/style.css' %}">
 <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
 
-<title>Analytics - Sales by Catergory</title>
+<title>Analytics - Sales by Item Catergory</title>
 
 <body>
 
@@ -18,11 +18,11 @@
 </div>
 
 <div><h1>
-Automated Supermarket
+Automated Supermarket: Item Category Sales
 </h1></div>
 
 {% if sales %}
-	<table>
+	<table id="datatable">
 	<table border="1" width="800">
     <tr>
 		<th>Day</th>

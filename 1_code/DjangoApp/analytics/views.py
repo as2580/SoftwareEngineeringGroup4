@@ -13,7 +13,9 @@ def index(request):
 
 
 def view_latest_hours(request):
-	return render(request, 'analytics/view_latest_hours.html')
+	hours = get_latest_employee_hours()
+	context = {'hours': hours}
+	return render(request, 'analytics/view_latest_hours.html', context)
 	
 
 def view_hours(request):
