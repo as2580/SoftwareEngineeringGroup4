@@ -42,7 +42,7 @@ def view_tasks(request):
 	loggedIn = False
 	if type == "Employee" or type == "Manager":
 		loggedIn = True
-	ID = get_id(user)
+	ID = str(tm_db.get_id(user))
 	tasks = []
 	if ID.isnumeric and ID:
 		tasks = tm_db.get_employee_tasks(ID)
@@ -60,7 +60,7 @@ def claim(request):
 	if type == "Employee" or type == "Manager":
 		loggedIn = True
 	if request.method == 'POST':
-		ID = request.POST["employeeID"]
+		ID = tm_db.get_id(user)
 		taskID = request.POST["id"]
 		tm_db.update_task_state(taskID, "In Progress", ID)
 		tasks = tm_db.get_task(taskID)

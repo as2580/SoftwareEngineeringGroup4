@@ -13,7 +13,12 @@ def indexView(request):
 
 
 def custLogin(request):
+	request.session['user'] = ""
 	return render(request, 'login/cust.html')
+	
+	
+def custReg(request):
+	return render(request, 'login/custReg.html')
 	
 @csrf_exempt	
 def custHome(request):
@@ -32,11 +37,20 @@ def custHome(request):
 		return render(request, 'login/cust.html', context)
 
 def empLogin(request):
+	request.session['user'] = ""
 	return render(request, 'login/emp.html')
 	
 @csrf_exempt	
 def empHome(request):
-
+	if(len(request.session['user'])>0):
+		username = request.session['user']
+		loggedIn = True
+		context = {'user': username, 'loggedIn': loggedIn}
+		if(db_h.get_account_type(username) == 'Employee'):
+			return render(request, 'home/emp.html', context)
+		elif(db_h.get_account_type(username) == 'Manager'):
+			return render(request, 'home/man.html', context)
+			
 	username = request.POST['username']
 	password = request.POST['password']
 	
@@ -54,6 +68,4 @@ def empHome(request):
 		context = {'alert': "Incorrect Username or Password."}
 		return render(request, 'login/emp.html', context)
 
-def redirect(request):
-	return render(request, 'homepage.html')
 
