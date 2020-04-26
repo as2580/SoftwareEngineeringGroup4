@@ -34,12 +34,21 @@ Automated Supermarket: Item Search
         <th>Item Name</th>
 		<th>Brand</th>
 		<th>Price ($)</th>
+		<th>Add Item To Cart</th>
     </tr>
     {% for line in list %}
     <tr> 
-		{% for item in line %}
-        <td>{{ item|default_if_none:"<b>N/A</b>" }}</td>
-		{% endfor %}
+
+        <td>{{ line.0|default_if_none:"<b>N/A</b>" }}</td>
+		<td>{{ line.1|default_if_none:"<b>N/A</b>" }}</td>
+		<td>{{ line.2|default_if_none:"<b>N/A</b>" }}</td>
+		<td>
+			<form action="add" method="get">
+			<input type="hidden" name="RFID" value={{ line.3 }} />
+			<input type="submit" class="button" value="Add Item"/>
+			</form>
+		</td>
+
     </tr>
     {% endfor %}
 	</table>

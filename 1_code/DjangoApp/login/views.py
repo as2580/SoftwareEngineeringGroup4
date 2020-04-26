@@ -24,6 +24,7 @@ def custHome(request):
 	
 	if(password == db_h.get_password(username) and db_h.get_account_type(username) == 'Customer'):
 		loggedIn = True
+		request.session['user'] = username
 		context = {'user': username, 'loggedIn': loggedIn}
 		return render(request, 'home/cust.html', context)
 	else:
@@ -35,6 +36,7 @@ def empLogin(request):
 	
 @csrf_exempt	
 def empHome(request):
+
 	username = request.POST['username']
 	password = request.POST['password']
 	
@@ -42,6 +44,7 @@ def empHome(request):
 	
 	if(password == db_h.get_password(username) and db_h.get_account_type(username) != 'Customer'):
 		loggedIn = True
+		request.session['user'] = username
 		context = {'user': username, 'loggedIn': loggedIn}
 		if(db_h.get_account_type(username) == 'Employee'):
 			return render(request, 'home/emp.html', context)

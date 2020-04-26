@@ -32,12 +32,20 @@ Automated Supermarket: Shopping List
     <tr>
         <th>Item Name</th>
 		<th>Price ($)</th>
+		<th>Remove Item</th>
     </tr>
     {% for line in list %}
     <tr> 
-		{% for item in line %}
-        <td>{{ item|default_if_none:"<b>N/A</b>" }}</td>
-		{% endfor %}
+
+        <td>{{ line.0|default_if_none:"<b>N/A</b>" }}</td>
+		<td>{{ line.1|default_if_none:"<b>N/A</b>" }}</td>
+		<td>
+			<form action="delete" method="get">
+			<input type="hidden" name="RFID" value={{ line.2 }} />
+			<input type="submit" class="button" value="X"/>
+			</form>
+		</td>
+
     </tr>
     {% endfor %}
 	</table>

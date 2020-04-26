@@ -9,18 +9,11 @@ def index(request):
 	if 'user' in request.session:
 		user = request.session['user']
 	type = tm_db.get_account_type(user)
-	slist = []
 	list = []
 	loggedIn = False
 	if type == "Customer":
 		loggedIn = True
-		slist = tm_db.get_user_shopping_list(user)
-		for line in slist:
-			for RFID in line:
-				item = tm_db.get_item_info(RFID)
-				if item is not None:
-					for part in item:
-						list.append(part)
+		list = tm_db.get_user_shopping_list(user)
 	context = {'list': list, 'loggedIn': loggedIn}
 	return render(request, 'shopping_list/index.html', context)
 	
@@ -34,4 +27,42 @@ def search(request):
 	context = {'list': results, 'query': search}
 	return render(request, 'shopping_list/search.html', context)
 	
-	
+@csrf_exempt
+def add(request):
+	item = ""
+	if request.method == 'GET':
+		item = request.GET["RFID"]
+	user = ""
+	if 'user' in request.session:
+		user = request.session['user']
+	tm_db.add_slist_item(user, item)
+	type = tm_db.get_account_type(user)
+	list = []
+	loggedIn = False
+	if type == "Customer":
+		loggedIn = True
+		list = tm_db.get_user_shopping_list(user)
+	context = {'list': list, 'loggedIn': loggedIn}
+	return render(request, 'shopping_list/index.html', context)
+
+
+@csrf_exempt
+def delete(request):
+	item = ""
+	if request.method == 'GET':
+		item = request.GET["RFID"]
+	user = ""
+	if 'user' in request.session:
+		user = request.session['user']
+	tm_db.remove_slist_item(user, item)
+	type = tm_db.get_account_type(user)
+	list = []
+	loggedIn = False
+	if type == "Customer":
+		loggedIn = True
+		list = tm_db.get_user_shopping_list(user)
+	context = {'list': list, 'loggedIn': loggedIn}
+	return render(request, 'shopping_list/index.html', context)		
+		
+		
+		
