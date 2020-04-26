@@ -1,7 +1,22 @@
-{% load static %}
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'Login/style.css' %}">
+	<title>PRICE CHECKER</title>
+</head>
+<body>
+    {% block content %}
+    <h1>PRICE CHECK TOOL</h1>
+    <h2>scan an item to see its price</h2>
 
-<link rel="stylesheet" type="text/css" href="{% static 'price_checker/style.css' %}">
+    <div><form action='search_rfid'>
+    <label for="rfid">RFID: </label>
+    <input type="text" id="rfid" name="rfid"><br><br>
+    </form></div>
 
-<title>Price Checker</title>
-
-<p>test</p>
+    <h3>{{error}}</h3>
+    <header>{{name}}</header>
+    <h2>{{price}}</h2>
+    {% endblock %}
+</body>
