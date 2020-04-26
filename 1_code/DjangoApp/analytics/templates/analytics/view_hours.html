@@ -21,6 +21,8 @@
 Automated Supermarket: Employee Hours
 </h1></div>
 
+{% if loggedIn %}
+
 {% if hours %}
 	<table>
 	<table border="1" width="800">
@@ -46,5 +48,13 @@ Automated Supermarket: Employee Hours
 <form action="/analytics" method="get">
 <input type="submit" class="button big" value="Back"/>
 </form>
+
+{% else %}
+<p>You are not logged into an Employee account.</p>
+
+<form action="/" method="get">
+<input type="submit" class="button big" value="Back to Homepage"/>
+</form>
+{% endif %}
 
 </body>
