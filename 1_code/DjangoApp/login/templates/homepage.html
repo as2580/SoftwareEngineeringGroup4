@@ -13,11 +13,15 @@
 			<a href="{% url 'logout'%}">Logout</a>
 			{% else %}
 			<ul class="list" align="center">
-				<li><a href="{% url 'customer_login_url'%}">Customer Login</a></li>
-				<li><a href="{% url 'register_url'%}">Customer Registration</a></li>
-				<li><a href="{% url 'manager_login_url'%}">Manager Login</a></li>
-				<li><a href="{% url 'employee_login_url'%}">Employee Login</a></li>
+				<li><a href="{% url 'task_board'%}">Test</a></li>
 		    </ul>
+			<form action="cust_login">
+			<input class="button" style="width: 20em;  height: 4em;" type="submit" value="Customer Login">
+			</form>
+			<br>
+			<form action="emp_login">
+			<input class="button" style="width: 20em;  height: 4em;" type="submit" value="Employee Login">
+			</form>
 		{% endif %}
 
 	{% endblock %}

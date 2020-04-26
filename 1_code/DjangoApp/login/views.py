@@ -3,85 +3,48 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
-import util.db_helper
+from django.views.decorators.csrf import csrf_exempt
+import util.db_helper as db_h
 
 
 # Create your views here.
 def indexView(request):
 	return render(request, 'homepage.html')
 
-@login_required
-def dashboardView(request):
-	type=request.session['type']
-	if type == 'employee':
-		return render(request, 'dashboards/dashboard_employee.html')
-	if type == 'manager':
-		return render(request, 'dashboards/dashboard_manager.html')
-	if type == 'customer':
-		return render(request, 'dashboards/dashboard_customer.html')
 
-
-def cust_login_view(request):
-	if request.method=="POST":
-		form=UserCreationForm(request.POST)
-		if form.is_valid():
-			username=request.POST['username']
-			password=request.POST['password']
-			if(get_password(username)==password):#authentication against database
-				request.session['type']='customer'
-				form.save()
-				return redirect('dashboard')#redirect to login page when account creation is successful
-			else:
-				return redirect('cust_login_url')
+def custLogin(request):
+	return render(request, 'login/cust.html')
+	
+@csrf_exempt	
+def custHome(request):
+	username = request.POST['username']
+	password = request.POST['password']
+	
+	if(password == db_h.get_password(username) and db_h.get_account_type(username) == 'Customer'):
+		context = {'user': username}
+		return render(request, 'home/cust.html', context)
 	else:
-		form=LoginView	
-	return render(request, 'registration/login.html', {'form':form})
+		context = {'alert': "Incorrect Username or Password."}
+		return render(request, 'login/cust.html', context)
 
-def emp_login_view(request):
-	if request.method=="POST":
-		form=UserCreationForm(request.POST)
-		if form.is_valid():
-			username=request.POST['username']
-			password=request.POST['password']
-			if(get_password(username)==password):#authentication against database
-				request.session['type']='employee'
-				form.save()
-				return redirect('dashboard')#redirect to login page when account creation is successful
-			else:
-				return redirect('emp_login_url')
+def empLogin(request):
+	return render(request, 'login/emp.html')
+	
+@csrf_exempt	
+def empHome(request):
+	username = request.POST['username']
+	password = request.POST['password']
+	
+	if(password == db_h.get_password(username) and db_h.get_account_type(username) != 'Customer'):
+		context = {'user': username}
+		if(db_h.get_account_type(username) == 'Employee'):
+			return render(request, 'home/emp.html', context)
+		elif(db_h.get_account_type(username) == 'Manager'):
+			return render(request, 'home/man.html', context)
 	else:
-		form=LoginView	
-	return render(request, 'registration/login.html', {'form':form})
+		context = {'alert': "Incorrect Username or Password."}
+		return render(request, 'login/emp.html', context)
 
-def manager_login_view(request):
-	if request.method=="POST":
-		form=UserCreationForm(request.POST)
-		if form.is_valid():
-			username=request.POST['username']
-			password=request.POST['password']
-			if(get_password(username)==password):#authentication against database
-				request.session['type']='manager'
-				form.save()
-				return redirect('dashboard')#redirect to login page when account creation is successful
-			else:
-				return redirect('manager_login_url')
-	else:
-		form=LoginView	
-	return render(request, 'registration/login.html', {'form':form})
-
-
-def registerView(request):
-	if request.method=="POST":
-		form=UserCreationForm(request.POST)
-		if form.is_valid():
-			username=request.POST['username']
-			password=request.POST['password2']
-			if create_user(username,password,accountType, ID="NULL", first=None, last=None):#add user to database
-				form.save()
-				return redirect('login_url')#redirect to login page when account creation is successful
-			else:
-				registerView(request)
-	else:
-		form=UserCreationForm()	
-	return render(request, 'registration/register.html', {'form':form})
+def redirect(request):
+	return render(request, 'homepage.html')
 

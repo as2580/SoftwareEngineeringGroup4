@@ -4,21 +4,23 @@
 
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'analytics/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'login/style.css' %}">
 <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
 
-<title>Automated Supermarket - Home</title>
+<title>Automated Supermarket</title>
 
 <body>
 
 <div class="logo">
-<a href="/analytics/">
+<a href="/login/">
 <img src="{% static "task_board/shopping-cart-red_bg.png" %}" width="100" height="100" alt="logo">
 </a>
 </div>
 
 <div><h1>
-Automated Supermarket
+Automated Supermarket Employee Homepage
 </h1></div>
+
+{{ user|default_if_none:"<b>None</b>" }}
 
 </body>
