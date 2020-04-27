@@ -1,0 +1,35 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'Login/style.css' %}">
+	<title>ITEM LOCATOR</title>
+</head>
+<body>
+    {% block content %}
+    <h1>ITEM LOCATOR</h1>
+
+    <div>
+        <form action='search'>
+            <label for="name">Search Item: </label>
+            <input type="text" placeholder="Search..." id="name" name="name"><br><br>
+        </form>
+        <form action='select'>
+            {{form.as_p}}
+            <input class="button" style="..." type='submit' value='OK'>
+        </form>
+    </div>
+
+    <div></div>
+
+    <header>{{name}}</header>
+    <h2>{{location}}</h2>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <form action='home_index' align="center">
+        <input type="submit" class="button big" value="BACK TO HOME"/>
+    </form>
+    {% endblock %}
+
+
+</body>
