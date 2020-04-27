@@ -5,8 +5,14 @@ from . import forms
 
 # Create your views here.
 
-def index(request):
-    return render(request, 'item_locator/index.html')
+
+def home_index(request):
+    return render(request, 'item_locator/customer_terminal_home.html')
+
+
+def il_index(request):
+    return render(request, 'item_locator/item_locator.html')
+
 
 def search(request):
     search = str(request.GET['name'])
@@ -14,7 +20,7 @@ def search(request):
 
     if list == []:
         context = {'location': 'Item Not Found', }
-        return render(request, 'item_locator/index.html', context)
+        return render(request, 'item_locator/item_locator.html', context)
 
     selection = []
     i = 0
@@ -30,13 +36,14 @@ def search(request):
     #location = db_helper.get_location(RFID)
 
     context = {'form': form,}
-    return render(request, 'item_locator/index.html', context)
+    return render(request, 'item_locator/item_locator.html', context)
+
 
 def select(request):
     list = forms.list
     if list == []:
         context = {'location': 'No Item Selected', }
-        return render(request, 'item_locator/index.html', context)
+        return render(request, 'item_locator/item_locator.html', context)
 
     index = int(request.GET['selection'])
 
@@ -50,9 +57,29 @@ def select(request):
             location = "Item Not Found"
 
         context = {'name': name, 'location': location, }
-        return render(request, 'item_locator/index.html', context)
+        return render(request, 'item_locator/item_locator.html', context)
     else:
         name = "No Item Selected"
         forms.list = []
         context = {'name': name,}
-        return render(request, 'item_locator/index.html', context)
+        return render(request, 'item_locator/item_locator.html', context)
+
+
+def pc_index(request):
+    return render(request, 'item_locator/price_checker.html')
+
+
+def search_rfid(request):
+    RFID = str(request.GET['rfid'])
+    if db_helper.get_item_info(RFID):
+        item = db_helper.get_item_info(RFID)
+        name = "Found Item: " + str(item[0][0])
+        price = "Price: $" + str(item[0][1])
+        context = {'name': name, 'price': price, }
+    else:
+        #name = "Error Finding Item"
+        #price = "Please Scan Again"
+        error = "ERROR FINDING ITEM\nPLEASE SCAN AGAIN"
+        context = {'error': error,}
+
+    return render(request, 'item_locator/price_checker.html', context)
