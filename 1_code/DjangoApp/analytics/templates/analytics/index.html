@@ -18,13 +18,15 @@
 </div>
 
 <div><h1>
-Automated Supermarket
+Automated Supermarket: Analytics
 </h1></div>
+
+{% if loggedIn %}
 
 <div class="item">
 <center>
 <form action="view_latest_hours" method="get">
-<input type="submit" class="button big" value="View Employee Hours for Latest Month"/>
+<input type="submit" class="button big" value="View Employee Hours for Latest Day"/>
 </form>
 </center>
 </div>
@@ -39,18 +41,30 @@ Automated Supermarket
 
 <div class="item">
 <center>
-<form action="view_cat_sales" method="get">
-<input type="submit" class="button big" value="View Sales by Category">
+<form action="view_item_sales" method="get">
+<input type="submit" class="button big" value="View Item Catergory Sales Figures">
 </form>
 </center>
 </div>
 
 <div class="item">
 <center>
-<form action="view_month_sales" method="get">
-<input type="submit" class="button big" value="View Sales by Month">
+<form action="view_money_sales" method="get">
+<input type="submit" class="button big" value="View Earnings by Day">
 </form>
 </center>
 </div>
+
+<form action="/emp_home" method="get">
+<input type="submit" class="button big" value="Back to Dashboard"/>
+</form>
+
+{% else %}
+<p>You are not logged into a Manager account.</p>
+
+<form action="/" method="get">
+<input type="submit" class="button big" value="Back to Homepage"/>
+</form>
+{% endif %}
 
 </body>

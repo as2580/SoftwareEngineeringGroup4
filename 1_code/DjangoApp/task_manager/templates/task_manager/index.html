@@ -7,7 +7,18 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'task_manager/style.css' %}">
 <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
-
+<style>
+.blinking{
+    animation:blinkingText 1.2s infinite;
+}
+@keyframes blinkingText{
+    0%{     background-color: #FFFF00; color:#000000    }
+    49%{    background-color: #FFFF00; color:#000000}
+    60%{    background-color: transparent; color:#FFFFFF}
+    99%{    background-color:transparent;  color:#FFFFFF}
+    100%{   background-color: #FFFF00;    color:#000000}
+}
+</style>
 <title>Task Manager</title>
 
 {% if alert%}
@@ -26,15 +37,65 @@
 </a>
 </div>
 
-<div><h1>
-Automated Supermarket
+<div class="logo" style="padding-right:50px"><h1>
+Automated Supermarket<t>  
 </h1></div>
 
+<div>
+<br>
+<form action="/emp_home" method="get">
+<input type="submit" class="button big" value="Back To Dashboard"/>
+</form>
+</div>
+<br>
+<br>
 <form action="create">
 <input class="button" style="width: 20em;  height: 4em;" type="submit" value="Create Task">
 </form>
+<br>
+<form action="assign">
+<input class="button" style="width: 20em;  height: 4em;" type="submit" value="Automatically Assign Tasks">
+</form>
+
+{% if incom %}
+<div class="blinking"><h2>
+	List of Incomplete Tasks
+</h2></div>
+	<table>
+	<table border="1" width="800">
+    <tr>
+        <th>Task Name</th>
+		<th>Description</th>
+		<th>Task ID</th>
+		<th>State</th>
+		<th>Employee ID</th>
+		<th>Employee Name</th>
+		<th>Time of Task Creation</th>
+		<th>Time of Task Completion</th>
+		<th>Edit</th>
+    </tr>
+    {% for line in incom %}
+    <tr> 
+		{% for item in line %}
+        <td>{{ item|default_if_none:"<b>None</b>" }}</td>
+		{% endfor %}
+		<td>
+			<form action="edit" method="get">
+			<input type="hidden" name="id" value={{ line.2 }} />
+			<input type="submit" class="button" value="Edit"/>
+			</form>
+		</td>
+    </tr>
+    {% endfor %}
+	</table>
+{% else %}
+    <p>No Incomplete Tasks.</p>
+{% endif %}
 
 {% if tasks %}
+<div><h2>
+	List of Complete Tasks
+</h2></div>
 	<table>
 	<table border="1" width="800">
     <tr>

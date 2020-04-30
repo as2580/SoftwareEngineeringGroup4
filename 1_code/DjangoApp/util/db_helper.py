@@ -124,7 +124,7 @@ def get_all_tasks():
 #		-contains only tasks that are Complete
 #		-nested list is a tuple containing all information for a given tasks
 def get_completed_tasks():
-    q = "SELECT * FROM SE_DB.tasks WHERE state = \"Complete\";"
+    q = "SELECT * FROM SE_DB.taskList WHERE state = \"Complete\";"
     c = db_util.db_open()
     tasks = db_util.db_query(c, q)
     db_util.db_close(c)
@@ -138,7 +138,7 @@ def get_completed_tasks():
 #		-contains only tasks that are not Complete
 #		-nested list is a tuple containing all information for a given tasks
 def get_noncompleted_tasks():
-    q = "SELECT * FROM SE_DB.tasks WHERE state != \"Complete\";"
+    q = "SELECT * FROM SE_DB.taskList WHERE state != \"Complete\";"
     c = db_util.db_open()
     tasks = db_util.db_query(c, q)
     db_util.db_close(c)
@@ -227,6 +227,13 @@ def update_task_state(taskID, new_state, employeeID):
 	db_util.db_close(c)
 
 
+def randomly_assign_tasks():
+	q = "UPDATE SE_DB.tasks SET employeeID = (select SE_DB.hours.employeeID FROM SE_DB.hours where SE_DB.hours.checkOut is Null order by RAND() limit 1), state ='In Progress'  WHERE state = 'Incomplete';"
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)
+
+
 ###########################
 # ITEMS RELATED FUNCTIONS #
 ########################### 
@@ -240,10 +247,10 @@ def update_task_state(taskID, new_state, employeeID):
 #		-contains the item with matching RFID
 #		-nested list is a tuple containing the name and price for the item
 def get_item_info(RFID):
-	if(not RFID.isdecimal()):
-		return []
 	if not isinstance(RFID, str):
 		RFID = str(RFID)
+	if(not RFID.isdecimal()):
+		return []
 	q = "SELECT name, price FROM SE_DB.items WHERE RFID = " + RFID + ";"
 	c = db_util.db_open()
 	info = db_util.db_query(c, q)
@@ -260,6 +267,31 @@ def get_items():
 	info = db_util.db_query(c, q)
 	db_util.db_close(c)
 	return info
+	
+def get_search_result(query):
+	q = "SELECT name, brand, price, RFID FROM SE_DB.items WHERE name like \"%" + query +"%\""
+	c = db_util.db_open()
+	info = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return info
+	
+def get_location(id):
+	id = str(id)
+	q = "SELECT location FROM SE_DB.stock WHERE itemRFID = " + id +" AND location != 'Back Room';"
+	c = db_util.db_open()
+	info = db_util.db_query(c, q)
+	db_util.db_close(c)
+	if(len(info) == 1):
+		return info[0][0]
+	else:
+		q = "SELECT location FROM SE_DB.stock WHERE itemRFID = " + id +" AND location = 'Back Room';"
+		c = db_util.db_open()
+		info = db_util.db_query(c, q)
+		db_util.db_close(c)
+		if(len(info) == 1):
+			return info[0][0]
+		else:
+			return ""
 
 
 ###############################
@@ -283,7 +315,96 @@ def get_employee(employeeID):
 	employee = db_util.db_query(c, q)
 	db_util.db_close(c)
 	return employee
+
+
+###############################
+#   HOURS RELATED FUNCTIONS   #
+############################### 
+def get_all_employee_hours():
+	q = "SELECT employeeID, employeeName, day, hours FROM SE_DB.hoursList ORDER BY day DESC"
+	c = db_util.db_open()
+	hours = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return hours
+
+def get_id_employee_hours(employeeID):
+	if not isinstance(employeeID, str):
+		employeeID = str(employeeID)
+	if(not employeeID.isdecimal()):
+		return []
+	q = "SELECT day, hours FROM SE_DB.hoursList WHERE employeeID = " + employeeID + " ORDER BY day DESC"
+	c = db_util.db_open()
+	hours = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return hours
+
+
+def get_id_null_hours(employeeID):
+	if not isinstance(employeeID, str):
+		employeeID = str(employeeID)
+	if(not employeeID.isdecimal()):
+		return []
+	q = "SELECT * FROM SE_DB.hours WHERE hours.checkOut is NULL and employeeID = " + employeeID + " LIMIT 1"
+	c = db_util.db_open()
+	hours = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return hours
+
+
+def get_latest_employee_hours():
+	q = "SELECT  h.employeeID, h.employeeName, h.day, h.hours FROM SE_DB.hoursList h INNER JOIN (SELECT MAX(day) as maxDay FROM SE_DB.hoursList) m WHERE h.day = m.maxDay ORDER BY day DESC"
+	c = db_util.db_open()
+	hours = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return hours
+
+
+def add_checkout(employeeID):
+	if not isinstance(employeeID, str):
+		employeeID = str(employeeID)
+	if(not employeeID.isdecimal()):
+		return
+	current_time = str(datetime.datetime.now())
+	q = "UPDATE SE_DB.hours SET checkOut = '" + current_time + "' WHERE hours.checkOut is NULL and employeeID = " + employeeID + " LIMIT 1;" 
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)
+
+
+def add_hours(employeeID):
+	if not isinstance(employeeID, str):
+		employeeID = str(employeeID)
+	if(not employeeID.isdecimal()):
+		return
+	current_time = str(datetime.datetime.now())
+	q = "INSERT INTO SE_DB.hours (employeeID, checkIn) VALUES (" + employeeID + ", '" + current_time + "');"
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)
+
+
+##################################
+# TRANSACTIONS RELATED FUNCTIONS #
+##################################
+def get_all_item_sales():
+	q = "SELECT date, itemType, amountSold FROM SE_DB.salesCategories"
+	c = db_util.db_open()
+	item_sales = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return item_sales
+
 	
+def get_all_money_sales():
+	q = "SELECT day, totalSales FROM SE_DB.salesDaily"
+	c = db_util.db_open()
+	money_sales = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return money_sales
+
+
+###############################
+#   LOGIN RELATED FUNCTIONS   #
+############################### 
 
 # input parameter(s):
 #
@@ -299,6 +420,37 @@ def get_password(username):
 	else:
 		return ""
 
+
+# input parameter(s):
+#
+# return value:
+#	
+def get_account_type(username):
+	q = "SELECT accountType FROM SE_DB.logins WHERE username = '" + username + "';"
+	c = db_util.db_open()
+	type = db_util.db_query(c, q)
+	db_util.db_close(c)
+	if(len(type) == 1):
+		return type[0][0]
+	else:
+		return ""
+
+
+# input parameter(s):
+#
+# return value:
+#	
+def get_id(username):
+	q = "SELECT ID FROM SE_DB.logins WHERE username = '" + username + "';"
+	c = db_util.db_open()
+	id = db_util.db_query(c, q)
+	db_util.db_close(c)
+	if(len(id) == 1):
+		return id[0][0]
+	else:
+		return ""
+
+
 # input parameter(s):
 #
 # return value:
@@ -311,3 +463,38 @@ def create_user(username, password, accountType, ID="NULL", first=None, last=Non
 		q = "INSERT INTO SE_DB.employees (lastName, firstName, ID, role) VALUES ('"+first+"','"+last+"',"+str(ID)+",'"+accountType+"');"
 		db_util.db_execute(c, q)
 	db_util.db_close(c)
+
+
+##################################
+# SHOPPINGLIST RELATED FUNCTIONS #
+##################################
+
+def get_user_shopping_list(user):
+	q = "SELECT name, price, item FROM SE_DB.userShoppingList WHERE username = \"" + user + "\""
+	c = db_util.db_open()
+	list = db_util.db_query(c, q)
+	db_util.db_close(c)
+	return list
+
+def add_slist_item(user, RFID):
+	if not isinstance(user, str):
+		user = str(user)
+	if not isinstance(RFID, str):
+		RFID = str(RFID)
+	q = "INSERT INTO SE_DB.shoppingList(username, item) VALUES('" + user + "', '" + RFID + "');"
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)
+
+	
+def remove_slist_item(user, RFID):
+	if not isinstance(user, str):
+		user = str(user)
+	if not isinstance(RFID, str):
+		RFID = str(RFID)
+	q = "DELETE FROM SE_DB.shoppingList WHERE username = \"" + user + "\" and item = " + RFID
+	c = db_util.db_open()
+	db_util.db_execute(c, q)
+	db_util.db_close(c)
+
+

@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'shopping_list/style.css' %}">
 <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
 
-<title>Shopping List</title>
+<title>Item Search</title>
 
 <body>
 
@@ -14,11 +14,8 @@
 </div>
 
 <div><h1>
-Automated Supermarket: Shopping List
+Automated Supermarket: Item Search
 </h1></div>
-
-{% if loggedIn %}
-
 
 <form action="search" method="post">
 <label for="search">Search: </label>
@@ -26,23 +23,29 @@ Automated Supermarket: Shopping List
 <input type="submit" class="button" value="Search for Item">
 </form>
 
+<h2>Searched for: {{ query|default_if_none:"<b></b>" }}</h2>
+
+<h2>Search Results</h2>
+
 {% if list %}
 	<table>
 	<table border="1" width="800">
     <tr>
         <th>Item Name</th>
+		<th>Brand</th>
 		<th>Price ($)</th>
-		<th>Remove Item</th>
+		<th>Add Item To Cart</th>
     </tr>
     {% for line in list %}
     <tr> 
 
         <td>{{ line.0|default_if_none:"<b>N/A</b>" }}</td>
 		<td>{{ line.1|default_if_none:"<b>N/A</b>" }}</td>
+		<td>{{ line.2|default_if_none:"<b>N/A</b>" }}</td>
 		<td>
-			<form action="delete" method="get">
-			<input type="hidden" name="RFID" value={{ line.2 }} />
-			<input type="submit" class="button" value="X"/>
+			<form action="add" method="get">
+			<input type="hidden" name="RFID" value={{ line.3 }} />
+			<input type="submit" class="button" value="Add Item"/>
 			</form>
 		</td>
 
@@ -50,19 +53,13 @@ Automated Supermarket: Shopping List
     {% endfor %}
 	</table>
 {% else %}
-    <p>There's nothing in your shopping list.</p>
+    <p>No items found.</p>
 {% endif %}
+
+<br>
 
 <form action="/cust_home" method="get">
 <input type="submit" class="button big" value="Back to Dashboard"/>
 </form>
-
-{% else %}
-<p>You are not logged into a Customer account.</p>
-
-<form action="/" method="get">
-<input type="submit" class="button big" value="Back to Homepage"/>
-</form>
-{% endif %}
 
 </body>

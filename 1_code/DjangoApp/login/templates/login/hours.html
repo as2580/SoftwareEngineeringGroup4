@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'analytics/style.css' %}">
 <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
 
-<title>Analytics - Latest Employee Hours</title>
+<title>Employee Hours</title>
 
 <body>
 
@@ -18,17 +18,25 @@
 </div>
 
 <div><h1>
-Automated Supermarket: Employee Hours
+Automated Supermarket: Your Employee Hours
 </h1></div>
 
 {% if loggedIn %}
+
+{% if checkedIn %}
+<form action="/checkedOut" method="get">
+<input type="submit" class="button big" value="Clock Out"/>
+</form>
+{% else %}
+<form action="/checkedIn" method="get">
+<input type="submit" class="button big" value="Clock In"/>
+</form>
+{% endif %}
 
 {% if hours %}
 	<table>
 	<table border="1" width="800">
     <tr>
-        <th>Employee ID</th>
-		<th>Employee Name</th>
 		<th>Day</th>
 		<th>Hours Worked</th>
     </tr>
@@ -41,11 +49,13 @@ Automated Supermarket: Employee Hours
     {% endfor %}
 	</table>
 {% else %}
-    <p>No information on employee hours is available.</p>
+    <p>No information on your hours is available.</p>
 {% endif %}
 
-<form action="/analytics" method="get">
-<input type="submit" class="button big" value="Back"/>
+<br>
+
+<form action="/emp_home" method="get">
+<input type="submit" class="button big" value="Back to Dashboard"/>
 </form>
 
 {% else %}

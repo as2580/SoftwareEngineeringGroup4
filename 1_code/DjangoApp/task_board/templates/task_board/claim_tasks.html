@@ -39,8 +39,6 @@ Automated Supermarket
 		{% endfor %}
 		<td>
 			<form action="claim" method="post">
-			<label for="employeeID">Employee ID: </label>
-			<input id="employeeID" type="text" class="form" name="employeeID">
 			<input type="hidden" name="id" value={{ line.2 }} />
 			<input type="submit" class="button" value="Claim">
 			</form>

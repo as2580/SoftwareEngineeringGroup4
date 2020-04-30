@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'analytics/style.css' %}">
 <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
 
-<title>Analytics - Latest Employee Hours</title>
+<title>Analytics - Earnings by Day</title>
 
 <body>
 
@@ -18,21 +18,19 @@
 </div>
 
 <div><h1>
-Automated Supermarket: Employee Hours
+Automated Supermarket: Earnings
 </h1></div>
 
 {% if loggedIn %}
 
-{% if hours %}
+{% if sales %}
 	<table>
 	<table border="1" width="800">
     <tr>
-        <th>Employee ID</th>
-		<th>Employee Name</th>
 		<th>Day</th>
-		<th>Hours Worked</th>
+		<th>Total Earnings ($)</th>
     </tr>
-    {% for line in hours %}
+    {% for line in sales %}
     <tr> 
 		{% for item in line %}
         <td>{{ item|default_if_none:"<b>N/A</b>" }}</td>
@@ -41,8 +39,9 @@ Automated Supermarket: Employee Hours
     {% endfor %}
 	</table>
 {% else %}
-    <p>No information on employee hours is available.</p>
+    <p>No information on sales figures is available.</p>
 {% endif %}
+
 
 <form action="/analytics" method="get">
 <input type="submit" class="button big" value="Back"/>

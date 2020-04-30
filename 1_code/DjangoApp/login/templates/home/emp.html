@@ -4,10 +4,10 @@
 
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'task_board/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'login/style.css' %}">
 <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet'>
 
-<title>Task Board</title>
+<title>Employee Dashboard</title>
 
 <body>
 
@@ -18,33 +18,45 @@
 </div>
 
 <div><h1>
-Automated Supermarket: Task Board
+Automated Supermarket: Employee Dashboard
 </h1></div>
 
 {% if loggedIn %}
 
 <div class="item">
 <center>
-<form action="claim_tasks" method="get">
-<input type="submit" class="button big" value="Claim Task"/>
+<h2>
+Welcome, {{ user }}!
+</h2>
+</center>
+</div>
+
+<div class="item">
+<center>
+<form action="task_board" method="get">
+<input type="submit" class="button big" value="View Task Board"/>
 </form>
 </center>
 </div>
 
 <div class="item">
 <center>
-<form action="view_tasks" method="get">
-<input type="submit" class="button big" value="View Your Tasks">
+<form action="hours" method="get">
+<input type="submit" class="button big" value="View Your Hours"/>
 </form>
 </center>
 </div>
 
-<form action="/emp_home" method="get">
-<input type="submit" class="button big" value="Back to Dashboard"/>
+<div class="item">
+<center>
+<form action="loggedout" method="get">
+<input type="submit" class="button big" value="Log Out"/>
 </form>
+</center>
+</div>
 
 {% else %}
-<p>You are not logged into an Employee account.</p>
+<p>You are not logged into a Employee account.</p>
 
 <form action="/" method="get">
 <input type="submit" class="button big" value="Back to Homepage"/>

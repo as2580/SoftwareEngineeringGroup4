@@ -62,3 +62,4 @@ __pycache__/
 1_code/DjangoApp/task_manager/__pycache__/views.cpython-37.pyc
 1_code/DjangoApp/DjangoApp/__pycache__/settings.cpython-37.pyc
 *.pyc
+1_code/DjangoApp/mydatabase

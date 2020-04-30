@@ -12,8 +12,9 @@ import util.db_helper as tm_db
 
 
 def index(request):
-    tasks = tm_db.get_all_tasks()
-    context = {'tasks': tasks}
+    tasks = tm_db.get_completed_tasks()
+    incom = tm_db.get_noncompleted_tasks()
+    context = {'tasks': tasks,'incom': incom}
     return render(request, 'task_manager/index.html', context)
 
 def edit(request):
@@ -28,9 +29,18 @@ def modify(request):
 	new = tm_db.get_task(request.POST['taskID'])
 	context = {'old': old,'new': new}
 	return render(request, 'task_manager/modify.html', context)
+
 	
 def create(request):
 	return render(request, 'task_manager/create.html')
+
+	
+def assign(request):
+    tm_db.randomly_assign_tasks()
+    tasks = tm_db.get_completed_tasks()
+    incom = tm_db.get_noncompleted_tasks()
+    context = {'tasks': tasks,'incom': incom}
+    return render(request, 'task_manager/index.html', context)
 	
 @csrf_exempt	
 def created(request):

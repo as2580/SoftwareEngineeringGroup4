@@ -12,11 +12,16 @@
 
     <div><form action='search_rfid'>
     <label for="rfid">RFID: </label>
-    <input type="text" id="rfid" name="rfid"><br><br>
+    <input type="text" placeholder="RFID" id="rfid" name="rfid"><br><br>
     </form></div>
 
     <h3>{{error}}</h3>
     <header>{{name}}</header>
     <h2>{{price}}</h2>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <form action='home_index' align="center">
+        <input type="submit" class="button big" value="BACK TO HOME"/>
+    </form>
     {% endblock %}
 </body>

@@ -1,0 +1,27 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'Login/style.css' %}">
+	<title>CUSTOMER TERMINAL</title>
+</head>
+<body>
+	{% block content %}
+		<h1 align="center">CUSTOMER ASSISTANCE TERMINAL</h1>
+		<h2 align="center">Need Assistance? Use the Apps Below!</h2>
+
+		<form action="il_index" method="get" align="center">
+				<input type="submit" class="button big" value="FIND ITEMS"/>
+		</form>
+
+		<form action="pc_index" method="get" align="center">
+				<input type="submit" class="button big" value="CHECK PRICE"/>
+		</form>
+
+		<form action="il_index" method="get" align="center">
+				<input type="submit" class="button big" value="CALL FOR HELP"/>
+		</form>
+
+	{% endblock %}
+</body>
+</html>
