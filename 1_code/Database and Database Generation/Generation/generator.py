@@ -1,3 +1,7 @@
+## Written by: Kimberly Chang
+## Tested by: Kimberly Chang
+## Debugged by: Kimberly Chang
+
 import random
 import datetime
 
