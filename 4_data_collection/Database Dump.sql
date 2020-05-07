@@ -11,7 +11,7 @@
  Target Server Version : 50722
  File Encoding         : 65001
 
- Date: 02/04/2020 20:59:21
+ Date: 06/05/2020 23:26:21
 */
 
 SET NAMES utf8mb4;
@@ -91,6 +91,7 @@ INSERT INTO `employees` VALUES ('Warren', 'Willie', 4, 'Employee');
 INSERT INTO `employees` VALUES ('West', 'Asim', 34, 'Manager');
 INSERT INTO `employees` VALUES ('Wood', 'Umar', 28, 'Employee');
 INSERT INTO `employees` VALUES ('Zimmerman', 'Leandro', 58, 'Employee');
+INSERT INTO `employees` VALUES ('First', 'Last', 100, 'Employee');
 
 -- ----------------------------
 -- Table structure for hours
@@ -214,7 +215,7 @@ INSERT INTO `hours` VALUES (8, '2016-08-25 15:25:00', NULL);
 INSERT INTO `hours` VALUES (56, '2011-06-26 05:48:00', '2011-06-26 10:47:00');
 INSERT INTO `hours` VALUES (10, '2015-12-30 20:36:00', '2015-12-30 21:41:00');
 INSERT INTO `hours` VALUES (17, '2022-11-17 10:15:00', NULL);
-INSERT INTO `hours` VALUES (4, '2012-11-07 18:19:00', NULL);
+INSERT INTO `hours` VALUES (4, '2012-11-07 18:19:00', '2012-11-07 18:19:00');
 INSERT INTO `hours` VALUES (42, '2011-04-13 13:48:00', '2011-04-13 14:48:00');
 INSERT INTO `hours` VALUES (21, '2014-02-09 10:15:00', '2014-02-09 14:55:00');
 INSERT INTO `hours` VALUES (5, '2011-11-15 01:05:00', '2011-11-15 05:58:00');
@@ -399,7 +400,7 @@ INSERT INTO `hours` VALUES (13, '2015-03-20 15:35:00', '2015-03-20 17:55:00');
 INSERT INTO `hours` VALUES (20, '2020-05-08 19:15:00', '2020-05-08 21:02:00');
 INSERT INTO `hours` VALUES (33, '2021-04-18 18:48:00', '2021-04-18 21:19:00');
 INSERT INTO `hours` VALUES (23, '2019-11-24 18:58:00', NULL);
-INSERT INTO `hours` VALUES (55, '2013-05-10 12:26:00', NULL);
+INSERT INTO `hours` VALUES (55, '2013-05-10 12:26:00', '2020-04-26 16:30:25');
 INSERT INTO `hours` VALUES (9, '2010-11-29 02:59:00', '2010-11-29 08:28:00');
 INSERT INTO `hours` VALUES (14, '2010-06-28 18:05:00', NULL);
 INSERT INTO `hours` VALUES (31, '2016-12-26 10:08:00', '2016-12-26 16:05:00');
@@ -468,7 +469,7 @@ INSERT INTO `hours` VALUES (4, '2015-04-05 18:22:00', NULL);
 INSERT INTO `hours` VALUES (58, '2016-07-04 07:22:00', NULL);
 INSERT INTO `hours` VALUES (29, '2011-01-01 06:53:00', NULL);
 INSERT INTO `hours` VALUES (16, '2010-12-01 07:32:00', NULL);
-INSERT INTO `hours` VALUES (55, '2018-11-05 16:19:00', NULL);
+INSERT INTO `hours` VALUES (55, '2018-11-05 16:19:00', '2020-04-26 16:30:28');
 INSERT INTO `hours` VALUES (18, '2011-03-03 02:33:00', '2011-03-03 05:24:00');
 INSERT INTO `hours` VALUES (7, '2018-02-25 04:31:00', '2018-02-25 07:11:00');
 INSERT INTO `hours` VALUES (51, '2020-11-08 07:01:00', '2020-11-08 12:08:00');
@@ -502,7 +503,7 @@ INSERT INTO `hours` VALUES (56, '2021-12-26 09:15:00', '2021-12-26 11:51:00');
 INSERT INTO `hours` VALUES (11, '2019-12-22 20:21:00', '2019-12-22 23:29:00');
 INSERT INTO `hours` VALUES (16, '2017-03-12 15:47:00', '2017-03-12 17:06:00');
 INSERT INTO `hours` VALUES (45, '2014-07-15 09:34:00', '2014-07-15 15:36:00');
-INSERT INTO `hours` VALUES (55, '2015-03-17 01:44:00', NULL);
+INSERT INTO `hours` VALUES (55, '2015-03-17 01:44:00', '2020-04-26 16:30:30');
 INSERT INTO `hours` VALUES (27, '2015-07-05 18:46:00', NULL);
 INSERT INTO `hours` VALUES (15, '2016-04-19 12:57:00', '2016-04-19 16:35:00');
 INSERT INTO `hours` VALUES (48, '2012-05-07 09:33:00', '2012-05-07 11:57:00');
@@ -530,7 +531,7 @@ INSERT INTO `hours` VALUES (28, '2016-11-19 08:38:00', '2016-11-19 14:43:00');
 INSERT INTO `hours` VALUES (27, '2015-06-14 19:03:00', NULL);
 INSERT INTO `hours` VALUES (50, '2019-10-16 02:16:00', NULL);
 INSERT INTO `hours` VALUES (8, '2010-08-24 06:35:00', NULL);
-INSERT INTO `hours` VALUES (55, '2019-05-21 15:35:00', NULL);
+INSERT INTO `hours` VALUES (55, '2019-05-21 15:35:00', '2020-04-26 16:30:32');
 INSERT INTO `hours` VALUES (40, '2021-03-18 17:27:00', NULL);
 INSERT INTO `hours` VALUES (53, '2011-07-10 17:52:00', '2011-07-10 19:35:00');
 INSERT INTO `hours` VALUES (49, '2011-06-03 20:03:00', NULL);
@@ -597,7 +598,7 @@ INSERT INTO `hours` VALUES (47, '2013-01-06 18:09:00', '2013-01-06 20:24:00');
 INSERT INTO `hours` VALUES (17, '2010-01-27 12:25:00', '2010-01-27 13:39:00');
 INSERT INTO `hours` VALUES (29, '2013-11-09 09:26:00', '2013-11-09 12:34:00');
 INSERT INTO `hours` VALUES (20, '2018-03-03 04:32:00', NULL);
-INSERT INTO `hours` VALUES (55, '2011-01-25 12:13:00', NULL);
+INSERT INTO `hours` VALUES (55, '2011-01-25 12:13:00', '2020-04-26 16:30:35');
 INSERT INTO `hours` VALUES (19, '2011-12-11 13:40:00', NULL);
 INSERT INTO `hours` VALUES (35, '2017-08-03 04:36:00', '2017-08-03 10:23:00');
 INSERT INTO `hours` VALUES (31, '2022-11-30 04:05:00', NULL);
@@ -669,10 +670,10 @@ INSERT INTO `hours` VALUES (48, '2015-01-10 06:55:00', '2015-01-10 11:56:00');
 INSERT INTO `hours` VALUES (7, '2013-10-02 03:30:00', NULL);
 INSERT INTO `hours` VALUES (33, '2013-03-14 15:32:00', '2013-03-14 19:15:00');
 INSERT INTO `hours` VALUES (44, '2012-07-25 04:00:00', NULL);
-INSERT INTO `hours` VALUES (57, '2013-01-15 19:44:00', NULL);
+INSERT INTO `hours` VALUES (57, '2013-01-15 19:44:00', '2013-01-15 22:44:00');
 INSERT INTO `hours` VALUES (23, '2012-03-31 05:54:00', NULL);
 INSERT INTO `hours` VALUES (21, '2010-12-10 13:46:00', '2010-12-10 19:57:00');
-INSERT INTO `hours` VALUES (55, '2022-05-25 02:08:00', NULL);
+INSERT INTO `hours` VALUES (55, '2022-05-25 02:08:00', '2020-04-26 16:30:37');
 INSERT INTO `hours` VALUES (5, '2013-12-01 03:47:00', '2013-12-01 08:59:00');
 INSERT INTO `hours` VALUES (21, '2018-10-16 20:51:00', '2018-10-16 21:58:00');
 INSERT INTO `hours` VALUES (16, '2018-04-05 01:07:00', NULL);
@@ -718,7 +719,7 @@ INSERT INTO `hours` VALUES (35, '2016-10-15 19:26:00', NULL);
 INSERT INTO `hours` VALUES (44, '2012-02-04 04:26:00', '2012-02-04 09:29:00');
 INSERT INTO `hours` VALUES (14, '2016-03-05 16:19:00', NULL);
 INSERT INTO `hours` VALUES (59, '2014-10-01 10:45:00', '2014-10-01 15:07:00');
-INSERT INTO `hours` VALUES (55, '2010-02-05 05:50:00', NULL);
+INSERT INTO `hours` VALUES (55, '2010-02-05 05:50:00', '2020-04-26 16:30:39');
 INSERT INTO `hours` VALUES (27, '2021-07-27 01:36:00', NULL);
 INSERT INTO `hours` VALUES (7, '2012-12-02 01:53:00', '2012-12-02 06:25:00');
 INSERT INTO `hours` VALUES (50, '2021-12-08 12:05:00', '2021-12-08 14:29:00');
@@ -796,8 +797,8 @@ INSERT INTO `hours` VALUES (45, '2010-05-31 18:52:00', '2010-05-31 20:30:00');
 INSERT INTO `hours` VALUES (56, '2014-05-16 10:38:00', NULL);
 INSERT INTO `hours` VALUES (10, '2018-05-17 19:01:00', '2018-05-17 20:32:00');
 INSERT INTO `hours` VALUES (51, '2019-01-14 08:11:00', NULL);
-INSERT INTO `hours` VALUES (55, '2018-08-05 01:30:00', NULL);
-INSERT INTO `hours` VALUES (55, '2012-12-15 08:48:00', NULL);
+INSERT INTO `hours` VALUES (55, '2018-08-05 01:30:00', '2020-04-26 16:30:42');
+INSERT INTO `hours` VALUES (55, '2012-12-15 08:48:00', '2020-04-26 16:30:44');
 INSERT INTO `hours` VALUES (38, '2019-01-17 11:03:00', NULL);
 INSERT INTO `hours` VALUES (10, '2010-07-12 05:42:00', NULL);
 INSERT INTO `hours` VALUES (20, '2017-09-07 06:13:00', '2017-09-07 07:23:00');
@@ -889,7 +890,7 @@ INSERT INTO `hours` VALUES (52, '2021-06-13 16:17:00', NULL);
 INSERT INTO `hours` VALUES (17, '2021-04-08 08:40:00', '2021-04-08 10:15:00');
 INSERT INTO `hours` VALUES (33, '2018-06-16 18:26:00', '2018-06-16 19:23:00');
 INSERT INTO `hours` VALUES (22, '2018-04-29 17:52:00', '2018-04-29 19:49:00');
-INSERT INTO `hours` VALUES (55, '2020-05-11 02:02:00', NULL);
+INSERT INTO `hours` VALUES (55, '2020-05-11 02:02:00', '2020-04-26 16:30:45');
 INSERT INTO `hours` VALUES (29, '2018-07-18 01:38:00', '2018-07-18 06:24:00');
 INSERT INTO `hours` VALUES (5, '2019-01-15 16:00:00', '2019-01-15 22:50:00');
 INSERT INTO `hours` VALUES (46, '2016-02-23 03:23:00', '2016-02-23 05:42:00');
@@ -1023,7 +1024,7 @@ INSERT INTO `hours` VALUES (30, '2018-10-02 13:59:00', '2018-10-02 18:41:00');
 INSERT INTO `hours` VALUES (54, '2016-09-06 14:34:00', NULL);
 INSERT INTO `hours` VALUES (16, '2020-03-17 05:08:00', NULL);
 INSERT INTO `hours` VALUES (28, '2020-02-20 11:34:00', '2020-02-20 14:28:00');
-INSERT INTO `hours` VALUES (55, '2021-04-28 17:26:00', NULL);
+INSERT INTO `hours` VALUES (55, '2021-04-28 17:26:00', '2020-04-26 16:30:48');
 INSERT INTO `hours` VALUES (47, '2011-10-21 11:40:00', '2011-10-21 16:54:00');
 INSERT INTO `hours` VALUES (9, '2022-12-30 05:12:00', '2022-12-30 06:13:00');
 INSERT INTO `hours` VALUES (39, '2017-01-23 05:38:00', NULL);
@@ -1104,6 +1105,9 @@ INSERT INTO `hours` VALUES (28, '2018-04-02 16:03:00', '2018-04-02 17:29:00');
 INSERT INTO `hours` VALUES (54, '2018-05-26 19:04:00', NULL);
 INSERT INTO `hours` VALUES (46, '2022-04-10 03:18:00', NULL);
 INSERT INTO `hours` VALUES (15, '2012-07-16 05:45:00', NULL);
+INSERT INTO `hours` VALUES (55, '2020-04-26 16:30:54', '2020-04-26 16:31:05');
+INSERT INTO `hours` VALUES (57, '2020-04-26 17:16:33', '2020-04-26 17:16:47');
+INSERT INTO `hours` VALUES (57, '2020-04-26 17:18:25', '2020-04-26 17:18:28');
 
 -- ----------------------------
 -- Table structure for items
@@ -1789,84 +1793,87 @@ INSERT INTO `items` VALUES ('Tylenol Extra Strength Acetaminophen Pain Reliever 
 -- ----------------------------
 DROP TABLE IF EXISTS `logins`;
 CREATE TABLE `logins`  (
-  `username` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `password` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `accountType` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL
+  `username` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `accountType` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `ID` int(11) NULL DEFAULT NULL
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of logins
 -- ----------------------------
-INSERT INTO `logins` VALUES ('RohanAllen', 'vAhKGsL3s7', 'Employee');
-INSERT INTO `logins` VALUES ('HalimahArnold', 'yN0J06NWG1', 'Employee');
-INSERT INTO `logins` VALUES ('AmritaBernard', 'i76qEle7Fy', 'Employee');
-INSERT INTO `logins` VALUES ('VirgilBriggs', 'cFv4SuGQZm', 'Employee');
-INSERT INTO `logins` VALUES ('FannieByrne', 'vr9h3pr88Z', 'Manager');
-INSERT INTO `logins` VALUES ('CaspianCampos', 'ZwOMpCh93N', 'Employee');
-INSERT INTO `logins` VALUES ('EvangelineCarr', 'wQfh55wS6o', 'Manager');
-INSERT INTO `logins` VALUES ('RoanCarson', '3Xg3KbrV4l', 'Employee');
-INSERT INTO `logins` VALUES ('MiyaCastillo', '3IdlSXGYsQ', 'Employee');
-INSERT INTO `logins` VALUES ('MyahClarke', 'kSrNQ93f7g', 'Employee');
-INSERT INTO `logins` VALUES ('IsmailCohen', 'EPTUkM5cR8', 'Employee');
-INSERT INTO `logins` VALUES ('AnnabelCurry', '0ifQyWcY8I', 'Employee');
-INSERT INTO `logins` VALUES ('KerryDaniel', 'MUvx9MweoQ', 'Employee');
-INSERT INTO `logins` VALUES ('JadenDunn', '7NnqKfJshv', 'Employee');
-INSERT INTO `logins` VALUES ('RebeccaEstrada', 'rqkmVTK5Aw', 'Employee');
-INSERT INTO `logins` VALUES ('IshaaqFrazier', 'H6jEtIWTmp', 'Manager');
-INSERT INTO `logins` VALUES ('MiltonFrench', 'q2M5huph2N', 'Employee');
-INSERT INTO `logins` VALUES ('BevanGraham', 'zwEAHBOMJg', 'Employee');
-INSERT INTO `logins` VALUES ('KhloeGriffith', 'v185SeT5mt', 'Employee');
-INSERT INTO `logins` VALUES ('ZahraHammond', 'CfZK5R09LG', 'Employee');
-INSERT INTO `logins` VALUES ('MayurHarris', 'udVdraYVOy', 'Employee');
-INSERT INTO `logins` VALUES ('AmirHaynes', '7VvmTcYdMb', 'Employee');
-INSERT INTO `logins` VALUES ('KhadijaHicks', 'jG3GcnTJpL', 'Employee');
-INSERT INTO `logins` VALUES ('FfionHoffman', 'IsHxpwRO2c', 'Employee');
-INSERT INTO `logins` VALUES ('MayurHoffman', 'cr4a0JCebC', 'Employee');
-INSERT INTO `logins` VALUES ('DarrenHolt', '3lRviDl4aj', 'Manager');
-INSERT INTO `logins` VALUES ('AshaHopkins', 'SreTpVbdzI', 'Employee');
-INSERT INTO `logins` VALUES ('HerbertHughes', '5bWfEkiVeQ', 'Employee');
-INSERT INTO `logins` VALUES ('KristenJohnson', 'bCTQf7h1Og', 'Employee');
-INSERT INTO `logins` VALUES ('JolyonKelley', 'fZlHjw5jY1', 'Manager');
-INSERT INTO `logins` VALUES ('DarienKennedy', 'Tk3wx4JaMb', 'Manager');
-INSERT INTO `logins` VALUES ('ChantelleLe', 'UNeakIMewR', 'Employee');
-INSERT INTO `logins` VALUES ('DarienLee', '12LdurMGZj', 'Manager');
-INSERT INTO `logins` VALUES ('WillowLin', 'RVMuSQ7TjH', 'Employee');
-INSERT INTO `logins` VALUES ('SalmaMack', 'Z9L0sZRZqh', 'Employee');
-INSERT INTO `logins` VALUES ('LiyahMann', 'UPFpCwFkDM', 'Employee');
-INSERT INTO `logins` VALUES ('AsmaaMcCarthy', '1noNFrwWum', 'Employee');
-INSERT INTO `logins` VALUES ('FayeMcCoy', 'otbtZbsOKQ', 'Manager');
-INSERT INTO `logins` VALUES ('SashaMcGrath', 'P3Y4LF1zlz', 'Manager');
-INSERT INTO `logins` VALUES ('AsnanMcFarlane', 'TRoJo5Mjmp', 'Employee');
-INSERT INTO `logins` VALUES ('KarolMiddleton', '7piSkI26f4', 'Employee');
-INSERT INTO `logins` VALUES ('NicolasMorton', '6YDmjCghQ4', 'Employee');
-INSERT INTO `logins` VALUES ('AlvinNicholls', '31VaVLGqfV', 'Manager');
-INSERT INTO `logins` VALUES ('KaneNorman', 'ZgUtB2jfi9', 'Employee');
-INSERT INTO `logins` VALUES ('ArandeepParsons', '73wm3GGXa8', 'Employee');
-INSERT INTO `logins` VALUES ('NikoPorter', '2UI69TDIKv', 'Employee');
-INSERT INTO `logins` VALUES ('EsaRamsey', 'hiSrNou2BQ', 'Employee');
-INSERT INTO `logins` VALUES ('KristinReilly', 'pznuNIX4Ni', 'Manager');
-INSERT INTO `logins` VALUES ('JamesRomero', 'lvXgiCLGe5', 'Employee');
-INSERT INTO `logins` VALUES ('RufusRussell', 'aqsodNQWhl', 'Employee');
-INSERT INTO `logins` VALUES ('LaraSandoval', 'gXrb21kObp', 'Employee');
-INSERT INTO `logins` VALUES ('LauraSandoval', 'S7zErAGdhF', 'Employee');
-INSERT INTO `logins` VALUES ('IfanSherman', 'CypTxBJHf4', 'Employee');
-INSERT INTO `logins` VALUES ('MillySteele', 'a1S9Z9xIc5', 'Employee');
-INSERT INTO `logins` VALUES ('MichelleThorne', 'YQd9BI05TT', 'Employee');
-INSERT INTO `logins` VALUES ('CaitlynVargas', 'uoJUVvxlLd', 'Employee');
-INSERT INTO `logins` VALUES ('WillieWarren', 'IVuW9ejJ4g', 'Employee');
-INSERT INTO `logins` VALUES ('AsimWest', 'vojtFTHHfV', 'Manager');
-INSERT INTO `logins` VALUES ('UmarWood', 'w2sD8ol9l4', 'Employee');
-INSERT INTO `logins` VALUES ('LeandroZimmerman', 'OujpFp9YA6', 'Employee');
-INSERT INTO `logins` VALUES ('katie587', 'NOS19oAR', 'Customer');
-INSERT INTO `logins` VALUES ('coolcat53', 'mKqqyLcU', 'Customer');
-INSERT INTO `logins` VALUES ('lakes', '2ALoAECK', 'Customer');
-INSERT INTO `logins` VALUES ('laura', 'cVD9DfRL', 'Customer');
-INSERT INTO `logins` VALUES ('LeaAnderson', 'XJRwSujl', 'Customer');
-INSERT INTO `logins` VALUES ('jjohnson', 'kuYkLTIs', 'Customer');
-INSERT INTO `logins` VALUES ('flyingpigs43', 'vaVVQF7K', 'Customer');
-INSERT INTO `logins` VALUES ('ilovecats', '5eEgC3mE', 'Customer');
-INSERT INTO `logins` VALUES ('amy67', 'aa4HPCK3', 'Customer');
-INSERT INTO `logins` VALUES ('roger23', 'IvPoJCFf', 'Customer');
+INSERT INTO `logins` VALUES ('RohanAllen', 'vAhKGsL3s7', 'Employee', 54);
+INSERT INTO `logins` VALUES ('HalimahArnold', 'yN0J06NWG1', 'Employee', 41);
+INSERT INTO `logins` VALUES ('AmritaBernard', 'i76qEle7Fy', 'Employee', 51);
+INSERT INTO `logins` VALUES ('VirgilBriggs', 'cFv4SuGQZm', 'Employee', 15);
+INSERT INTO `logins` VALUES ('FannieByrne', 'vr9h3pr88Z', 'Manager', 2);
+INSERT INTO `logins` VALUES ('CaspianCampos', 'ZwOMpCh93N', 'Employee', 3);
+INSERT INTO `logins` VALUES ('EvangelineCarr', 'wQfh55wS6o', 'Manager', 5);
+INSERT INTO `logins` VALUES ('RoanCarson', '3Xg3KbrV4l', 'Employee', 20);
+INSERT INTO `logins` VALUES ('MiyaCastillo', '3IdlSXGYsQ', 'Employee', 57);
+INSERT INTO `logins` VALUES ('MyahClarke', 'kSrNQ93f7g', 'Employee', 21);
+INSERT INTO `logins` VALUES ('IsmailCohen', 'EPTUkM5cR8', 'Employee', 30);
+INSERT INTO `logins` VALUES ('AnnabelCurry', '0ifQyWcY8I', 'Employee', 12);
+INSERT INTO `logins` VALUES ('KerryDaniel', 'MUvx9MweoQ', 'Employee', 14);
+INSERT INTO `logins` VALUES ('JadenDunn', '7NnqKfJshv', 'Employee', 35);
+INSERT INTO `logins` VALUES ('RebeccaEstrada', 'rqkmVTK5Aw', 'Employee', 23);
+INSERT INTO `logins` VALUES ('IshaaqFrazier', 'H6jEtIWTmp', 'Manager', 38);
+INSERT INTO `logins` VALUES ('MiltonFrench', 'q2M5huph2N', 'Employee', 31);
+INSERT INTO `logins` VALUES ('BevanGraham', 'zwEAHBOMJg', 'Employee', 53);
+INSERT INTO `logins` VALUES ('KhloeGriffith', 'v185SeT5mt', 'Employee', 7);
+INSERT INTO `logins` VALUES ('ZahraHammond', 'CfZK5R09LG', 'Employee', 16);
+INSERT INTO `logins` VALUES ('MayurHarris', 'udVdraYVOy', 'Employee', 52);
+INSERT INTO `logins` VALUES ('AmirHaynes', '7VvmTcYdMb', 'Employee', 37);
+INSERT INTO `logins` VALUES ('KhadijaHicks', 'jG3GcnTJpL', 'Employee', 26);
+INSERT INTO `logins` VALUES ('FfionHoffman', 'IsHxpwRO2c', 'Employee', 18);
+INSERT INTO `logins` VALUES ('MayurHoffman', 'cr4a0JCebC', 'Employee', 13);
+INSERT INTO `logins` VALUES ('DarrenHolt', '3lRviDl4aj', 'Manager', 47);
+INSERT INTO `logins` VALUES ('AshaHopkins', 'SreTpVbdzI', 'Employee', 45);
+INSERT INTO `logins` VALUES ('HerbertHughes', '5bWfEkiVeQ', 'Employee', 19);
+INSERT INTO `logins` VALUES ('KristenJohnson', 'bCTQf7h1Og', 'Employee', 11);
+INSERT INTO `logins` VALUES ('JolyonKelley', 'fZlHjw5jY1', 'Manager', 48);
+INSERT INTO `logins` VALUES ('DarienKennedy', 'Tk3wx4JaMb', 'Manager', 36);
+INSERT INTO `logins` VALUES ('ChantelleLe', 'UNeakIMewR', 'Employee', 1);
+INSERT INTO `logins` VALUES ('DarienLee', '12LdurMGZj', 'Manager', 27);
+INSERT INTO `logins` VALUES ('WillowLin', 'RVMuSQ7TjH', 'Employee', 43);
+INSERT INTO `logins` VALUES ('SalmaMack', 'Z9L0sZRZqh', 'Employee', 40);
+INSERT INTO `logins` VALUES ('LiyahMann', 'UPFpCwFkDM', 'Employee', 46);
+INSERT INTO `logins` VALUES ('AsmaaMcCarthy', '1noNFrwWum', 'Employee', 8);
+INSERT INTO `logins` VALUES ('FayeMcCoy', 'otbtZbsOKQ', 'Manager', 29);
+INSERT INTO `logins` VALUES ('SashaMcGrath', 'P3Y4LF1zlz', 'Manager', 56);
+INSERT INTO `logins` VALUES ('AsnanMcFarlane', 'TRoJo5Mjmp', 'Employee', 10);
+INSERT INTO `logins` VALUES ('KarolMiddleton', '7piSkI26f4', 'Employee', 50);
+INSERT INTO `logins` VALUES ('NicolasMorton', '6YDmjCghQ4', 'Employee', 24);
+INSERT INTO `logins` VALUES ('AlvinNicholls', 'AlvinNicholls', 'Manager', 33);
+INSERT INTO `logins` VALUES ('KaneNorman', 'ZgUtB2jfi9', 'Employee', 22);
+INSERT INTO `logins` VALUES ('ArandeepParsons', '73wm3GGXa8', 'Employee', 60);
+INSERT INTO `logins` VALUES ('NikoPorter', '2UI69TDIKv', 'Employee', 9);
+INSERT INTO `logins` VALUES ('EsaRamsey', 'hiSrNou2BQ', 'Employee', 44);
+INSERT INTO `logins` VALUES ('KristinReilly', 'pznuNIX4Ni', 'Manager', 17);
+INSERT INTO `logins` VALUES ('JamesRomero', 'lvXgiCLGe5', 'Employee', 59);
+INSERT INTO `logins` VALUES ('RufusRussell', 'aqsodNQWhl', 'Employee', 32);
+INSERT INTO `logins` VALUES ('LaraSandoval', 'gXrb21kObp', 'Employee', 39);
+INSERT INTO `logins` VALUES ('LauraSandoval', 'S7zErAGdhF', 'Employee', 55);
+INSERT INTO `logins` VALUES ('IfanSherman', 'CypTxBJHf4', 'Employee', 25);
+INSERT INTO `logins` VALUES ('MillySteele', 'a1S9Z9xIc5', 'Employee', 49);
+INSERT INTO `logins` VALUES ('MichelleThorne', 'YQd9BI05TT', 'Employee', 6);
+INSERT INTO `logins` VALUES ('CaitlynVargas', 'uoJUVvxlLd', 'Employee', 42);
+INSERT INTO `logins` VALUES ('WillieWarren', 'IVuW9ejJ4g', 'Employee', 4);
+INSERT INTO `logins` VALUES ('AsimWest', 'vojtFTHHfV', 'Manager', 34);
+INSERT INTO `logins` VALUES ('UmarWood', 'w2sD8ol9l4', 'Employee', 28);
+INSERT INTO `logins` VALUES ('LeandroZimmerman', 'OujpFp9YA6', 'Employee', 58);
+INSERT INTO `logins` VALUES ('katie587', 'NOS19oAR', 'Customer', NULL);
+INSERT INTO `logins` VALUES ('coolcat53', 'mKqqyLcU', 'Customer', NULL);
+INSERT INTO `logins` VALUES ('lakes', '2ALoAECK', 'Customer', NULL);
+INSERT INTO `logins` VALUES ('laura', 'cVD9DfRL', 'Customer', NULL);
+INSERT INTO `logins` VALUES ('LeaAnderson', 'XJRwSujl', 'Customer', NULL);
+INSERT INTO `logins` VALUES ('jjohnson', 'kuYkLTIs', 'Customer', NULL);
+INSERT INTO `logins` VALUES ('flyingpigs43', 'vaVVQF7K', 'Customer', NULL);
+INSERT INTO `logins` VALUES ('ilovecats', '5eEgC3mE', 'Customer', NULL);
+INSERT INTO `logins` VALUES ('amy67', 'aa4HPCK3', 'Customer', NULL);
+INSERT INTO `logins` VALUES ('roger23', 'IvPoJCFf', 'Customer', NULL);
+INSERT INTO `logins` VALUES ('mememe', 'maymay', 'Customer', NULL);
+INSERT INTO `logins` VALUES ('User', 'Pass', 'Employee', 100);
 
 -- ----------------------------
 -- Table structure for sales
@@ -1980,6 +1987,198 @@ INSERT INTO `sales` VALUES (1, '2008-08-08 19:32:00', 2681.9443000000006);
 INSERT INTO `sales` VALUES (1, '2008-08-09 02:32:00', 515.3976);
 INSERT INTO `sales` VALUES (1, '2008-08-10 02:32:00', 322.9367);
 INSERT INTO `sales` VALUES (1, '2008-08-11 02:32:00', 953.7980000000001);
+
+-- ----------------------------
+-- Table structure for shoppingList
+-- ----------------------------
+DROP TABLE IF EXISTS `shoppingList`;
+CREATE TABLE `shoppingList`  (
+  `username` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `item` int(11) NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of shoppingList
+-- ----------------------------
+INSERT INTO `shoppingList` VALUES ('katie587', 197933668);
+INSERT INTO `shoppingList` VALUES ('katie587', 641272390);
+INSERT INTO `shoppingList` VALUES ('katie587', 13220840);
+INSERT INTO `shoppingList` VALUES ('katie587', 912175405);
+INSERT INTO `shoppingList` VALUES ('katie587', 341696003);
+INSERT INTO `shoppingList` VALUES ('katie587', 185547675);
+INSERT INTO `shoppingList` VALUES ('katie587', 827159720);
+INSERT INTO `shoppingList` VALUES ('katie587', 776373858);
+INSERT INTO `shoppingList` VALUES ('katie587', 156205756);
+INSERT INTO `shoppingList` VALUES ('katie587', 260738111);
+INSERT INTO `shoppingList` VALUES ('katie587', 931601501);
+INSERT INTO `shoppingList` VALUES ('katie587', 29899867);
+INSERT INTO `shoppingList` VALUES ('katie587', 1142614);
+INSERT INTO `shoppingList` VALUES ('katie587', 30022824);
+INSERT INTO `shoppingList` VALUES ('katie587', 772293574);
+INSERT INTO `shoppingList` VALUES ('katie587', 192911063);
+INSERT INTO `shoppingList` VALUES ('katie587', 264735838);
+INSERT INTO `shoppingList` VALUES ('katie587', 698073331);
+INSERT INTO `shoppingList` VALUES ('katie587', 318041371);
+INSERT INTO `shoppingList` VALUES ('katie587', 131364630);
+INSERT INTO `shoppingList` VALUES ('katie587', 611066278);
+INSERT INTO `shoppingList` VALUES ('katie587', 342151924);
+INSERT INTO `shoppingList` VALUES ('katie587', 308932602);
+INSERT INTO `shoppingList` VALUES ('katie587', 135962395);
+INSERT INTO `shoppingList` VALUES ('katie587', 105063188);
+INSERT INTO `shoppingList` VALUES ('katie587', 65747321);
+INSERT INTO `shoppingList` VALUES ('katie587', 143471143);
+INSERT INTO `shoppingList` VALUES ('katie587', 691136757);
+INSERT INTO `shoppingList` VALUES ('katie587', 122336801);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 641149739);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 680833254);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 924982523);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 360254985);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 618868285);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 660194327);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 228362552);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 392701574);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 374213819);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 400610349);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 446813078);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 530649681);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 906547203);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 3391573);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 589556275);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 576883226);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 520799129);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 864115122);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 207483506);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 471720969);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 313183872);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 671683783);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 674073781);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 786099268);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 890861998);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 902652557);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 527546241);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 297595974);
+INSERT INTO `shoppingList` VALUES ('coolcat53', 766600818);
+INSERT INTO `shoppingList` VALUES ('lakes', 871476604);
+INSERT INTO `shoppingList` VALUES ('lakes', 810856912);
+INSERT INTO `shoppingList` VALUES ('lakes', 68516353);
+INSERT INTO `shoppingList` VALUES ('lakes', 534672659);
+INSERT INTO `shoppingList` VALUES ('lakes', 512129545);
+INSERT INTO `shoppingList` VALUES ('lakes', 306748330);
+INSERT INTO `shoppingList` VALUES ('lakes', 188571822);
+INSERT INTO `shoppingList` VALUES ('lakes', 486639527);
+INSERT INTO `shoppingList` VALUES ('lakes', 914561382);
+INSERT INTO `shoppingList` VALUES ('lakes', 977784846);
+INSERT INTO `shoppingList` VALUES ('lakes', 618048186);
+INSERT INTO `shoppingList` VALUES ('lakes', 841222322);
+INSERT INTO `shoppingList` VALUES ('lakes', 624140149);
+INSERT INTO `shoppingList` VALUES ('lakes', 424821994);
+INSERT INTO `shoppingList` VALUES ('lakes', 826703550);
+INSERT INTO `shoppingList` VALUES ('lakes', 440744687);
+INSERT INTO `shoppingList` VALUES ('lakes', 165787827);
+INSERT INTO `shoppingList` VALUES ('lakes', 763048516);
+INSERT INTO `shoppingList` VALUES ('lakes', 831132842);
+INSERT INTO `shoppingList` VALUES ('lakes', 216757285);
+INSERT INTO `shoppingList` VALUES ('lakes', 103527170);
+INSERT INTO `shoppingList` VALUES ('lakes', 906216461);
+INSERT INTO `shoppingList` VALUES ('lakes', 855448528);
+INSERT INTO `shoppingList` VALUES ('lakes', 273855112);
+INSERT INTO `shoppingList` VALUES ('lakes', 210614166);
+INSERT INTO `shoppingList` VALUES ('lakes', 36385050);
+INSERT INTO `shoppingList` VALUES ('lakes', 487813950);
+INSERT INTO `shoppingList` VALUES ('laura', 168649821);
+INSERT INTO `shoppingList` VALUES ('laura', 742184638);
+INSERT INTO `shoppingList` VALUES ('laura', 980937320);
+INSERT INTO `shoppingList` VALUES ('laura', 147380524);
+INSERT INTO `shoppingList` VALUES ('laura', 654906749);
+INSERT INTO `shoppingList` VALUES ('laura', 721562848);
+INSERT INTO `shoppingList` VALUES ('laura', 735141185);
+INSERT INTO `shoppingList` VALUES ('laura', 368015956);
+INSERT INTO `shoppingList` VALUES ('laura', 761627202);
+INSERT INTO `shoppingList` VALUES ('laura', 189835404);
+INSERT INTO `shoppingList` VALUES ('laura', 890680315);
+INSERT INTO `shoppingList` VALUES ('laura', 133142140);
+INSERT INTO `shoppingList` VALUES ('laura', 876766712);
+INSERT INTO `shoppingList` VALUES ('laura', 767912926);
+INSERT INTO `shoppingList` VALUES ('laura', 743770287);
+INSERT INTO `shoppingList` VALUES ('laura', 95492025);
+INSERT INTO `shoppingList` VALUES ('laura', 515163034);
+INSERT INTO `shoppingList` VALUES ('laura', 551267519);
+INSERT INTO `shoppingList` VALUES ('laura', 67942347);
+INSERT INTO `shoppingList` VALUES ('laura', 706809550);
+INSERT INTO `shoppingList` VALUES ('laura', 404574880);
+INSERT INTO `shoppingList` VALUES ('laura', 228563793);
+INSERT INTO `shoppingList` VALUES ('laura', 712729037);
+INSERT INTO `shoppingList` VALUES ('laura', 187187938);
+INSERT INTO `shoppingList` VALUES ('LeaAnderson', 667550791);
+INSERT INTO `shoppingList` VALUES ('LeaAnderson', 182179438);
+INSERT INTO `shoppingList` VALUES ('LeaAnderson', 430133201);
+INSERT INTO `shoppingList` VALUES ('LeaAnderson', 291088289);
+INSERT INTO `shoppingList` VALUES ('LeaAnderson', 109358214);
+INSERT INTO `shoppingList` VALUES ('LeaAnderson', 47681416);
+INSERT INTO `shoppingList` VALUES ('LeaAnderson', 266077399);
+INSERT INTO `shoppingList` VALUES ('LeaAnderson', 962031403);
+INSERT INTO `shoppingList` VALUES ('jjohnson', 356663511);
+INSERT INTO `shoppingList` VALUES ('jjohnson', 995845826);
+INSERT INTO `shoppingList` VALUES ('jjohnson', 621409760);
+INSERT INTO `shoppingList` VALUES ('jjohnson', 722074087);
+INSERT INTO `shoppingList` VALUES ('jjohnson', 834421629);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 727124873);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 360864476);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 680833254);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 185718233);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 231721554);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 537676449);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 803202587);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 476563512);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 441588705);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 457634256);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 815339560);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 955503395);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 212807173);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 48431568);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 919410578);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 565207121);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 361079600);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 146902057);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 189561259);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 330708881);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 119579158);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 823373981);
+INSERT INTO `shoppingList` VALUES ('flyingpigs43', 426851212);
+INSERT INTO `shoppingList` VALUES ('ilovecats', 535547190);
+INSERT INTO `shoppingList` VALUES ('ilovecats', 383591801);
+INSERT INTO `shoppingList` VALUES ('amy67', 408329659);
+INSERT INTO `shoppingList` VALUES ('roger23', 405105021);
+INSERT INTO `shoppingList` VALUES ('roger23', 659625070);
+INSERT INTO `shoppingList` VALUES ('roger23', 356959148);
+INSERT INTO `shoppingList` VALUES ('roger23', 271792976);
+INSERT INTO `shoppingList` VALUES ('roger23', 930271939);
+INSERT INTO `shoppingList` VALUES ('roger23', 868728792);
+INSERT INTO `shoppingList` VALUES ('roger23', 685603994);
+INSERT INTO `shoppingList` VALUES ('roger23', 141594655);
+INSERT INTO `shoppingList` VALUES ('roger23', 971377978);
+INSERT INTO `shoppingList` VALUES ('roger23', 460566391);
+INSERT INTO `shoppingList` VALUES ('roger23', 517831127);
+INSERT INTO `shoppingList` VALUES ('roger23', 36742398);
+INSERT INTO `shoppingList` VALUES ('roger23', 41667611);
+INSERT INTO `shoppingList` VALUES ('roger23', 286833294);
+INSERT INTO `shoppingList` VALUES ('roger23', 423674253);
+INSERT INTO `shoppingList` VALUES ('roger23', 12356316);
+INSERT INTO `shoppingList` VALUES ('roger23', 609818254);
+INSERT INTO `shoppingList` VALUES ('roger23', 630961211);
+INSERT INTO `shoppingList` VALUES ('roger23', 314942291);
+INSERT INTO `shoppingList` VALUES ('roger23', 430521771);
+INSERT INTO `shoppingList` VALUES ('roger23', 802225187);
+INSERT INTO `shoppingList` VALUES ('roger23', 657987194);
+INSERT INTO `shoppingList` VALUES ('roger23', 736458876);
+INSERT INTO `shoppingList` VALUES ('roger23', 438129276);
+INSERT INTO `shoppingList` VALUES ('roger23', 582601488);
+INSERT INTO `shoppingList` VALUES ('roger23', 525381146);
+INSERT INTO `shoppingList` VALUES ('roger23', 202653160);
+INSERT INTO `shoppingList` VALUES ('roger23', 960056673);
+INSERT INTO `shoppingList` VALUES ('roger23', 917533915);
+INSERT INTO `shoppingList` VALUES ('roger23', 983120643);
+INSERT INTO `shoppingList` VALUES ('lakes', 308932602);
 
 -- ----------------------------
 -- Table structure for stock
@@ -4007,7 +4206,7 @@ CREATE TABLE `tasks`  (
   `timeCreated` datetime(0) NULL DEFAULT NULL,
   `timeCompleted` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`taskID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 76 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tasks
@@ -4019,8 +4218,8 @@ INSERT INTO `tasks` VALUES ('Restock Shelves (Ahold Cocoa Almonds)', 'Restock th
 INSERT INTO `tasks` VALUES ('Assist Customer', 'Assist a customer at the Customer Assistance Terminal at the end of Aisle 8', 5, 'Complete', 3, '2013-01-09 12:15:00', '2013-01-09 14:23:00');
 INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 1 Bin)', 'Return item(s) from bin at end of Aisle 1', 6, 'Complete', 20, '2013-01-09 11:24:00', '2020-04-02 20:20:12');
 INSERT INTO `tasks` VALUES ('Restock Shelves (Guava)', 'Restock the shelves for Guava in Aisle 5', 7, 'In Progress', 20, '2013-01-09 13:32:00', NULL);
-INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 7 Bin)', 'Return item(s) from bin at end of Aisle 7', 8, 'Incomplete', NULL, '2013-01-09 09:23:00', NULL);
-INSERT INTO `tasks` VALUES ('Restock Shelves (Barefoot Pinot Grigio  187)', 'Restock the shelves for Barefoot Pinot Grigio  187 in Aisle 3', 9, 'In Progress', 57, '2013-01-09 12:23:00', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 7 Bin)', 'Return item(s) from bin at end of Aisle 7', 8, 'Complete', 20, '2013-01-09 09:23:00', '2020-04-26 13:38:24');
+INSERT INTO `tasks` VALUES ('Restock Shelves (Barefoot Pinot Grigio  187)', 'Restock the shelves for Barefoot Pinot Grigio  187 in Aisle 3', 9, 'Complete', 57, '2013-01-09 12:23:00', '2020-04-26 17:16:16');
 INSERT INTO `tasks` VALUES ('Assist Customer', 'Assist a customer at the Customer Assistance Terminal at the end of Aisle 8', 10, 'Complete', 21, '2013-01-09 14:23:00', '2013-01-09 14:34:00');
 INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 4 Bin)', 'Return item(s) from bin at end of Aisle 4', 11, 'In Progress', 30, '2013-01-09 08:54:00', NULL);
 INSERT INTO `tasks` VALUES ('Assist Customer', 'Assist a customer at the Customer Assistance Terminal at the end of Aisle 8', 12, 'Complete', 12, '2013-01-09 09:23:00', '2013-01-09 09:53:00');
@@ -4028,8 +4227,8 @@ INSERT INTO `tasks` VALUES ('Assist Customer', 'Assist a customer at the Custome
 INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 6 Bin)', 'Return item(s) from bin at end of Aisle 6', 14, 'In Progress', 35, '2013-01-09 16:34:00', NULL);
 INSERT INTO `tasks` VALUES ('Return Items to Shelves (Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 15, 'In Progress', 23, '2013-01-09 15:34:00', NULL);
 INSERT INTO `tasks` VALUES ('Assist Customer', 'Assist a customer at the Customer Assistance Terminal at the end of Aisle 8', 16, 'Complete', 31, '2013-01-09 16:15:00', '2013-01-09 16:20:00');
-INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 3 Bin)', 'Return item(s) from bin at end of Aisle 3', 17, 'Incomplete', NULL, '2013-01-09 18:34:00', NULL);
-INSERT INTO `tasks` VALUES ('Assist Customer', 'Assist a customer at the Customer Assistance Terminal at the end of Aisle 8', 18, 'Incomplete', NULL, '2013-01-09 17:23:00', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 3 Bin)', 'Return item(s) from bin at end of Aisle 3', 17, 'Complete', 57, '2013-01-09 18:34:00', '2020-04-26 17:18:07');
+INSERT INTO `tasks` VALUES ('Assist Customer', 'Assist a customer at the Customer Assistance Terminal at the end of Aisle 8', 18, 'In Progress', 57, '2013-01-09 17:23:00', NULL);
 INSERT INTO `tasks` VALUES ('Restock Shelves (Careone Whitening Toothbrush Soft)', 'Restock the shelves for Careone Whitening Toothbrush Soft in Aisle 9', 19, 'Complete', 7, '2013-01-09 15:23:00', '2013-01-09 15:45:00');
 INSERT INTO `tasks` VALUES ('Return Items to Shelves (Return Terminal Bin)', 'Return item(s) from bin at the Return Terminal', 20, 'In Progress', 16, '2013-01-09 18:43:00', NULL);
 INSERT INTO `tasks` VALUES ('Restock Shelves (Riceland American Jazmine Rice)', 'Restock the shelves for Riceland American Jazmine Rice in Aisle 2', 21, 'Complete', 54, '2013-01-09 16:15:00', '2013-01-09 16:55:00');
@@ -4037,9 +4236,9 @@ INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 2 Bin)', 'Return ite
 INSERT INTO `tasks` VALUES ('Assist Customer', 'Assist a customer at the Customer Assistance Terminal at the end of Aisle 8', 23, 'Complete', 53, '2013-01-09 10:15:00', '2013-01-09 10:20:00');
 INSERT INTO `tasks` VALUES ('Restock Shelves (Ahold Cocoa Almonds)', 'Restock the shelves for Ahold Cocoa Almonds in Aisle 11', 24, 'Complete', 15, '2013-01-09 08:15:00', '2013-01-09 08:15:00');
 INSERT INTO `tasks` VALUES ('Assist Customer', 'Assist a customer at the Customer Assistance Terminal at the end of Aisle 8', 25, 'Complete', 3, '2013-01-09 12:15:00', '2013-01-09 14:23:00');
-INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 1 Bin)', 'Return item(s) from bin at end of Aisle 1', 26, 'Incomplete', NULL, '2013-01-09 11:24:00', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 1 Bin)', 'Return item(s) from bin at end of Aisle 1', 26, 'In Progress', 47, '2013-01-09 11:24:00', NULL);
 INSERT INTO `tasks` VALUES ('Restock Shelves (Guava)', 'Restock the shelves for Guava in Aisle 5', 27, 'In Progress', 20, '2013-01-09 13:32:00', NULL);
-INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 7 Bin)', 'Return item(s) from bin at end of Aisle 7', 28, 'Incomplete', NULL, '2013-01-09 09:23:00', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 7 Bin)', 'Return item(s) from bin at end of Aisle 7', 28, 'In Progress', 6, '2013-01-09 09:23:00', NULL);
 INSERT INTO `tasks` VALUES ('Restock Shelves (Barefoot Pinot Grigio  187)', 'Restock the shelves for Barefoot Pinot Grigio  187 in Aisle 3', 29, 'In Progress', 57, '2013-01-09 12:23:00', NULL);
 INSERT INTO `tasks` VALUES ('Assist Customer', 'Assist a customer at the Customer Assistance Terminal at the end of Aisle 8', 30, 'Complete', 21, '2013-01-09 14:23:00', '2013-01-09 14:34:00');
 INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 4 Bin)', 'Return item(s) from bin at end of Aisle 4', 31, 'In Progress', 30, '2013-01-09 08:54:00', NULL);
@@ -4048,10 +4247,44 @@ INSERT INTO `tasks` VALUES ('Assist Customer', 'Assist a customer at the Custome
 INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 6 Bin)', 'Return item(s) from bin at end of Aisle 6', 34, 'In Progress', 35, '2013-01-09 16:34:00', NULL);
 INSERT INTO `tasks` VALUES ('Return Items to Shelves (Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 35, 'In Progress', 23, '2013-01-09 15:34:00', NULL);
 INSERT INTO `tasks` VALUES ('Assist Customer', 'Assist a customer at the Customer Assistance Terminal at the end of Aisle 8', 36, 'Complete', 31, '2013-01-09 16:15:00', '2013-01-09 16:20:00');
-INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 3 Bin)', 'Return item(s) from bin at end of Aisle 3', 37, 'Incomplete', NULL, '2013-01-09 18:34:00', NULL);
-INSERT INTO `tasks` VALUES ('Assist Customer', 'Assist a customer at the Customer Assistance Terminal at the end of Aisle 8', 38, 'Incomplete', NULL, '2013-01-09 17:23:00', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves (Aisle 3 Bin)', 'Return item(s) from bin at end of Aisle 3', 37, 'In Progress', 44, '2013-01-09 18:34:00', NULL);
+INSERT INTO `tasks` VALUES ('Assist Customer', 'Assist a customer at the Customer Assistance Terminal at the end of Aisle 8', 38, 'In Progress', 49, '2013-01-09 17:23:00', NULL);
 INSERT INTO `tasks` VALUES ('Restock Shelves (Careone Whitening Toothbrush Soft)', 'Restock the shelves for Careone Whitening Toothbrush Soft in Aisle 9', 39, 'Complete', 7, '2013-01-09 15:23:00', '2013-01-09 15:45:00');
 INSERT INTO `tasks` VALUES ('Return Items to Shelves (Return Terminal Bin)', 'Return item(s) from bin at the Return Terminal', 40, 'In Progress', 16, '2013-01-09 18:43:00', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 42, 'In Progress', 47, '2020-04-25 14:25:19', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 43, 'In Progress', 14, '2020-04-25 14:25:29', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 44, 'In Progress', 29, '2020-04-25 14:25:31', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 45, 'In Progress', 39, '2020-04-25 14:25:33', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 46, 'In Progress', 40, '2020-04-25 14:27:25', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 47, 'In Progress', 60, '2020-04-25 14:27:37', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 48, 'In Progress', 36, '2020-04-25 14:27:40', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 49, 'In Progress', 16, '2020-04-25 15:20:34', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 50, 'In Progress', 60, '2020-04-25 15:21:08', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 51, 'In Progress', 53, '2020-04-25 15:49:27', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 52, 'In Progress', 24, '2020-04-25 15:52:19', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 53, 'In Progress', 4, '2020-04-25 15:55:05', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 54, 'In Progress', 4, '2020-04-25 15:55:09', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 55, 'In Progress', 46, '2020-04-25 20:31:35', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 56, 'In Progress', 22, '2020-04-25 20:31:42', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 57, 'In Progress', 27, '2020-04-25 20:36:21', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 58, 'In Progress', 25, '2020-04-26 12:24:41', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 59, 'In Progress', 17, '2020-04-26 14:03:14', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 60, 'In Progress', 1, '2020-04-26 14:03:19', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 61, 'In Progress', 25, '2020-04-26 14:03:23', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 62, 'In Progress', 35, '2020-04-26 14:18:41', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 63, 'In Progress', 22, '2020-04-26 14:26:06', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 64, 'In Progress', 7, '2020-04-26 14:26:09', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 65, 'In Progress', 24, '2020-04-26 14:26:11', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 66, 'In Progress', 19, '2020-04-26 14:26:13', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 67, 'In Progress', 39, '2020-04-26 14:26:15', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 68, 'In Progress', 37, '2020-04-26 14:26:16', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 69, 'In Progress', 36, '2020-04-26 14:32:19', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 70, 'In Progress', 26, '2020-04-26 14:32:23', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 71, 'In Progress', 45, '2020-04-26 14:32:26', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 72, 'In Progress', 27, '2020-04-26 14:34:52', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 73, 'In Progress', 29, '2020-04-26 14:35:02', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 74, 'In Progress', 20, '2020-04-26 14:35:05', NULL);
+INSERT INTO `tasks` VALUES ('Return Items to Shelves(Checkout Terminal 1)', 'Return item(s) from bin at Checkout Terminal 1', 75, 'In Progress', 17, '2020-04-26 14:35:37', NULL);
 
 -- ----------------------------
 -- Table structure for transactions
@@ -5662,5 +5895,35 @@ INSERT INTO `transactions` VALUES (1, '2008-08-11 02:32:00', 363356, 6);
 INSERT INTO `transactions` VALUES (1, '2008-08-11 02:32:00', 841902448, 4);
 INSERT INTO `transactions` VALUES (1, '2008-08-11 02:32:00', 813162801, 1);
 INSERT INTO `transactions` VALUES (1, '2008-08-11 02:32:00', 399186773, 4);
+
+-- ----------------------------
+-- View structure for hoursList
+-- ----------------------------
+DROP VIEW IF EXISTS `hoursList`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `hoursList` AS select `hours`.`employeeID` AS `employeeID`,concat(`employees`.`lastName`,', ',`employees`.`firstName`) AS `employeeName`,sum(((`hours`.`checkOut` - `hours`.`checkIn`) / 3600)) AS `hours`,cast(`hours`.`checkIn` as date) AS `day` from (`hours` join `employees` on((`employees`.`ID` = `hours`.`employeeID`))) group by cast(`hours`.`checkIn` as date),`hours`.`employeeID` order by `day` desc;
+
+-- ----------------------------
+-- View structure for salesCategories
+-- ----------------------------
+DROP VIEW IF EXISTS `salesCategories`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `salesCategories` AS select cast(`transactions`.`time` as date) AS `date`,sum(`transactions`.`amt`) AS `amountSold`,`items`.`type` AS `itemType` from (`transactions` join `items` on((`items`.`RFID` = `transactions`.`item`))) group by cast(`transactions`.`time` as date),`items`.`type` order by cast(`transactions`.`time` as date) desc,`items`.`type` desc;
+
+-- ----------------------------
+-- View structure for salesDaily
+-- ----------------------------
+DROP VIEW IF EXISTS `salesDaily`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `salesDaily` AS select round(sum(`sales`.`totalPaid`),2) AS `totalSales`,cast(`sales`.`time` as date) AS `day` from `sales` group by cast(`sales`.`time` as date) order by cast(`sales`.`time` as date) desc;
+
+-- ----------------------------
+-- View structure for taskList
+-- ----------------------------
+DROP VIEW IF EXISTS `taskList`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `taskList` AS select `tasks`.`taskName` AS `taskName`,`tasks`.`description` AS `description`,`tasks`.`taskID` AS `taskID`,`tasks`.`state` AS `state`,`tasks`.`employeeID` AS `employeeID`,concat(`employees`.`lastName`,', ',`employees`.`firstName`) AS `employee name`,`tasks`.`timeCreated` AS `timeCreated`,`tasks`.`timeCompleted` AS `timeCompleted` from (`tasks` left join `employees` on((`tasks`.`employeeID` = `employees`.`ID`))) order by `tasks`.`taskID` desc;
+
+-- ----------------------------
+-- View structure for userShoppingList
+-- ----------------------------
+DROP VIEW IF EXISTS `userShoppingList`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `userShoppingList` AS select `shoppingList`.`username` AS `username`,`shoppingList`.`item` AS `item`,`items`.`name` AS `name`,`items`.`brand` AS `brand`,`items`.`type` AS `type`,`items`.`RFID` AS `RFID`,`items`.`price` AS `price` from (`shoppingList` join `items` on((`shoppingList`.`item` = `items`.`RFID`)));
 
 SET FOREIGN_KEY_CHECKS = 1;
