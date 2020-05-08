@@ -1,5 +1,7 @@
 # Created on 20200216 by Kimberly Chang
-
+## Written by: Kimberly Chang
+## Tested by: Kimberly Chang
+## Debugged by: Kimberly Chang
 
 import os
 import sys
